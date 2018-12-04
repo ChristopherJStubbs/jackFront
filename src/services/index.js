@@ -5,7 +5,7 @@ export default class AuthService {
 		this.domain = 'http://localhost:3000'
 	}
 
-	login = (credentials) => {
+	sign_in = (credentials) => {
 		return this.authFetch(`${this.domain}/users/sign_in`, {
 			method: "POST",
 			body: JSON.stringify(credentials),
