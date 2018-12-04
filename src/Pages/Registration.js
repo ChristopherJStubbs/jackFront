@@ -4,9 +4,6 @@ class Registration extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <h1>This is the Sign Up/User registration page</h1>
-=======
         <form className="form-horizontal">
           <fieldset>
             <legend>Registration</legend>
@@ -52,7 +49,6 @@ class Registration extends Component {
             </div>
           </fieldset>
         </form>
->>>>>>> master
       </div>
     )
   }
