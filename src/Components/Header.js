@@ -17,27 +17,30 @@ class Header extends Component {
               <a href="/">Insert Name Here</a>
             </Navbar.Brand>
           </Navbar.Header>
-          <Nav>
-            <NavItem eventKey={1} href="/">
-              Home
-            </NavItem>
-            {!this.auth.loggedIn() &&
-            <NavItem eventKey={2} href="/user/:id/tasks">
-             My Tasks
-            </NavItem>}
-            {this.auth.loggedIn() &&
-            <NavItem eventKey={3} href='/tasks'>
-              All Tasks
-            </NavItem>}
-            {this.auth.loggedIn() &&
-            <NavItem eventKey={4} href="/">
-              Edit Tasks
-            </NavItem>}
-            {this.auth.loggedIn() &&
-            <NavItem onClick={this.handleClick} eventKey={5} href="/">
-              Logout
-            </NavItem>}
-          </Nav>
+          {this.auth.loggedIn()
+              ? <Nav>
+                <NavItem eventKey={1} href="/">
+                  Dashboard
+                </NavItem>
+                <NavItem eventKey={2} href="/user/:id/tasks">
+                 My Tasks
+                </NavItem>
+                <NavItem eventKey={3} href='/tasks'>
+                  All Tasks
+                </NavItem>
+                <NavItem eventKey={4} href="/">
+                  Edit Tasks
+                </NavItem>
+                <NavItem onClick={this.handleClick} eventKey={5} href="/">
+                  Logout
+                </NavItem>
+              </Nav>
+            : <Nav>
+              <NavItem eventKey={1} href="/">
+                Home
+                </NavItem>
+            </Nav>
+          }
         </Navbar>
       </div>
     );
