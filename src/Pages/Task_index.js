@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { getTasks } from '../API'
 import AuthService from '../services'
 import Task_Card from '../Components/Task_card'
+import { Table } from 'react-bootstrap';
+
 
 
 class Task_Index extends Component {
@@ -26,13 +28,13 @@ class Task_Index extends Component {
   render() {
     console.log(this.state.task_index);
     return (
-      <table>
+      <Table responsive striped bordered condensed hover>
         <thead>
           <tr>
-            <td className="Task_Card_Head">Category</td>
-            <td className="Task_Card_Head">Sub-Category</td>
-            <td className="Task_Card_Head">Title</td>
-            <td className="Task_Card_Head">Description</td>
+            <th className="Task_Card_Head">Category</th>
+            <th className="Task_Card_Head">Sub-Category</th>
+            <th className="Task_Card_Head">Title</th>
+            <th className="Task_Card_Head">Description</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +42,7 @@ class Task_Index extends Component {
           return <Task_Card key={i} info={el}/>
         })}
         </tbody>
-      </table>
+      </Table>
 
 
 
