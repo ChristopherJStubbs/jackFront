@@ -92,7 +92,7 @@ class Registration extends Component {
         console.log(status.errors.status);
         this.setState({ submitted: false })
       }else{
-        this.auth.login(this.state.form)
+        this.auth.sign_in(this.state.form)
         this.setState({ submitted: true })
       }
     })

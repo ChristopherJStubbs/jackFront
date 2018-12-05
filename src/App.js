@@ -30,14 +30,14 @@ class App extends Component {
         <Router>
         {(this.auth.loggedIn())
         ?<Switch> //protected paths
-          <Route exact path='/register' component={Registration} />
+          <Redirect from="/register" to="/" />
           <Route exact path='/user/:id/tasks' component={My_Tasks} />
           <Route path='/tasks' component={Task_Index} />
           <Route path='/' component={Dashboard} />
         </Switch>
 
         :<Switch> //public paths
-
+        <Route exact path='/login' render={(props) => <Sign_In refresh={this.refresh}/>} />
         <Route exact path='/register' component={Registration} />
         <Route path='/' component={Home} />
         </Switch>}
@@ -45,6 +45,12 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  refresh = () => {
+    this.setState ({
+      authenticated: this.auth.loggedIn()
+    })
   }
 }
 
