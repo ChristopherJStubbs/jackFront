@@ -30,7 +30,7 @@ class App extends Component {
         <Router>
         {(this.auth.loggedIn())
         ?<Switch> //protected paths
-          <Route exact path='/register' component={Registration} />
+          <Redirect from="/register" to="/" />
           <Route exact path='/user/:id/tasks' component={My_Tasks} />
           <Route path='/tasks' component={Task_Index} />
           <Route path='/' component={Dashboard} />
