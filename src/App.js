@@ -37,7 +37,7 @@ class App extends Component {
         </Switch>
 
         :<Switch> //public paths
-
+        <Route exact path='/login' render={(props) => <Sign_In refresh={this.refresh}/>} />
         <Route exact path='/register' component={Registration} />
         <Route path='/' component={Home} />
         </Switch>}
@@ -45,6 +45,12 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  refresh = () => {
+    this.setState ({
+      authenticated: this.auth.loggedIn()
+    })
   }
 }
 
