@@ -7,9 +7,12 @@ class Task_Card extends Component {
   // }
   render() {
     return (
-      <div className="Task_Card-Div">
-      {this.props.info.title}
-      </div>
+      <tr>
+        <td className="Task_Card-Div">{this.props.info.category}</td>
+        <td className="Task_Card-Div">{this.props.info.sub_category}</td>
+        <td className="Task_Card-Div">{this.props.info.title}</td>
+        <td className="Task_Card-Div">{this.props.info.description}</td>
+      </tr>
     );
   }
 }

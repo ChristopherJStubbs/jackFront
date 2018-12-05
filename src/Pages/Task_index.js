@@ -26,11 +26,21 @@ class Task_Index extends Component {
   render() {
     console.log(this.state.task_index);
     return (
-      <div>
-      {this.state.task_index.map((el, i) => {
-        return <Task_Card key={i} info={el}/>
-      })}
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <td className="Task_Card_Head">Category</td>
+            <td className="Task_Card_Head">Sub-Category</td>
+            <td className="Task_Card_Head">Title</td>
+            <td className="Task_Card_Head">Description</td>
+          </tr>
+        </thead>
+        <tbody>
+        {this.state.task_index.map((el, i) => {
+          return <Task_Card key={i} info={el}/>
+        })}
+        </tbody>
+      </table>
 
 
 
