@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getTasks } from '../API'
-import AuthService from '../services'
 import Task_Card from '../Components/Task_card'
 import { Table } from 'react-bootstrap';
 
@@ -9,7 +8,6 @@ import { Table } from 'react-bootstrap';
 class Task_Index extends Component {
   constructor(props) {
     super(props)
-    this.auth = new AuthService()
     this.state = {
       task_index: []
     }
