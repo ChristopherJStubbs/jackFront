@@ -19,11 +19,13 @@ class App extends Component {
       this.auth = new AuthService()
       this.state = {
         hasToken: false,
-        task_index: []
+        task_index: [],
+        userID: ''
       }
     }
 
   render() {
+    console.log(this.state.userID);
     return (
       <div className="App text-danger">
       <Header />
@@ -33,7 +35,7 @@ class App extends Component {
         ?<Switch> //protected paths
           <Redirect from="/register" to="/" />
           <Route exact path='/user/:id/tasks' component={My_Tasks} />
-          <Route path='/tasks' component={Task_Index} />
+          <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
           <Route path='/' component={Dashboard} />
         </Switch>
 
@@ -46,6 +48,13 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    let id = this.auth.getUserId()
+    if(id != null){
+      this.setState({userID: id})
+    }
   }
 
   refresh = () => {

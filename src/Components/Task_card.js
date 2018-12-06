@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TaskExpansionRow from './TaskExpansionRow'
+
 class Task_Card extends Component {
   constructor(props) {
     super(props)
@@ -10,7 +12,7 @@ class Task_Card extends Component {
   }
   render() {
     return (
-      
+      <tbody>
         <tr>
           <td className="Task_Card-Div">{this.props.info.id}</td>
           <td className="Task_Card-Div">{this.props.info.category}</td>
@@ -18,21 +20,22 @@ class Task_Card extends Component {
           <td className="Task_Card-Div">{this.props.info.title}</td>
           <td className="Task_Card-Div">{this.props.info.description}</td>
           <td><button onClick={this.handleTaskToggle}>Toggle!</button></td>
-          {this.state.on && <td><button onClick={() => this.handleSubmit(this.props.info.id)}>Accept!</button></td>}
         </tr>
+        {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID}/>}
+      </tbody>
     );
-  }
-
-  handleSubmit(task) {
-    alert("Info is being submitted!")
-    this.props.handleTaskToggleParent(this.props.info.id)
-
   }
 
   handleTaskToggle = () => {
     let { on } = this.state
     on = !on;
     this.setState({on})
+  }
+
+  handleSubmit = (task) => {
+    alert("Info is being submitted!")
+    this.props.handleTaskToggleParent(this.props.info.id)
+    
   }
 
 }

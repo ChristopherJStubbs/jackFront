@@ -38,11 +38,11 @@ class Task_Index extends Component {
             <th className="Task_Card_Head"></th>
           </tr>
         </thead>
-        <tbody>
+
         {this.state.task_index.map((el, i) => {
-          return <Task_Card key={i} info={el} handleTaskToggleParent={this.handleTaskToggleParent}/>
+          return <Task_Card key={i} info={el} handleTaskToggleParent={this.handleTaskToggleParent} userID={this.props.userID}/>
         })}
-        </tbody>
+
       </Table>
     );
   }
