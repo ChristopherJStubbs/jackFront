@@ -35,7 +35,7 @@ class TaskExpansionRow extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    
+    this.props.handleNewMyTaskObject(this.state.form)
   }
 
 }

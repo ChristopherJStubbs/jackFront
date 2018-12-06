@@ -21,7 +21,7 @@ class Task_Card extends Component {
           <td className="Task_Card-Div">{this.props.info.description}</td>
           <td><button onClick={this.handleTaskToggle}>Toggle!</button></td>
         </tr>
-        {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID}/>}
+        {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject}/>}
       </tbody>
     );
   }
@@ -30,12 +30,6 @@ class Task_Card extends Component {
     let { on } = this.state
     on = !on;
     this.setState({on})
-  }
-
-  handleSubmit = (task) => {
-    alert("Info is being submitted!")
-    this.props.handleTaskToggleParent(this.props.info.id)
-    
   }
 
 }
