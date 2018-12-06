@@ -23,7 +23,7 @@ class Registration extends Component {
     }
   }
   render() {
-    console.log(this.state.form.user);
+    console.log(this.state);
     let { email, password, first_name, last_name, phone, home_owner, car_owner } = this.state.form.user
     return (
       <div>
@@ -69,7 +69,7 @@ class Registration extends Component {
           </Col>
         </FormGroup>
         <FormGroup>
-              <Checkbox onClick={() => this.handleCheck(1)} inline>Home?</Checkbox> <Checkbox onClick={() => this.handleCheck(2)} inline>Car?</Checkbox>
+              <Checkbox onChange={() => this.handleOwnershipChoice("home_owner")} inline>Home?</Checkbox> <Checkbox onChange={() => this.handleOwnershipChoice("car_owner")} inline>Car?</Checkbox>
         </FormGroup>
         <FormGroup>
           <Col smOffset={2} sm={10}>
@@ -101,21 +101,13 @@ class Registration extends Component {
     })
   }
 
-  handleCheck = (type) => {
+  handleOwnershipChoice = (type) => {
     let { form } = this.state
-    if (type == 1) {
-      form.user.home_owner = !form.user.home_owner
-      this.setState ({
-        home_owner: form
-      })
-    } else if (type == 2) {
-      form.user.car_owner = !form.user.car_owner
-      this.setState ({
-        car_owner: form
-      })
-    }
+    form.user[type] = !form.user[type]
+    this.setState ({
+      form: form
+    })
   }
-
 }
 
 export default Registration;
