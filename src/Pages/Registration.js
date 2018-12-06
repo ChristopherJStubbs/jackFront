@@ -106,12 +106,12 @@ class Registration extends Component {
     if (type == 1) {
       form.user.home_owner = !form.user.home_owner
       this.setState ({
-        home_owner: true
+        home_owner: form
       })
     } else if (type == 2) {
       form.user.car_owner = !form.user.car_owner
       this.setState ({
-        car_owner: true
+        car_owner: form
       })
     }
   }
