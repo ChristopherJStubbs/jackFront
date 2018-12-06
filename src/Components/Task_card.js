@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+
 class Task_Card extends Component {
-  constructor(props) {
-    super(props)
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   }
+  // }
+
   render() {
     return (
       <tr>
@@ -16,13 +18,6 @@ class Task_Card extends Component {
       </tr>
     );
   }
-
-
-
-
-
-
-
 }
 
 export default Task_Card;
