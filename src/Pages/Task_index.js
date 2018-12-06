@@ -25,7 +25,7 @@ class Task_Index extends Component {
             <th className="Task_Card_Head">Sub-Category</th>
             <th className="Task_Card_Head">Title</th>
             <th className="Task_Card_Head">Description</th>
-            <th className="Task_Card_Head"></th>
+            <th className="Task_Card_Head">Subcribed</th>
             <th className="Task_Card_Head"></th>
           </tr>
         </thead>

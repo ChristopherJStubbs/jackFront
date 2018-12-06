@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TaskExpansionRow from './TaskExpansionRow'
+import { FormGroup, Checkbox } from 'react-bootstrap';
+
 
 class Task_Card extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Task_Card extends Component {
           <td className="Task_Card-Div">{this.props.info.sub_category}</td>
           <td className="Task_Card-Div">{this.props.info.title}</td>
           <td className="Task_Card-Div">{this.props.info.description}</td>
-          <td><button onClick={this.handleTaskToggle}>Toggle!</button></td>
+          <td><FormGroup><Checkbox onChange={this.handleTaskToggle} inline></Checkbox></FormGroup></td>
         </tr>
         {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject}/>}
       </tbody>
