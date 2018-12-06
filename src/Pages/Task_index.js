@@ -1,11 +1,49 @@
 import React, { Component } from 'react';
+import { getTasks } from '../API'
+import Task_Card from '../Components/Task_card'
+import { Table } from 'react-bootstrap';
+
+
 
 class Task_Index extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      task_index: []
+    }
+  }
+
+      componentDidMount() {
+        getTasks()
+        .then(APItasks => {
+          this.setState({
+            task_index: APItasks
+          })
+        })
+      }
+
+
   render() {
+    console.log(this.state.task_index);
     return (
-      <div>
-        <h1>This is the task index page</h1>
-      </div>
+      <Table responsive striped bordered condensed hover>
+        <thead>
+          <tr>
+            <th className="Task_Card_Head">Category</th>
+            <th className="Task_Card_Head">Sub-Category</th>
+            <th className="Task_Card_Head">Title</th>
+            <th className="Task_Card_Head">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+        {this.state.task_index.map((el, i) => {
+          return <Task_Card key={i} info={el}/>
+        })}
+        </tbody>
+      </Table>
+
+
+
     )
   }
 }
