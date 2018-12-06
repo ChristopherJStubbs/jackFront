@@ -29,10 +29,12 @@ class Task_Index extends Component {
       <Table responsive striped bordered condensed hover>
         <thead>
           <tr>
+            <th className="Task_Card_Head">TASK_ID</th>
             <th className="Task_Card_Head">Category</th>
             <th className="Task_Card_Head">Sub-Category</th>
             <th className="Task_Card_Head">Title</th>
             <th className="Task_Card_Head">Description</th>
+            <th className="Task_Card_Head"></th>
           </tr>
         </thead>
         <tbody>
