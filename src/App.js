@@ -18,7 +18,8 @@ class App extends Component {
 
       this.auth = new AuthService()
       this.state = {
-        hasToken: false
+        hasToken: false,
+        task_index: []
       }
     }
 

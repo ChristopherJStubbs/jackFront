@@ -48,7 +48,6 @@ class Header extends Component {
 
   handleClick = () => {
     this.auth.logout();
-
   }
 }
 
