@@ -35,18 +35,25 @@ class Task_Index extends Component {
             <th className="Task_Card_Head">Title</th>
             <th className="Task_Card_Head">Description</th>
             <th className="Task_Card_Head"></th>
+            <th className="Task_Card_Head"></th>
           </tr>
         </thead>
         <tbody>
         {this.state.task_index.map((el, i) => {
-          return <Task_Card key={i} info={el}/>
+          return <Task_Card key={i} info={el} handleTaskToggleParent={this.handleTaskToggleParent}/>
         })}
         </tbody>
       </Table>
+    );
+  }
 
-
-
-    )
+  handleTaskToggleParent(taskCardID) {
+     let { my_tasks } = this.state
+     let tempTask = this.my_tasks
+     tempTask.push(taskCardID)
+     this.setState ({
+       my_tasks: tempTask
+     })
   }
 }
 
