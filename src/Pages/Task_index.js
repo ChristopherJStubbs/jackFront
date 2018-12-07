@@ -9,22 +9,13 @@ class Task_Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      task_index: []
+      task_index: [],
+      my_tasks: []
     }
   }
 
-      componentDidMount() {
-        getTasks()
-        .then(APItasks => {
-          this.setState({
-            task_index: APItasks
-          })
-        })
-      }
-
-
   render() {
-    console.log(this.state.task_index);
+    console.log(this.state.my_tasks);
     return (
       <Table responsive striped bordered condensed hover>
         <thead>
@@ -35,18 +26,33 @@ class Task_Index extends Component {
             <th className="Task_Card_Head">Title</th>
             <th className="Task_Card_Head">Description</th>
             <th className="Task_Card_Head"></th>
+            <th className="Task_Card_Head"></th>
           </tr>
         </thead>
-        <tbody>
         {this.state.task_index.map((el, i) => {
-          return <Task_Card key={i} info={el}/>
+          return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
         })}
-        </tbody>
       </Table>
+    );
+  }
 
+  componentDidMount() {
+    getTasks()
+    .then(APItasks => {
+      this.setState({
+        task_index: APItasks
+      })
+    })
+  }
 
-
-    )
+  handleNewMyTaskObject = (newMyTaskObject) => {
+    // console.log(newMyTaskObject);
+     let { my_tasks } = this.state
+     let tempTask = my_tasks // <------------------------------------   ?????????
+     tempTask.push(newMyTaskObject)
+     this.setState ({
+       my_tasks: tempTask
+     })
   }
 }
 
