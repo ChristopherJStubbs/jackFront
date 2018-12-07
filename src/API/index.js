@@ -9,6 +9,23 @@ let getTasks = function() {
   })
 }
 
+let createMyTask = function(obj) {
+  return fetch(BASE + `/my_tasks`, {
+    body: JSON.stringify(obj),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: "POST"
+  })
+  .then((resp) => {
+    let json=resp.json()
+    console.log(json);
+    return json
+  })
+}
+
+
 export {
-  getTasks
+  getTasks,
+  createMyTask
 }

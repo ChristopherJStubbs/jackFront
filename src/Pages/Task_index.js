@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getTasks } from '../API'
+import { getTasks, createMyTask } from '../API'
 import Task_Card from '../Components/Task_card'
 import { Table } from 'react-bootstrap';
 
@@ -46,13 +46,10 @@ class Task_Index extends Component {
   }
 
   handleNewMyTaskObject = (newMyTaskObject) => {
-    // console.log(newMyTaskObject);
-     let { my_tasks } = this.state
-     let tempTask = my_tasks // <------------------------------------   ?????????
-     tempTask.push(newMyTaskObject)
-     this.setState ({
-       my_tasks: tempTask
-     })
+    createMyTask({newMyTaskObject})
+    .then(resp => {
+      console.log(resp);
+    })
   }
 }
 
