@@ -51,10 +51,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let id = this.auth.getUserId()
-    if(id != null){
-      this.setState({userID: id})
-    }
+    // let id = this.auth.getUserId()
+    // if(id != null){
+    //   this.setState({userID: id})
+    // }
   }
 
   refresh = () => {
