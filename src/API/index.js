@@ -24,8 +24,16 @@ let createMyTask = function(obj) {
   })
 }
 
+let getMyTasks = function(userid) {
+  return fetch(BASE+ `/my_tasks/${userid}`)
+  .then((resp) => {
+    let json = resp.json()
+    return json
+  })
+}
 
 export {
   getTasks,
-  createMyTask
+  createMyTask,
+  getMyTasks
 }
