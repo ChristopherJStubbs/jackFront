@@ -50,7 +50,8 @@ class Dashboard extends Component {
      }else {
        return(
          <div>
-         Loading your upcoming tasks...
+         Loading your upcoming tasks....
+        
          </div>
        )
      }
