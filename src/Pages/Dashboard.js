@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import AuthService from '../services';
-import My_Task_Card from './Components/My_task_card';
+import My_Task_Card from '../Components/My_task_card';
 import { Grid, Col, Row, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import { getMyTasks } from '../API';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -10,17 +11,18 @@ class Dashboard extends Component {
 
     this.auth = new AuthService()
     this.state = {
-      tasks: undefined
+      tasks: []
     }
   }
   render() {
-    if (this.state.tasks = !undefined) {
+    console.log(this.state)
+    if (this.state.tasks.length >= 1) {
     return (
       <Grid>
        <Row>
          <Col xs={12}>
              <ListGroup>
-              {this.state.my_tasks.map((tasks, index) => {
+              {this.state.tasks.map((tasks, index) => {
             return (
               <ListGroupItem
                 key={tasks.id}
@@ -54,15 +56,15 @@ class Dashboard extends Component {
      }
    }
 
-   componentDidMount(){
-     console.log(this.state.user.id)
-     getMyTasks(this.state.user.id)
-     .then((tasks)=> {
-       console.log(tasks);
-       this.setState({tasks})
-     }
-     )
-   }
+   // componentDidMount(){
+   //   console.log(this.state.user.id)
+   //   getMyTasks(this.state.user.id)
+   //   .then((tasks)=> {
+   //     console.log(tasks);
+   //     this.setState({tasks})
+   //   }
+   //   )
+   // }
 
 }
 
