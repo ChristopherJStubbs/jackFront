@@ -1,16 +1,19 @@
+.b {
+  background-color: #292f36;
+}
 
 .table {
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
-  max-width: 900px;
-
+  /* border: 2px solid black; */
+  max-width: 100vw;
+  color: #EFE9E7;
 }
 
 .bodyContainer {
 display: flex;
 flex-direction: row;
-border: 2px solid blue;
+/* border: 0.5px solid blue; */
 max-width: 100vw;
 flex-wrap: wrap;
 justify-content: space-around;
@@ -21,18 +24,21 @@ justify-content: space-around;
 .tile {
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  border: 4px solid #CF5300;
+  border-radius: 10px;
   flex-wrap: wrap;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 7px;
+  min-width: 275px;
+  max-width: 275px;
+  min-height: 300px;
 }
 
 .box {
-  width: 250px;
   margin-top: 5px;
   margin-bottom: 5px;
-
+  width: 255px;
 }
 
 input {
