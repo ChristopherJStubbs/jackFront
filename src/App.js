@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Header from './Components/Header.js'
 import Footer from './Components/Footer.js'
 import Dashboard from './Pages/Dashboard.js'
@@ -27,7 +26,7 @@ class App extends Component {
   render() {
     console.log(this.state.userID);
     return (
-      <div className="App text-danger">
+      <div className="b">
       <Header />
         <div>
         <Router>

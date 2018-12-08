@@ -13,7 +13,7 @@ class Header extends Component {
       <div className="Header-Div">
         <Navbar>
           <Navbar.Header>
-            <Navbar.Brand>
+            <Navbar.Brand className = "BrandName">
               <a href="/">Insert Name Here</a>
             </Navbar.Brand>
           </Navbar.Header>
