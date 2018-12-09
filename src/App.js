@@ -10,6 +10,8 @@ import Sign_In from './Pages/Sign_in.js'
 import Task_Index from './Pages/Task_index.js'
 import { Redirect, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AuthService from './services'
+import { getMyTasks } from './API';
+
 
 class App extends Component {
     constructor(props) {
@@ -18,13 +20,13 @@ class App extends Component {
       this.auth = new AuthService()
       this.state = {
         hasToken: false,
-        task_index: [],
+        myTasks: [],
         userID: ''
       }
     }
 
   render() {
-    console.log(this.state.userID);
+    console.log(this.auth.getUserId());
     return (
       <div className="b">
       <Header />
@@ -49,12 +51,18 @@ class App extends Component {
     );
   }
 
-  componentDidMount() {
-    // let id = this.auth.getUserId()
-    // if(id != null){
-    //   this.setState({userID: id})
-    // }
+
+
+  componentDidMount = () => {
+    if (this.state.userID = !null) {
+    getMyTasks(this.auth.getUserId())
+    .then((myTasks)=> {
+      console.log(myTasks);
+      this.setState({myTasks})
+    }
+    )
   }
+}
 
   refresh = () => {
     this.setState ({
