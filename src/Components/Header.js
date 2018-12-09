@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AuthService from '../services';
 
 class Header extends Component {

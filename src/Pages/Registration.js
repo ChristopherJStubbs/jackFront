@@ -24,7 +24,7 @@ class Registration extends Component {
   }
   render() {
     console.log(this.state);
-    let { email, password, first_name, last_name, phone, home_owner, car_owner } = this.state.form.user
+    let { email, password, first_name, last_name, phone } = this.state.form.user
     return (
       <div>
       <Form horizontal onSubmit={this.handleSubmit}>

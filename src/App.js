@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Components/Header.js'
-import Footer from './Components/Footer.js'
+// import Footer from './Components/Footer.js'
 import Dashboard from './Pages/Dashboard.js'
-import Edit_Tasks from './Pages/Edit_tasks.js'
+// import Edit_Tasks from './Pages/Edit_tasks.js'
 import Home from './Pages/Home.js'
 import My_Tasks from './Pages/My_tasks.js'
 import Registration from './Pages/Registration.js'
