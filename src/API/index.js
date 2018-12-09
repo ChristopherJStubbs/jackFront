@@ -25,6 +25,7 @@ let createMyTask = function(obj) {
 }
 
 let getMyTasks = function(userid) {
+  console.log(userid)
   return fetch(BASE+ `/my_tasks/${userid}`)
   .then((resp) => {
     let json = resp.json()

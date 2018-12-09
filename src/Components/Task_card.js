@@ -14,17 +14,23 @@ class Task_Card extends Component {
   }
   render() {
     return (
-      <tbody>
-        <tr>
-          <td className="Task_Card-Div">{this.props.info.id}</td>
-          <td className="Task_Card-Div">{this.props.info.category}</td>
-          <td className="Task_Card-Div">{this.props.info.sub_category}</td>
-          <td className="Task_Card-Div">{this.props.info.title}</td>
-          <td className="Task_Card-Div">{this.props.info.description}</td>
-          <td><FormGroup><Checkbox onChange={this.handleTaskToggle} inline></Checkbox></FormGroup></td>
-        </tr>
+      <div className="tile">
+        <div className="bodyBox box">
+          {this.props.info.id}
+        </div>
+        <div className="bodyBox box">
+        {this.props.info.title}
+        </div>
+        <div className="bodyBox box">
+        {this.props.info.category}:          {this.props.info.sub_category}
+        </div>
+        <div className="bodyBox box">
+          {this.props.info.description}
+        </div>
+        <div><FormGroup><Checkbox onChange={this.handleTaskToggle} inline></Checkbox></FormGroup>
+        </div>
         {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject}/>}
-      </tbody>
+      </div>
     );
   }
 

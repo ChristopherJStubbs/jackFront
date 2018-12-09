@@ -19,9 +19,25 @@ class TaskExpansionRow extends Component {
     console.log(this.state.form);
     return (
       <tr>
-        <td><label>Due Date</label><input type="date" name="due_date" onChange={this.handleChange} /></td>
-        <td><label>How often (days)?</label><input type="number" name="frequency" onChange={this.handleChange} pattern="[0-9]"/></td>
-        <td><button onClick={this.handleSubmit}>Accept!</button></td>
+        <td>
+          <label>
+            Due Date:
+          </label>
+          <br/>
+          <input type="date" name="due_date" onChange={this.handleChange} />
+        </td>
+        <br/>
+        <td>
+          <label>
+            How often (days)?:
+          </label>
+          <br/>
+          <input type="number" name="frequency" onChange={this.handleChange} pattern="[0-9]"/>
+        </td>
+        <br/>
+        <td>
+          <button onClick={this.handleSubmit}>Accept!</button>
+        </td>
       </tr>
     );
   }
