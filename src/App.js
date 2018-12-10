@@ -26,26 +26,29 @@ class App extends Component {
     }
 
   render() {
-    console.log(this.auth.getUserId());
+    // console.log(this.auth.getUserId());
     return (
       <div className="b">
-      <Header />
+        <Header />
         <div>
-        <Router>
-        {(this.auth.loggedIn())
-        ?<Switch> //protected paths
-          <Redirect from="/register" to="/" />
-          <Route exact path='/user/:id/tasks' component={My_Tasks} />
-          <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
-          <Route path='/' component={Dashboard} />
-        </Switch>
+          <Router>
+            {
+              (this.auth.loggedIn()) ?
+              <Switch> //protected paths
+                <Redirect from="/register" to="/" />
+                <Route exact path='/user/:id/tasks' component={My_Tasks} />
+                <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
+                <Route path='/' component={Dashboard} />
+              </Switch>
 
-        :<Switch> //public paths
-        <Route exact path='/login' render={(props) => <Sign_In refresh={this.refresh}/>} />
-        <Route exact path='/register' component={Registration} />
-        <Route path='/' component={Home} />
-        </Switch>}
-      </Router>
+              :
+              <Switch> //public paths
+                <Route exact path='/login' render={(props) => <Sign_In refresh={this.refresh}/>} />
+                <Route exact path='/register' component={Registration} />
+                <Route path='/' component={Home} />
+              </Switch>
+            }
+          </Router>
         </div>
       </div>
     );
@@ -54,8 +57,9 @@ class App extends Component {
 
 
   componentDidMount = () => {
-    if (this.state.userID = !null) {
-    getMyTasks(this.auth.getUserId())
+    let userId = this.state.userID
+    if (userId != null && userId != undefined && userId.length > 0) {
+      getMyTasks(this.auth.getUserId())
     .then((myTasks)=> {
       console.log(myTasks);
       this.setState({myTasks})

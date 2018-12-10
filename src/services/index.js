@@ -78,10 +78,15 @@ export default class AuthService {
 	}
 
 	getUserId = () => {
-		const token = decode(this.getToken(),{
-			header: true
-		});
-		return token.sub
+		let tmpToken = this.getToken()
+		if(tmpToken != null && tmpToken != undefined && tmpToken.length > 0){
+			const token = decode(this.getToken(),{
+				header: true
+			});
+			return token.sub
+		} else {
+			return null
+		}
 	}
 
 	authFetch = (url, options) => {
