@@ -14,43 +14,21 @@ class Dashboard extends Component {
     }
   }
   render() {
-    console.log(this.state)
-    if (this.state.tasks.length >= 1) {
+    console.log(this.props.myTasks)
+    if (true) {
     return (
-      <Grid>
-       <Row>
-         <Col xs={12}>
-             <ListGroup>
-              {this.state.tasks.map((tasks, index) => {
-            return (
-              <ListGroupItem
-                key={tasks.id}
-                header={
-                  <Link to={`/apartments/${tasks.id}`}>
-                  <h4>
-                    <span className='tasks-category'>
-                      {tasks.category}
-                    </span> - <small className='tasks-subcategory'> {tasks.subcategory} </small>
-                    <small className='tasks-title'>
-                     {tasks.state} </small>
-                    <small className='tasks-description'>
-                     {tasks.description} </small>
-                  </h4>
-                  </Link>
-                }>
-              </ListGroupItem>
-            )
-          })}
-            </ListGroup>
-          </Col>
-        </Row>
-       </Grid>
-       )
-     }else {
+      <section className="table">
+        <main className="bodyContainer">
+        {this.props.myTasks.map((el, i) => {
+          return <My_Task_Card key={i} info={el} />
+        })}
+        </main>
+      </section>
+    )
+     } else {
        return(
          <div>
-         Loading your upcoming tasks...
-
+         Go to "All Tasks" page in order to assign yourself some tasks!
          </div>
        )
      }
