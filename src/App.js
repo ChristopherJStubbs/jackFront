@@ -26,7 +26,7 @@ class App extends Component {
     }
 
   render() {
-    // console.log(this.auth.getUserId());
+    console.log(this.state.myTasks);
     return (
       <div className="b">
         <Header />
@@ -38,7 +38,7 @@ class App extends Component {
                 <Redirect from="/register" to="/" />
                 <Route exact path='/user/:id/tasks' component={My_Tasks} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
-                <Route path='/' component={Dashboard} />
+                <Route path='/' render={(props) => <Dashboard myTasks={this.state.myTasks} />} />
               </Switch>
 
               :
@@ -57,12 +57,14 @@ class App extends Component {
 
 
   componentDidMount = () => {
-    let userId = this.state.userID
-    if (userId != null && userId != undefined && userId.length > 0) {
-      getMyTasks(this.auth.getUserId())
+    let thisUserID = this.auth.getUserId()
+    if (thisUserID != null && thisUserID != undefined && thisUserID.length > 0) {
+      getMyTasks(thisUserID)
     .then((myTasks)=> {
-      console.log(myTasks);
-      this.setState({myTasks})
+      this.setState({
+        myTasks: myTasks,
+        userID: thisUserID
+      })
     }
     )
   }
