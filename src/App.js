@@ -36,7 +36,7 @@ class App extends Component {
               (this.auth.loggedIn()) ?
               <Switch> //protected paths
                 <Redirect from="/register" to="/" />
-                <Route exact path='/user/:id/tasks' component={My_Tasks} />
+                <Route exact path='/user/my_tasks/:id' component={My_Tasks} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route path='/' render={(props) => <Dashboard myTasks={this.state.myTasks} />} />
               </Switch>
@@ -60,9 +60,11 @@ class App extends Component {
     let thisUserID = this.auth.getUserId()
     if (thisUserID != null && thisUserID != undefined && thisUserID.length > 0) {
       getMyTasks(thisUserID)
-    .then((myTasks)=> {
+    .then((APImyTasks)=> {
+      let { myTasks } = this.state
+      console.log(APImyTasks);
       this.setState({
-        myTasks: myTasks,
+        myTasks: APImyTasks,
         userID: thisUserID
       })
     }
