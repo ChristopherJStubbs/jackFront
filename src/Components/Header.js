@@ -22,7 +22,7 @@ class Header extends Component {
                 <NavItem eventKey={1} href="/">
                   Dashboard
                 </NavItem>
-                <NavItem eventKey={2} href="/user/:id/tasks">
+                <NavItem eventKey={2} href="/user/my_tasks/:id">
                  My Tasks
                 </NavItem>
                 <NavItem eventKey={3} href='/tasks'>
