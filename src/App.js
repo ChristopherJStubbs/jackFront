@@ -21,6 +21,7 @@ class App extends Component {
 
       this.auth = new AuthService()
       this.state = {
+        authenticated: this.auth.loggedIn(),
         hasToken: false,
         myTasks: [],
         userID: ''
@@ -37,6 +38,7 @@ class App extends Component {
               (this.auth.loggedIn()) ?
               <Switch> //protected paths
                 <Redirect from="/register" to="/" />
+                <Redirect from="/login" to="/" />
                 <Route exact path='/user/my_tasks/:id' component={My_Tasks} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route exact path='/appointments' component={Appointments} />
@@ -72,10 +74,10 @@ class App extends Component {
         myTasks: APImyTasks,
         userID: thisUserID
       })
+      }
+      )
     }
-    )
   }
-}
 
   refresh = () => {
     this.setState ({
@@ -85,5 +87,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Route exact path='/login' render={(props) => <Sign_in checkForToken={this.checkForToken}/>} />

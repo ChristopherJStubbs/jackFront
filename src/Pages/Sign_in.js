@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Col, FormControl, Button, ControlLabel } from 'react-bootstrap';
-// import { BrowserRouter as Redirect } from 'react-router-dom';
+import { BrowserRouter as Redirect } from 'react-router-dom';
 import AuthService from '../services'
 
 class Sign_In extends Component {
@@ -8,7 +8,6 @@ class Sign_In extends Component {
     super(props)
     this.auth = new AuthService()
     this.state = {
-      sign_inSuccess: false,
       form: {
         user: {
           email: "",
@@ -49,6 +48,10 @@ class Sign_In extends Component {
           </div>
       )
   }
+
+  // componentDidMount() {
+  //   this.props.refresh()
+  // }
     onChange = (e) => {
     let { form } = this.state
     form.user[e.target.name] = e.target.value

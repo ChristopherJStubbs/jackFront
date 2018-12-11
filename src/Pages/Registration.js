@@ -8,7 +8,6 @@ class Registration extends Component {
     super(props)
     this.auth= new AuthService()
     this.state = {
-      submitted: false,
       form: {
         user: {
           email: '',
@@ -76,7 +75,6 @@ class Registration extends Component {
             <Button  type="submit">Sign In</Button>
           </Col>
         </FormGroup>
-        {this.state.submitted && <Redirect to="/"/>}
       </Form>
       </div>
     )
@@ -93,11 +91,10 @@ class Registration extends Component {
     this.auth.register(this.state.form)
     .then(status => {
       if(status.errors){
-        this.setState({ submitted: false })
+        console.log(status);
       }else{
         this.auth.sign_in(this.state.form)
         this.props.refresh()
-        this.setState({ submitted: true })
       }
     })
   }
