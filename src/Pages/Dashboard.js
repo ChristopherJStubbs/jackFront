@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import AuthService from '../services';
 import My_Task_Card from '../Components/My_task_card';
 import { Tabs, Tab } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,11 +16,11 @@ class Dashboard extends Component {
   render = () => {
     let { myTasks } = this.props
     let today = new Date()
-    let homeTasks = myTasks.filter(el => el.task.category == "House")
-    let carTasks = myTasks.filter(el => el.task.category == "Car")
+    let homeTasks = myTasks.filter(el => el.task.category === "House")
+    let carTasks = myTasks.filter(el => el.task.category === "Car")
     let todayTasks = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp == this.addDays(today,0)
+      return temp === this.addDays(today,0)
     })
     let next30Days = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)

@@ -79,7 +79,7 @@ export default class AuthService {
 
 	getUserId = () => {
 		let tmpToken = this.getToken()
-		if(tmpToken != null && tmpToken != undefined && tmpToken.length > 0){
+		if(tmpToken !== null && tmpToken !== undefined && tmpToken.length > 0){
 			const token = decode(this.getToken(),{
 				header: true
 			});
