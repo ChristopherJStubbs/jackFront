@@ -16,7 +16,6 @@ flex-direction: row;
 /* border: 0.5px solid blue; */
 max-width: 1200px;
 flex-wrap: wrap;
-justify-content: space-around;
 }
 
 .tile {

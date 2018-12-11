@@ -18,7 +18,7 @@ class Header extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           {this.auth.loggedIn()
-              ? <Nav>
+              ? <Nav className="nav">
                 <NavItem eventKey={1} href="/">
                   Dashboard
                 </NavItem>
@@ -35,11 +35,11 @@ class Header extends Component {
                   Logout
                 </NavItem>
               </Nav>
-            : <Nav>
-              <NavItem eventKey={1} href="/">
-                Home
+            : <Nav className="nav">
+                <NavItem eventKey={1} href="/">
+                  Home
                 </NavItem>
-            </Nav>
+              </Nav>
           }
         </Navbar>
       </div>
