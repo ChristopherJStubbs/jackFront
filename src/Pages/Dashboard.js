@@ -58,6 +58,9 @@ class Dashboard extends Component {
                 <div onClick={() => this.tabClick(4)} className="dashboardTab">
                   Car Tasks
                 </div>
+                <div onClick={() => this.tabClick(5)} className="dashboardTab">
+                  All My Tasks
+                </div>
             </section>
         </section>
 
@@ -94,6 +97,12 @@ class Dashboard extends Component {
                         return <My_Task_Card key={i} info={el} />
                       })
                       : <h3>Car.</h3>
+                  case 5:
+                    return myTasks.length > 0
+                      ?  myTasks.map((el, i) => {
+                        return <My_Task_Card key={i} info={el} />
+                      })
+                      : <h3>All myTasks.</h3>
                 }
             })()}
 

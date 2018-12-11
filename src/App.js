@@ -47,7 +47,7 @@ class App extends Component {
               :
               <Switch> //public paths
                 <Route exact path='/login' render={(props) => <Sign_In refresh={this.refresh}/>} />
-                <Route exact path='/register' component={Registration} />
+                <Route exact path='/register' render={(props) => <Registration refresh={this.refresh}/> }/>
                 <Route path='/' component={Home} />
               </Switch>
             }

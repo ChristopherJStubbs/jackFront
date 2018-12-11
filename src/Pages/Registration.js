@@ -96,6 +96,7 @@ class Registration extends Component {
         this.setState({ submitted: false })
       }else{
         this.auth.sign_in(this.state.form)
+        this.props.refresh()
         this.setState({ submitted: true })
       }
     })
