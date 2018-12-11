@@ -15,71 +15,87 @@ class Dashboard extends Component {
   }
 
   render = () => {
+    console.log(this.state.activeTab)
     let { myTasks } = this.props
     let today = new Date()
     console.log(today);
     let homeTasks = myTasks.filter(el => el.task.category === "House")
     let carTasks = myTasks.filter(el => el.task.category === "Car")
     let todayTasks = myTasks.filter((el) => {
+      console.log(el.my_task.due_date);
       let temp = new Date(el.my_task.due_date)
-      temp = temp.getDate()+1)
       console.log(temp);
-      return temp === today
+      return temp.getUTCDate() === today.getUTCDate()
     })
     console.log(todayTasks);
     console.log(myTasks);
     let next30Days = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp < this.addDays(today,30)
+      return temp.getUTCDate() < this.addDays(today,30).getUTCDate()
     })
     let next3Months = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp < this.addDays(today,90)
+      return temp.getUTCDate() < this.addDays(today,90).getUTCDate()
     })
     if (myTasks.length > 0) {
     return (
       <main className="table">
         <section className="testing DashboardContainer">
             <section className="tabsContainer">
-              <a href="#">
-                <div className="dashboardTab todayTab">
+                <div onClick={() => this.tabClick(0)} className="dashboardTab todayTab">
                   Today
                 </div>
-              </a>
-              <a href="#">
-                <div className="dashboardTab">
+                <div onClick={() => this.tabClick(1)} className="dashboardTab">
                   Next 30 Days
                 </div>
-              </a>
-              <a href="#">
-                <div className="dashboardTab">
+                <div onClick={() => this.tabClick(2)} className="dashboardTab">
                   Next 3 Months
                 </div>
-              </a>
-              <a href="#">
-                <div className="dashboardTab">
+                <div onClick={() => this.tabClick(3)} className="dashboardTab">
                   Home Tasks
                 </div>
-              </a>
-              <a href="#">
-                <div className="dashboardTab">
+                <div onClick={() => this.tabClick(4)} className="dashboardTab">
                   Car Tasks
                 </div>
-              </a>
             </section>
         </section>
 
         <section>
-          {this.state.activeTab === 0 &&
-            todayTasks.length > 0
+        {(() => {
+                switch(this.state.activeTab) {
+                  case 0:
+                    return todayTasks.length > 0
+                      ?  todayTasks.map((el, i) => {
+                          return <My_Task_Card key={i} info={el} />
+                         })
+                      : <h3>Today Switch.</h3>
+                  case 1:
+                    return next30Days.length > 0
+                      ?  next30Days.map((el, i) => {
+                        return <My_Task_Card key={i} info={el} />
+                      })
+                      : <h3>30 Days Switch.</h3>
+                  case 2:
+                    return next3Months.length > 0
+                      ?  next3Months.map((el, i) => {
+                        return <My_Task_Card key={i} info={el} />
+                        })
+                      : <h3>90 Days.</h3>
+                  case 3:
+                    return homeTasks.length > 0
+                      ?  homeTasks.map((el, i) => {
+                        return <My_Task_Card key={i} info={el} />
+                      })
+                      : <h3>Home.</h3>
+                  case 4:
+                    return carTasks.length > 0
+                      ?  carTasks.map((el, i) => {
+                        return <My_Task_Card key={i} info={el} />
+                      })
+                      : <h3>Car.</h3>
+                }
+            })()}
 
-              ? // ?  todayTasks.map((el, i) => {
-                console.log("true")
-              //   return <My_Task_Card key={i} info={el} />
-              // })
-              : console.log("false")
-              // : <h3>There are no tasks here.</h3>
-          }
         </section>
       </main>
     )
@@ -97,6 +113,13 @@ class Dashboard extends Component {
      let date = new Date()
      date.setDate(today.getDate() + days);
      return date;
+   }
+
+   tabClick = (tabNum) => {
+     this.setState({
+       activeTab: tabNum
+     })
+     console.log(tabNum);
    }
 
 }

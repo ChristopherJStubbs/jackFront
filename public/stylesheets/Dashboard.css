@@ -1,5 +1,5 @@
 .table {
-  height: 100vh
+  min-height: 100vh
 }
 
 .tabsContainer {
@@ -17,13 +17,10 @@
   padding-right: 10px;
   margin: 1.5px 1.5px 0px 1.5px;
   font-size: 16px;
+  color: grey;
+  cursor: pointer;
 }
 
 .todayTab {
   margin-left: 10px;
-}
-
-a {
-  color: grey;
-  text-decoration: none; /* no underline */
 }
