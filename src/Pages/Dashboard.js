@@ -15,18 +15,15 @@ class Dashboard extends Component {
     }
   }
 
-  addDays = function(today, days) {
-    // task = this.props.due_date value
-    let date = new Date()
-    date.setDate(today.getDate() + days);
-    return date;
-  }
-
   render = () => {
     let { myTasks } = this.props
     let today = new Date()
     let homeTasks = myTasks.filter(el => el.task.category == "House")
     let carTasks = myTasks.filter(el => el.task.category == "Car")
+    let todayTasks = myTasks.filter((el) => {
+      let temp = new Date(el.my_task.due_date)
+      return temp == this.addDays(today,0)
+    })
     let next30Days = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
       return temp < this.addDays(today,30)
@@ -35,42 +32,53 @@ class Dashboard extends Component {
       let temp = new Date(el.my_task.due_date)
       return temp < this.addDays(today,90)
     })
-    if (true) {
+    if (myTasks.length > 1) {
     return (
       <section className="table">
         <main className="">
         <div className="testing">
           <Tabs defaultActiveKey={1} className="tabsContainer">
-            <Tab eventKey={1} title="Next 30 Days">
+            <Tab eventKey={1} title="Today">
+              <h2>Today</h2>
               {next30Days.length > 0
                ?  next30Days.map((el, i) => {
                     return <My_Task_Card key={i} info={el} />
                     })
-               : <h2>There are no tasks here.</h2>
+               : <h3>There are no tasks here.</h3>
               }
             </Tab>
-            <Tab eventKey={2} title="Next 3 Months">
+            <Tab eventKey={2} title="Next 30 Days">
+              <h2>Next 30 Days</h2>
+              {next30Days.length > 0
+               ?  next30Days.map((el, i) => {
+                    return <My_Task_Card key={i} info={el} />
+                    })
+               : <h3>There are no tasks here.</h3>
+              }
+            </Tab>
+            <Tab eventKey={3} title="Next 3 Months">
+              <h2>Next 3 Months</h2>
               {next3Months.length > 0
                ?  next3Months.map((el, i) => {
                     return <My_Task_Card key={i} info={el} />
                     })
-               : <h2>There are no tasks here.</h2>
+               : <h3>There are no tasks here.</h3>
               }
             </Tab>
-            <Tab eventKey={3} title="Home Tasks">
+            <Tab eventKey={4} title="Home Tasks">
               {homeTasks.length > 0
                ?  homeTasks.map((el, i) => {
                     return <My_Task_Card key={i} info={el} />
                     })
-               : <h2>There are no tasks here.</h2>
+               : <h3>There are no tasks here.</h3>
               }
             </Tab>
-            <Tab eventKey={4} title="Car Tasks">
+            <Tab eventKey={5} title="Car Tasks">
               {carTasks.length > 0
                ?  carTasks.map((el, i) => {
                     return <My_Task_Card key={i} info={el} />
                     })
-               : <h2>There are no tasks here.</h2>
+               : <h3>There are no tasks here.</h3>
               }
             </Tab>
           </Tabs>
@@ -85,6 +93,13 @@ class Dashboard extends Component {
          </div>
        )
      }
+   }
+
+   addDays = function(today, days) {
+     // task = this.props.due_date value
+     let date = new Date()
+     date.setDate(today.getDate() + days);
+     return date;
    }
 
 }
