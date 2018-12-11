@@ -1,6 +1,6 @@
 .b {
   background-color: #292f36;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .table {
