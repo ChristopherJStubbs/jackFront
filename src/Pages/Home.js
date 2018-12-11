@@ -9,7 +9,7 @@ class Home extends Component {
         <div className = "Button-Div">
           <ButtonToolbar>
             <Button className="ActuallyButton" href="/login" bsStyle="primary" bsSize="large">
-              Log In
+              Sign In
             </Button>
           </ButtonToolbar>
           <ButtonToolbar>

@@ -53,7 +53,7 @@ class App extends Component {
             }
           </Router>
         </div>
-        <footer>
+        <footer >
           <Footer />
         </footer>
       </div>
