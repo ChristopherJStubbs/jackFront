@@ -1,0 +1,29 @@
+.table {
+  height: 100vh
+}
+
+.tabsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1px white solid;
+}
+
+.dashboardTab {
+  height: 45px;
+  background-color: white;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 1.5px 1.5px 0px 1.5px;
+  font-size: 16px;
+}
+
+.todayTab {
+  margin-left: 10px;
+}
+
+a {
+  color: grey;
+  text-decoration: none; /* no underline */
+}
