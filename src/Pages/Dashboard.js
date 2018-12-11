@@ -40,8 +40,8 @@ class Dashboard extends Component {
           <Tabs defaultActiveKey={1} className="tabsContainer">
             <Tab eventKey={1} title="Today">
               <h2>Today</h2>
-              {next30Days.length > 0
-               ?  next30Days.map((el, i) => {
+              {todayTasks.length > 0
+               ?  todayTasks.map((el, i) => {
                     return <My_Task_Card key={i} info={el} />
                     })
                : <h3>There are no tasks here.</h3>

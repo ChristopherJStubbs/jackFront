@@ -6,12 +6,14 @@ class TaskExpansionRow extends Component {
 
     this.state = {
       form: {
-        task_id: this.props.info.id,
-        user_id: this.props.userID,
-        due_date: '',
-        frequency: '',
-        status: false,
-        notes: ''
+        my_task: {
+          task_id: this.props.info.id,
+          user_id: this.props.userID,
+          due_date: '',
+          frequency: '',
+          completed: false,
+          notes: ''
+        }
       }
     }
   }
@@ -45,12 +47,13 @@ class TaskExpansionRow extends Component {
   handleChange = (e) => {
     console.log(e.target.name);
     let { form } = this.state
-    form[e.target.name] = e.target.value
+    form.my_task[e.target.name] = e.target.value
     this.setState({form})
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.state.form);
     this.props.handleNewMyTaskObject(this.state.form)
   }
 

@@ -10,6 +10,7 @@ let getTasks = function() {
 }
 
 let createMyTask = function(obj) {
+  console.log(obj);
   return fetch(BASE + `/my_tasks`, {
     body: JSON.stringify(obj),
     headers: {

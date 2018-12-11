@@ -15,19 +15,21 @@ class Task_Card extends Component {
   render() {
     return (
       <div className="tile">
-        <div className="bodyBox box">
-          {this.props.info.id}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.title}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.category}:          {this.props.info.sub_category}
-        </div>
-        <div className="bodyBox box">
-          {this.props.info.description}
-        </div>
-        <div><FormGroup><Checkbox onChange={this.handleTaskToggle} inline></Checkbox></FormGroup>
+        <div onClick={this.handleTaskToggle}>
+          <div className="bodyBox box">
+          {this.props.info.sub_category}
+          {this.props.info.category === "House"
+           ? <img src='./images/houseIcon.png'/>
+           : <img src='./images/carIcon.png' />
+          }
+          </div>
+          <div className="bodyBox box">
+          {this.props.info.title}
+          </div>
+
+          <div className="bodyBox box">
+            <h5>{this.props.info.description}</h5>
+          </div>
         </div>
         {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject}/>}
       </div>
