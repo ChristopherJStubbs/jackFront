@@ -21,7 +21,8 @@ class Dashboard extends Component {
     let homeTasks = myTasks.filter(el => el.task.category === "House")
     let carTasks = myTasks.filter(el => el.task.category === "Car")
     let todayTasks = myTasks.filter((el) => {
-      let temp = new Date(2018-12-12)
+      let temp = new Date(el.my_task.due_date)
+      temp = temp.getDate()+1)
       console.log(temp);
       return temp === today
     })
