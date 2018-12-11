@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  background-image: url('/images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 150px;
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}

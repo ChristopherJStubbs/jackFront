@@ -17,7 +17,6 @@ flex-direction: row;
 /* border: 0.5px solid blue; */
 max-width: 1200px;
 flex-wrap: wrap;
-justify-content: space-around;
 }
 
 .tile {
@@ -62,15 +61,6 @@ max-width: 1200px;
 flex-wrap: wrap;
 justify-content: space-around;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  background-image: url('/images/logo.png');
-  background-size: cover;
-  height: 150px;
-}
-
 
 .Button-Div {
   display: flex;

@@ -28,7 +28,6 @@ class App extends Component {
     }
 
   render() {
-    console.log(this.state.myTasks);
     return (
       <div className="b">
         <Header />
@@ -67,7 +66,6 @@ class App extends Component {
       getMyTasks(thisUserID)
     .then((APImyTasks)=> {
       // let { myTasks } = this.state
-      console.log(APImyTasks);
       this.setState({
         myTasks: APImyTasks,
         userID: thisUserID
