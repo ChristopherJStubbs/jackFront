@@ -11,18 +11,30 @@ class Dashboard extends Component {
 
     this.auth = new AuthService()
     this.state = {
-      tasks: [],
+      myTasks: [],
     }
   }
 
-  addDays = function(days) {
+  addDays = function(today, days) {
     // task = this.props.due_date value
     let date = new Date()
-    date.setDate(date.getDate() + days);
+    date.setDate(today.getDate() + days);
     return date;
   }
 
-  render() {
+  render = () => {
+    let { myTasks } = this.props
+    let today = new Date()
+    let homeTasks = myTasks.filter(el => el.task.category == "House")
+    let carTasks = myTasks.filter(el => el.task.category == "Car")
+    let next30Days = myTasks.filter((el) => {
+      let temp = new Date(el.my_task.due_date)
+      return temp < this.addDays(today,30)
+    })
+    let next3Months = myTasks.filter((el) => {
+      let temp = new Date(el.my_task.due_date)
+      return temp < this.addDays(today,90)
+    })
     if (true) {
     return (
       <section className="table">
@@ -30,26 +42,36 @@ class Dashboard extends Component {
         <div className="testing">
           <Tabs defaultActiveKey={1} className="tabsContainer">
             <Tab eventKey={1} title="Next 30 Days">
-              {this.props.myTasks.map((el, i) => {
-                console.log(el.my_task.due_date);
-                console.log(this.addDays(el.my_task.frequency));
-                return <My_Task_Card key={i} info={el} />
-              })}
+              {next30Days.length > 0
+               ?  next30Days.map((el, i) => {
+                    return <My_Task_Card key={i} info={el} />
+                    })
+               : <h2>There are no tasks here.</h2>
+              }
             </Tab>
             <Tab eventKey={2} title="Next 3 Months">
-              {this.props.myTasks.map((el, i) => {
-                return <My_Task_Card key={i} info={el} />
-              })}
+              {next3Months.length > 0
+               ?  next3Months.map((el, i) => {
+                    return <My_Task_Card key={i} info={el} />
+                    })
+               : <h2>There are no tasks here.</h2>
+              }
             </Tab>
             <Tab eventKey={3} title="Home Tasks">
-              {this.props.myTasks.map((el, i) => {
-                return <My_Task_Card key={i} info={el} />
-              })}
+              {homeTasks.length > 0
+               ?  homeTasks.map((el, i) => {
+                    return <My_Task_Card key={i} info={el} />
+                    })
+               : <h2>There are no tasks here.</h2>
+              }
             </Tab>
             <Tab eventKey={4} title="Car Tasks">
-              {this.props.myTasks.map((el, i) => {
-                return <My_Task_Card key={i} info={el} />
-              })}
+              {carTasks.length > 0
+               ?  carTasks.map((el, i) => {
+                    return <My_Task_Card key={i} info={el} />
+                    })
+               : <h2>There are no tasks here.</h2>
+              }
             </Tab>
           </Tabs>
           </div>
