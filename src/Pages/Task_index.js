@@ -36,7 +36,7 @@ class Task_Index extends Component {
   }
 
   handleNewMyTaskObject = (newMyTaskObject) => {
-    createMyTask({newMyTaskObject})
+    createMyTask(newMyTaskObject)
     .then(resp => {
       console.log(resp);
     })
