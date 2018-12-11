@@ -1,6 +1,7 @@
 .b {
   background-color: #292f36;
   min-height: 100vh;
+  position: relative;
 }
 
 .table {
@@ -102,10 +103,11 @@ justify-content: space-around;
 
 
 .Footer-Div {
-  position: fixed;
-  left: 0;
+  margin-top: auto;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  color: white;
+  height: 0vh;
+  color: black;
   text-align: center;
 }

@@ -26,7 +26,7 @@ class Home extends Component {
           </p>
           <br/>
           <p className="About-Me">
-            Own Up Grown Up was created by TEAM JACK (Julianna Peters, Andrew Garrett, Chris Stubbs, and Kristen McCloud) and includes professional design and security.  Using our application and the Twilio API, you will always get your reminder and always be able to change your personal preferences.
+            Own Up Grown Up was created by TEAM JACK (Julianne Peters, Andrew Garrett, Chris Stubbs, and Kristen McCloud) and includes professional design and security.  Using our application and the Twilio API, you will always get your reminder and always be able to change your personal preferences.
             </p>
             <br/>
             <p className="About-Me">
