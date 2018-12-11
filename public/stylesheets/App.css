@@ -44,3 +44,20 @@ justify-content: space-around;
 input {
   width: 150px;
 }
+.testing {
+  width: 80vw;
+}
+
+.tab-pane.fade {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabsContainer {
+display: flex;
+flex-direction: column;
+/* border: 0.5px solid blue; */
+max-width: 1200px;
+flex-wrap: wrap;
+justify-content: space-around;
+}
