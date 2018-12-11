@@ -63,10 +63,10 @@ class App extends Component {
 
   componentDidMount = () => {
     let thisUserID = this.auth.getUserId()
-    if (thisUserID != null && thisUserID != undefined && thisUserID.length > 0) {
+    if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
       getMyTasks(thisUserID)
     .then((APImyTasks)=> {
-      let { myTasks } = this.state
+      // let { myTasks } = this.state
       console.log(APImyTasks);
       this.setState({
         myTasks: APImyTasks,
