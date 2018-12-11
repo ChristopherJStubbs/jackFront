@@ -61,3 +61,11 @@ max-width: 1200px;
 flex-wrap: wrap;
 justify-content: space-around;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  background-image: url('/images/logo.png');
+  background-size: cover;
+  height: 150px;
+}

@@ -14,7 +14,7 @@ class Header extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand className = "BrandName">
-              <a href="/">Insert Name Here</a>
+              <a className="logo" href="/">Own^Grown-Up</a>
             </Navbar.Brand>
           </Navbar.Header>
           {this.auth.loggedIn()
