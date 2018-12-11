@@ -11,6 +11,8 @@ import Task_Index from './Pages/Task_index.js'
 import { Redirect, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AuthService from './services'
 import { getMyTasks } from './API';
+import Appointments from './Pages/Appointments'
+import AptForm from './Pages/aptForm'
 
 
 class App extends Component {
@@ -38,6 +40,8 @@ class App extends Component {
                 <Redirect from="/register" to="/" />
                 <Route exact path='/user/my_tasks/:id' component={My_Tasks} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
+                <Route exact path='/appointments' component={Appointments} />
+                <Route path='/appointments/new' component={AptForm} />
                 <Route path='/' render={(props) => <Dashboard myTasks={this.state.myTasks} />} />
               </Switch>
 
