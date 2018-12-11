@@ -60,7 +60,7 @@ class Dashboard extends Component {
             </section>
         </section>
 
-        <section>
+        <section className="tilesContainer">
         {(() => {
                 switch(this.state.activeTab) {
                   case 0:
