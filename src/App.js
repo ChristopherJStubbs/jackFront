@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header.js'
-// import Footer from './Components/Footer.js'
+import Footer from './Components/Footer.js'
 import Dashboard from './Pages/Dashboard.js'
 // import Edit_Tasks from './Pages/Edit_tasks.js'
 import Home from './Pages/Home.js'
@@ -54,6 +54,7 @@ class App extends Component {
             }
           </Router>
         </div>
+        <Footer />
       </div>
     );
   }

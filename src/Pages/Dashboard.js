@@ -3,7 +3,6 @@ import AuthService from '../services';
 import My_Task_Card from '../Components/My_task_card';
 import { Tabs, Tab } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class Dashboard extends Component {
       let temp = new Date(el.my_task.due_date)
       return temp < this.addDays(today,90)
     })
-    if (myTasks.length > 1) {
+    if (myTasks.length >= 1) {
     return (
       <section className="table">
         <main className="">

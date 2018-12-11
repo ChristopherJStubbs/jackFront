@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="Footer-Div">
-      Team Jack, 2018, copyright symbol Goes Here (:
+      Team Jack, 2018 ©
       </div>
     );
   }

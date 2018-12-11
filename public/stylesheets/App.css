@@ -1,5 +1,6 @@
 .b {
   background-color: #292f36;
+  height: 100vh;
 }
 
 .table {
@@ -68,4 +69,53 @@ justify-content: space-around;
   background-image: url('/images/logo.png');
   background-size: cover;
   height: 150px;
+}
+
+
+.Button-Div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.ActuallyButton {
+  font-size: 30px;
+  margin: 25px;
+}
+
+.ActuallyButton:hover {
+  transform: scale(1.5, 1.5);
+}
+
+.About-Container {
+  align-items: center;
+  position: fixed;
+  padding-left: 300px;
+  padding-right: 300px;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.About-Us {
+  text-decoration: underline;
+  padding-bottom: 28px;
+}
+
+.About-Me {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+
+.Footer-Div {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
