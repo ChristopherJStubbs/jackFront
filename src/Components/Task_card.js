@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TaskExpansionRow from './TaskExpansionRow'
-import { FormGroup, Checkbox } from 'react-bootstrap';
-
 
 class Task_Card extends Component {
   constructor(props) {
@@ -19,8 +17,8 @@ class Task_Card extends Component {
           <div className="bodyBox box">
           {this.props.info.sub_category}
           {this.props.info.category === "House"
-           ? <img src='./images/houseIcon.png'/>
-           : <img src='./images/carIcon.png' />
+           ? <img alt="" src='./images/houseIcon.png'/>
+           : <img alt="" src='./images/carIcon.png' />
           }
           </div>
           <div className="bodyBox box">
