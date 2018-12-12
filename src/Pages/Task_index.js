@@ -15,12 +15,10 @@ class Task_Index extends Component {
   }
 
   render() {
-    console.log(this.state.my_tasks);
     return (
       <section className="table">
         <main className="bodyContainer">
         {this.state.task_index.map((el, i) => {
-          console.log(el);
           return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
         })}
         </main>
@@ -40,7 +38,6 @@ class Task_Index extends Component {
   handleNewMyTaskObject = (newMyTaskObject) => {
     createMyTask(newMyTaskObject)
     .then(resp => {
-      console.log(resp);
     })
     this.setState({ newTaskSuccess: true})
   }

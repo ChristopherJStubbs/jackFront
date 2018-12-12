@@ -3,10 +3,12 @@
   width: 100px;
   background-color: white;
   color: black;
-  font-size: 25px;
+  font-size: 18px;
   text-align: center;
   border-radius: 5px;
-  font-family: sans-serif
+  font-family: sans-serif;
+  color: #292f36;
+  padding-top: 4px
 }
 
 .fa-home {
@@ -41,4 +43,16 @@
   padding-left: 5px;
   padding-right: 5px;
   color: #EFE9E7;
+}
+
+.tileInformation {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #EFE9E7;
+}
+
+.myTaskHR {
+  margin-left: 50px;
+  margin-right: 50px;
+  opacity: 0.4;
 }

@@ -26,7 +26,7 @@ class TaskExpansionRow extends Component {
             Due Date:
           </label>
           <br/>
-          <input type="date" name="due_date" onChange={this.handleChange} />
+          <input type="date" name="due_date" onChange={this.handleChange} required/>
         </td>
         <br/>
         <td>
@@ -34,7 +34,7 @@ class TaskExpansionRow extends Component {
             How often (days)?:
           </label>
           <br/>
-          <input type="number" name="frequency" onChange={this.handleChange} pattern="[0-9]"/>
+          <input type="number" name="frequency" onChange={this.handleChange} pattern="[0-9]" required/>
         </td>
         <br/>
         <td>

@@ -8,7 +8,7 @@ class AddButton extends Component {
 
     return (
       <div className="TileButtonContainer">
-        <div className="tileAddBtn">
+        <div className="tileAddBtn" onClick={this.props.toggle}>
           Add
         </div>
       </div>
