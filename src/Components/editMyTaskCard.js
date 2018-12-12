@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import { getMyTask, editMyTask } from '../API';
+import { getMyTask, editMyTask, deleteMyTask } from '../API';
 import { Redirect } from 'react-router-dom'
 
 class EditMyTaskCard extends Component {
@@ -29,6 +29,7 @@ class EditMyTaskCard extends Component {
     }
   }
   render() {
+    console.log(this.props.match);
     console.log(this.state.form.mytask)
     let {task_id, user_id, due_date, completed, frequency, notes} = this.state.form.mytask
     return (
@@ -59,7 +60,7 @@ class EditMyTaskCard extends Component {
         <br/>
         <div className="tileLinks">
           <Button className="btn btn-success" onClick={this.handleEdit}><i class="far fa-thumbs-up"></i></Button>
-          <Button className="btn btn-danger"><i class="far fa-trash-alt"></i></Button>
+          <Button className="btn btn-danger" onClick={this.handleDelete}><i class="far fa-trash-alt"></i></Button>
         </div>
         {this.state.editSuccess && <Redirect to="/"/>}
       </div>
@@ -91,6 +92,15 @@ class EditMyTaskCard extends Component {
     editMyTask(this.state.form.mytask)
     .then(resp => {
       this.setState({editSuccess: true})
+    })
+  }
+
+  handleDelete = (id) => {
+    console.log(id);
+    deleteMyTask(id)
+    .then(resp => {
+      console.log("DELETED");
+      this.props.refresh()
     })
   }
 }

@@ -57,10 +57,26 @@ let editMyTask = function(myTaskObj) {
   })
 }
 
+let deleteMyTask = function(id) {
+  return fetch(BASE + `/my_tasks/${id}`, {
+    body: JSON.stringify(id),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: "DELETE"
+  })
+  .then(resp => {
+    let json = resp
+    console.log(json)
+    return json
+  })
+}
+
 export {
   getTasks,
   createMyTask,
   getMyTasks,
   getMyTask,
-  editMyTask
+  editMyTask,
+  deleteMyTask
 }
