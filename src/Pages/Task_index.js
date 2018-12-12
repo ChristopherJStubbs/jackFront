@@ -21,7 +21,7 @@ class Task_Index extends Component {
         <main className="bodyContainer">
         {this.state.task_index.map((el, i) => {
           console.log(el);
-          return <Task_Card key={i} myTasks={this.state.my_tasks} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+          return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
         })}
         </main>
       </section>

@@ -1,0 +1,44 @@
+.tileAddBtn {
+  height: 32px;
+  width: 100px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: sans-serif
+}
+
+.fa-home {
+  font-size: 16px;
+}
+
+.CatInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  align-items: center;
+}
+
+.TileTitle {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #CF5300;
+  margin-bottom: 20px;
+}
+
+.TileButtonContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+}
+
+.TileDescription {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #EFE9E7;
+}
