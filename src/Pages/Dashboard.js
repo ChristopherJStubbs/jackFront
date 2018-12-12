@@ -19,17 +19,13 @@ class Dashboard extends Component {
     let stillLoading = true;
     let { myTasks } = this.state
     let today = new Date()
-    console.log(today);
     let homeTasks = myTasks.filter(el => el.task.category === "House")
     let carTasks = myTasks.filter(el => el.task.category === "Car")
     let todayTasks = myTasks.filter((el) => {
-      console.log(el.my_task.due_date);
       let temp = new Date(el.my_task.due_date)
-      console.log(temp);
       return temp.getUTCDate() === today.getUTCDate()
     })
-    console.log(todayTasks);
-    console.log(myTasks);
+
     let next30Days = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
       return temp.getUTCDate() < this.addDays(today,30).getUTCDate()
@@ -112,6 +108,7 @@ class Dashboard extends Component {
 
    componentDidMount = () => {
      let thisUserID = this.auth.getUserId()
+     console.log(thisUserID);
      if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
        getMyTasks(thisUserID)
      .then((APImyTasks)=> {

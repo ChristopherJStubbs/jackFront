@@ -21,7 +21,7 @@ export default class AuthService {
 	}
 
 	register = (user) => {
-		console.log(user);
+		console.log('register method:', user)
 		return this.authFetch(`${this.domain}/users`, {
 			method: "POST",
 			body: JSON.stringify(user),
@@ -57,12 +57,13 @@ export default class AuthService {
 
 	// The token is stored in the browser
 	setToken(token) {
-		console.log(token);
+		console.log("THIS IS THE TOKEN FROM SSET TOKEN", token);
     let parsedToken
     if(token===null){
       console.log("No token available.");
     }else{
-  		parsedToken = token.split('.')[1]
+  		parsedToken = token.split(' ')[1]
+			console.log("THIS IS THE PARSED TOKEN", parsedToken);
   		localStorage.setItem('id_token', parsedToken)
     }
 	}
@@ -80,9 +81,7 @@ export default class AuthService {
 	getUserId = () => {
 		let tmpToken = this.getToken()
 		if(tmpToken !== null && tmpToken !== undefined && tmpToken.length > 0){
-			const token = decode(this.getToken(),{
-				header: true
-			});
+			const token = decode(this.getToken());
 			return token.sub
 		} else {
 			return null
