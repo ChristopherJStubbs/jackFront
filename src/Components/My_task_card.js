@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { editMyTask } from '../API'
 
 class My_Task_Card extends Component {
   render() {
@@ -7,10 +8,10 @@ class My_Task_Card extends Component {
       <div className="tile">
         <div className="tileLinks">
           <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
-            <i class="fas fa-edit fa-2x"></i>
+            <i className="fas fa-edit fa-2x"></i>
           </a>
-          <a>
-            <i class="far fa-check-square fa-2x" title="Complete"></i>
+          <a onClick={this.handleComplete}>
+            <i className="far fa-check-square fa-2x" title="Complete"></i>
           </a>
         </div>
         <div className="bodyBox box">
@@ -39,6 +40,24 @@ class My_Task_Card extends Component {
         </div>
       </div>
     );
+  }
+  handleComplete = (e) => {
+    e.preventDefault()
+    const { id, task_id, user_id, due_date, completed, frequency, notes } = this.props.info.my_task
+    this.props.addDays(due_date, frequency)
+    const mytask = {
+      id: id,
+      task_id: task_id,
+      user_id: user_id,
+      due_date: this.props.addDays(due_date, frequency),
+      completed: completed,
+      frequency: frequency,
+      notes: notes
+    }
+    editMyTask(mytask)
+    .then(resp => {
+      console.log(resp);
+    })
   }
 }
 
