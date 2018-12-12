@@ -8,31 +8,43 @@ class Registration extends Component {
     super(props)
     this.auth= new AuthService()
     this.state = {
+      errors: {},
       form: {
         user: {
           email: '',
           password: '',
-          first_name: '',
-          last_name: '',
-          phone: '',
-          home_owner: false,
-          car_owner: false
+          profile_attributes: {
+            first_name: '',
+            last_name: '',
+            phone: '',
+            home_owner: false,
+            car_owner: false
+          }
         }
       }
     }
   }
   render() {
     console.log(this.state);
-    let { email, password, first_name, last_name, phone } = this.state.form.user
+    let { email, password, profile_attributes } = this.state.form.user
+    let errorMsgs =[]
+    if(Object.keys(this.state.errors).length > 0){
+      Object.entries(this.state.errors).forEach(entry => {
+        let key = entry[0]
+        let value = entry[1]
+        errorMsgs.push(`${key} ${value}`)
+      })
+    }
     return (
       <div>
+      <h3 className="text-danger">{errorMsgs[0]}</h3>
       <Form horizontal onSubmit={this.handleSubmit}>
         <FormGroup controlId="formHorizontalEmail">
           <Col componentClass={ControlLabel} sm={2}>
             Email
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleChange} name="email" value={email} type="email" placeholder="Email" />
+            <FormControl onChange={this.handleUserChange} name="email" value={email} type="email" placeholder="Email" />
           </Col>
         </FormGroup>
         <FormGroup controlId="formHorizontalPassword">
@@ -40,7 +52,7 @@ class Registration extends Component {
             Password
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleChange} name="password" value={password} type="password" placeholder="Password" />
+            <FormControl onChange={this.handleUserChange} name="password" value={password} type="password" placeholder="Password" />
           </Col>
         </FormGroup>
         <FormGroup controlId="formHorizontalFirstName">
@@ -48,7 +60,7 @@ class Registration extends Component {
             First Name
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleChange} name="first_name" value={first_name} type="FirstName" placeholder="First Name" />
+            <FormControl onChange={this.handleProfileChange} name="first_name" value={profile_attributes.first_name} type="FirstName" placeholder="First Name" />
           </Col>
         </FormGroup>
         <FormGroup controlId="formHorizontalLastName">
@@ -56,7 +68,7 @@ class Registration extends Component {
             Last Name
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleChange} name="last_name" value={last_name} type="LastName" placeholder="Last Name" />
+            <FormControl onChange={this.handleProfileChange} name="last_name" value={profile_attributes.last_name} type="LastName" placeholder="Last Name" />
           </Col>
         </FormGroup>
         <FormGroup controlId="formHorizontalPhone">
@@ -64,11 +76,11 @@ class Registration extends Component {
             Phone
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleChange} name="phone" value={phone} type="phone" placeholder="555-555-5555" />
+            <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="phone" placeholder="555-555-5555" />
           </Col>
         </FormGroup>
         <FormGroup>
-              <Checkbox onChange={() => this.handleOwnershipChoice("home_owner")} inline>Home?</Checkbox> <Checkbox onChange={() => this.handleOwnershipChoice("car_owner")} inline>Car?</Checkbox>
+              <Checkbox onChange={() => this.handleOwnershipChoice("home")} inline>Home?</Checkbox> <Checkbox onChange={() => this.handleOwnershipChoice("car")} inline>Car?</Checkbox>
         </FormGroup>
         <FormGroup>
           <Col smOffset={2} sm={10}>
@@ -80,18 +92,25 @@ class Registration extends Component {
     )
   }
 
-  handleChange = (e) => {
+  handleUserChange = (e) => {
     let { form } = this.state
     form.user[e.target.name] = e.target.value
     this.setState({ form })
   }
 
+  handleProfileChange = (e) => {
+    let { form } = this.state
+    form.user.profile_attributes[e.target.name] = e.target.value
+    this.setState({ form })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log('submit registration:', this.state.form.user)
     this.auth.register(this.state.form)
     .then(status => {
       if(status.errors){
-        console.log(status);
+        this.setState({errors: status.errors})
       }else{
         this.auth.sign_in(this.state.form)
         this.props.refresh()
@@ -101,7 +120,12 @@ class Registration extends Component {
 
   handleOwnershipChoice = (type) => {
     let { form } = this.state
-    form.user[type] = !form.user[type]
+    switch(type){
+      case "home":
+        form.user.profile_attributes.home_owner = !form.user.profile_attributes.home_owner
+      case "car":
+        form.user.profile_attributes.car_owner = !form.user.profile_attributes.car_owner
+    }
     this.setState ({
       form: form
     })
