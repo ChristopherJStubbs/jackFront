@@ -58,8 +58,8 @@ class EditMyTaskCard extends Component {
         </td>
         <br/>
         <div className="tileLinks">
-          <Button className="btn btn-success disabled" onClick={this.handleEdit}><i class="far fa-thumbs-up"></i></Button>
-          <Button className="btn btn-danger disabled"><i class="far fa-trash-alt"></i></Button>
+          <Button className="btn btn-success" onClick={this.handleEdit}><i class="far fa-thumbs-up"></i></Button>
+          <Button className="btn btn-danger"><i class="far fa-trash-alt"></i></Button>
         </div>
         {this.state.editSuccess && <Redirect to="/"/>}
       </div>
