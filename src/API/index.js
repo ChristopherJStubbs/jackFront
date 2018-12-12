@@ -1,8 +1,12 @@
+import AuthService from '../services';
+const auth = new AuthService();
+
 const BASE = 'http://localhost:3000'
+
 
 let getTasks = function() {
   console.log("got to api");
-  return fetch(BASE + '/tasks')
+  return auth.authFetch(BASE + '/tasks')
   .then((resp) => {
     let json = resp.json()
     return json
@@ -11,11 +15,8 @@ let getTasks = function() {
 
 let createMyTask = function(obj) {
   console.log(obj);
-  return fetch(BASE + `/my_tasks`, {
+  return auth.authFetch(BASE + `/my_tasks`, {
     body: JSON.stringify(obj),
-    headers: {
-      'Content-Type': 'application/json'
-    },
     method: "POST"
   })
   .then((resp) => {
@@ -26,7 +27,7 @@ let createMyTask = function(obj) {
 }
 
 let getMyTasks = function(userid) {
-  return fetch(BASE+ `/user/my_tasks/${userid}`)
+  return auth.authFetch(BASE+ `/user/my_tasks/${userid}`)
   .then((resp) => {
     let json = resp.json()
     return json
@@ -34,7 +35,7 @@ let getMyTasks = function(userid) {
 }
 
 let getMyTask = function(my_task_id){
-  return fetch(BASE + `/my_tasks/${my_task_id}`)
+  return auth.authFetch(BASE + `/my_tasks/${my_task_id}`)
   .then(resp => {
     let json = resp.json()
     return json
@@ -43,12 +44,9 @@ let getMyTask = function(my_task_id){
 
 let editMyTask = function(myTaskObj) {
   console.log(myTaskObj.id)
-  return fetch(BASE + `/my_tasks/${myTaskObj.id}`, {
+  return auth.authFetch(BASE + `/my_tasks/${myTaskObj.id}`, {
     method: "PATCH",
     body: JSON.stringify(myTaskObj),
-    headers: {
-      'Content-Type': 'application/json'
-    }
   })
   .then(resp => {
     let json = resp
@@ -58,11 +56,8 @@ let editMyTask = function(myTaskObj) {
 }
 
 let deleteMyTask = function(id) {
-  return fetch(BASE + `/my_tasks/${id}`, {
+  return auth.authFetch(BASE + `/my_tasks/${id}`, {
     body: JSON.stringify(id),
-    headers: {
-      'Content-Type': 'application/json'
-    },
     method: "DELETE"
   })
   .then(resp => {

@@ -108,6 +108,7 @@ class Dashboard extends Component {
 
    componentDidMount = () => {
      let thisUserID = this.auth.getUserId()
+     console.log(thisUserID);
      if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
        getMyTasks(thisUserID)
      .then((APImyTasks)=> {
