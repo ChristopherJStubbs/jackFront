@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AuthService from '../services';
 import My_Task_Card from '../Components/My_task_card';
 import { Tabs, Tab } from 'react-bootstrap';
-import { getMyTasks } from '../API'
+import { getMyTasks, getMyTask } from '../API'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -69,37 +69,37 @@ class Dashboard extends Component {
                   case 0:
                     return todayTasks.length > 0
                       ?  todayTasks.map((el, i) => {
-                          return <My_Task_Card key={i} info={el} />
+                          return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                          })
                       : <h3>Today Switch.</h3>
                   case 1:
                     return next30Days.length > 0
                       ?  next30Days.map((el, i) => {
-                        return <My_Task_Card key={i} info={el} />
+                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
                       : <h3>30 Days Switch.</h3>
                   case 2:
                     return next3Months.length > 0
                       ?  next3Months.map((el, i) => {
-                        return <My_Task_Card key={i} info={el} />
+                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                         })
                       : <h3>90 Days.</h3>
                   case 3:
                     return homeTasks.length > 0
                       ?  homeTasks.map((el, i) => {
-                        return <My_Task_Card key={i} info={el} />
+                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
                       : <h3>Home.</h3>
                   case 4:
                     return carTasks.length > 0
                       ?  carTasks.map((el, i) => {
-                        return <My_Task_Card key={i} info={el} />
+                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
                       : <h3>Car.</h3>
                   case 5:
                     return myTasks.length > 0
                       ?  myTasks.map((el, i) => {
-                        return <My_Task_Card key={i} info={el} />
+                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
                       : <h3>All myTasks.</h3>
                 }
@@ -126,8 +126,9 @@ class Dashboard extends Component {
    }
 
    addDays = function(today, days) {
-     let date = new Date()
-     date.setDate(today.getDate() + days);
+     let date = new Date(today)
+     let dateInDays = date.getDate()
+     date.setDate(dateInDays + days);
      return date;
    }
 
