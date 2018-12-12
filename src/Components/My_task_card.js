@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class My_Task_Card extends Component {
   render() {
     return (
       <div className="tile">
+        <div className="tileLinks">
+          <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
+            <i class="fas fa-edit fa-2x"></i>
+          </a>
+          <a>
+            <i class="far fa-check-square fa-2x" title="Complete"></i>
+          </a>
+        </div>
         <div className="bodyBox box">
           {this.props.info.my_task.task_id}
+        </div>
+        <div className="bodyBox box">
+          {this.props.info.my_task.id}
         </div>
         <div className="bodyBox box">
         {this.props.info.task.title}

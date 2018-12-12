@@ -13,6 +13,7 @@ import AuthService from './services'
 import { getMyTasks } from './API';
 import Appointments from './Pages/Appointments'
 import AptForm from './Pages/aptForm'
+import EditMyTaskCard from './Components/editMyTaskCard'
 
 
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
                 <Redirect from="/register" to="/" />
                 <Redirect from="/login" to="/" />
                 <Route exact path='/user/my_tasks/:id' component={My_Tasks} />
+                <Route exact path='/user/my_tasks/:id/edit' component={EditMyTaskCard} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route exact path='/appointments' component={Appointments} />
                 <Route path='/appointments/new' component={AptForm} />

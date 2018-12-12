@@ -33,8 +33,34 @@ let getMyTasks = function(userid) {
   })
 }
 
+let getMyTask = function(my_task_id){
+  return fetch(BASE + `/my_tasks/${my_task_id}`)
+  .then(resp => {
+    let json = resp.json()
+    return json
+  })
+}
+
+let editMyTask = function(myTaskObj) {
+  console.log(myTaskObj.id)
+  return fetch(BASE + `/my_tasks/${myTaskObj.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(myTaskObj),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(resp => {
+    let json = resp
+    console.log(json.errors)
+    return json
+  })
+}
+
 export {
   getTasks,
   createMyTask,
-  getMyTasks
+  getMyTasks,
+  getMyTask,
+  editMyTask
 }
