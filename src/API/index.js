@@ -5,12 +5,8 @@ const BASE = 'http://localhost:3000'
 
 
 let getTasks = function() {
-<<<<<<< HEAD
-  return fetch(BASE + '/tasks')
-=======
   console.log("got to api");
   return auth.authFetch(BASE + '/tasks')
->>>>>>> master
   .then((resp) => {
     let json = resp.json()
     return json
