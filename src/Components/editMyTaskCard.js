@@ -8,6 +8,7 @@ class EditMyTaskCard extends Component {
     super(props)
     this.state={
       editSuccess: false,
+      deleteSuccess: false,
       form: {
         mytask: {
           id: '',
@@ -29,7 +30,7 @@ class EditMyTaskCard extends Component {
     }
   }
   render() {
-    console.log(this.props.match);
+    console.log(this.props);
     console.log(this.state.form.mytask)
     let {task_id, user_id, due_date, completed, frequency, notes} = this.state.form.mytask
     return (
@@ -60,9 +61,10 @@ class EditMyTaskCard extends Component {
         <br/>
         <div className="tileLinks">
           <Button className="btn btn-success" onClick={this.handleEdit}><i class="far fa-thumbs-up"></i></Button>
-          <Button className="btn btn-danger" onClick={this.handleDelete}><i class="far fa-trash-alt"></i></Button>
+          <Button className="btn btn-danger" onClick={() => this.handleDelete(this.state.form.mytask.id)}><i class="far fa-trash-alt"></i></Button>
         </div>
         {this.state.editSuccess && <Redirect to="/"/>}
+        {this.state.deleteSuccess && <Redirect to="/"/>}
       </div>
     );
   }
@@ -93,14 +95,15 @@ class EditMyTaskCard extends Component {
     .then(resp => {
       this.setState({editSuccess: true})
     })
+    this.props.refresh()
   }
 
   handleDelete = (id) => {
     console.log(id);
     deleteMyTask(id)
     .then(resp => {
+      this.setState({deleteSuccess: true})
       console.log("DELETED");
-      this.props.refresh()
     })
   }
 }
