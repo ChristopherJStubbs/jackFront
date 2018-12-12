@@ -21,7 +21,7 @@ export default class AuthService {
 	}
 
 	register = (user) => {
-		console.log(user);
+		console.log('register method:', user)
 		return this.authFetch(`${this.domain}/users`, {
 			method: "POST",
 			body: JSON.stringify(user),
