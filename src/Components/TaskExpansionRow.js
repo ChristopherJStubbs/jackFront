@@ -55,6 +55,7 @@ class TaskExpansionRow extends Component {
     e.preventDefault()
     console.log(this.state.form);
     this.props.handleNewMyTaskObject(this.state.form)
+    this.props.toggle()
   }
 
 }

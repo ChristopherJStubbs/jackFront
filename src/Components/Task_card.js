@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskExpansionRow from './TaskExpansionRow'
+import TaskExists from './TaskExists'
 
 class Task_Card extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Task_Card extends Component {
             <h5>{this.props.info.description}</h5>
           </div>
         </div>
-        {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject}/>}
+        {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject} toggle={this.handleTaskToggle}/>}
       </div>
     );
   }

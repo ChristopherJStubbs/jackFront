@@ -8,6 +8,7 @@ class Task_Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      newTaskSuccess: false,
       task_index: [],
       my_tasks: []
     }
@@ -19,7 +20,8 @@ class Task_Index extends Component {
       <section className="table">
         <main className="bodyContainer">
         {this.state.task_index.map((el, i) => {
-          return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+          console.log(el);
+          return <Task_Card key={i} myTasks={this.state.my_tasks} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
         })}
         </main>
       </section>
@@ -40,6 +42,7 @@ class Task_Index extends Component {
     .then(resp => {
       console.log(resp);
     })
+    this.setState({ newTaskSuccess: true})
   }
 }
 
