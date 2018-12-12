@@ -5,39 +5,39 @@ import { editMyTask } from '../API'
 class My_Task_Card extends Component {
   render() {
     return (
-      <div className="tile">
-        <div className="tileLinks">
-          <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
-            <i className="fas fa-edit fa-2x"></i>
-          </a>
-          <a onClick={this.handleComplete}>
-            <i className="far fa-check-square fa-2x" title="Complete"></i>
-          </a>
-        </div>
-        <div className="bodyBox box">
-          {this.props.info.my_task.task_id}
-        </div>
-        <div className="bodyBox box">
-          {this.props.info.my_task.id}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.task.title}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.task.category}:          {this.props.info.task.sub_category}
-        </div>
-        <div className="bodyBox box">
-          {this.props.info.task.description}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.my_task.due_date}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.my_task.frequency}
-        </div>
-        <div className="bodyBox box">
-        {this.props.info.my_task.notes}
-        </div>
+      <div id="myTaskTile" className="myTaskTile">
+          <div className="bodyBox">
+            <div className="CatInfoContainer">
+                {this.props.info.task.sub_category}
+              <i class={this.iconChooser(this.props.info.task.category)}></i>
+            </div>
+            <hr/>
+          </div>
+          <div className="bodyBox TileTitle">
+            {this.props.info.task.title}
+          </div>
+          <div className="bodyBox TileDescription">
+            {this.props.info.task.description}
+          </div>
+          <hr className="myTaskHR"/>
+          <div className="bodyBox tileInformation">
+            Notes: {this.props.info.my_task.notes}
+          </div>
+          <div className="bodyBox tileInformation">
+          Due date: {this.props.info.my_task.due_date}
+          </div>
+          <div className="bodyBox tileInformation" id="frequency">
+          Frequency: {this.props.info.my_task.frequency} days
+          </div>
+
+          <div className="tileLinks">
+            <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
+              <i className="fas fa-edit fa-2x"></i>
+            </a>
+            <a onClick={this.handleComplete}>
+              <i className="far fa-check-square fa-2x" title="Complete"></i>
+            </a>
+          </div>
       </div>
     );
   }
@@ -58,6 +58,24 @@ class My_Task_Card extends Component {
     .then(resp => {
       console.log(resp);
     })
+  }
+
+  iconChooser = (category) => {
+    console.log(category);
+    let iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fa-question-circle fa-2x", "fa-money-bill fa-2x"]
+    if (category === "House") {
+      return iconArray[0]
+    } else if (category === "Car") {
+      return iconArray[1]
+    } else if (category === "Medical") {
+      return iconArray[2]
+    } else if (category === "Pet") {
+      return iconArray[3]
+    } else if (category === "Miscellaneous") {
+      return iconArray[4]
+    } else if (category === "Money") {
+      return iconArray[4]
+    }
   }
 }
 

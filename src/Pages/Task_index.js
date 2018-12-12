@@ -8,13 +8,13 @@ class Task_Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      newTaskSuccess: false,
       task_index: [],
       my_tasks: []
     }
   }
 
   render() {
-    console.log(this.state.my_tasks);
     return (
       <section className="table">
         <main className="bodyContainer">
@@ -38,8 +38,8 @@ class Task_Index extends Component {
   handleNewMyTaskObject = (newMyTaskObject) => {
     createMyTask(newMyTaskObject)
     .then(resp => {
-      console.log(resp);
     })
+    this.setState({ newTaskSuccess: true})
   }
 }
 
