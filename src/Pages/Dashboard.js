@@ -47,12 +47,7 @@ class Dashboard extends Component {
                 <div onClick={() => this.tabClick(2)} className="dashboardTab">
                   Next 3 Months
                 </div>
-                <div onClick={() => this.tabClick(3)} className="dashboardTab">
-                  Home Tasks
-                </div>
-                <div onClick={() => this.tabClick(4)} className="dashboardTab">
-                  Car Tasks
-                </div>
+
                 <div onClick={() => this.tabClick(5)} className="dashboardTab">
                   All My Tasks
                 </div>

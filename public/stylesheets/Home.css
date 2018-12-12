@@ -1,0 +1,22 @@
+.About-Container {
+  align-items: center;
+  position: relative;
+  padding-left: 13vw;
+  padding-right: 13vw;
+  color: #EFE9E7;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.About-Us {
+  text-decoration: underline;
+  padding-bottom: 28px;
+}
+
+.About-Me {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+}
