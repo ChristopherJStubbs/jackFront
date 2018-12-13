@@ -56,12 +56,7 @@ class Dashboard extends Component {
                 <div onClick={() => this.tabClick(2)} className="dashboardTab">
                   Next 3 Months
                 </div>
-                <div onClick={() => this.tabClick(3)} className="dashboardTab">
-                  Home Tasks
-                </div>
-                <div onClick={() => this.tabClick(4)} className="dashboardTab">
-                  Car Tasks
-                </div>
+
                 <div onClick={() => this.tabClick(5)} className="dashboardTab">
                   All My Tasks
                 </div>
@@ -76,19 +71,19 @@ class Dashboard extends Component {
                       ?  todayTasks.map((el, i) => {
                           return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                          })
-                      : <h3>Today Switch.</h3>
+                      : <h3>No tasks due today.</h3>
                   case 1:
                     return next30Days.length > 0
                       ?  next30Days.map((el, i) => {
                         return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
-                      : <h3>30 Days Switch.</h3>
+                      : <h3>No tasks due in next 30 days.</h3>
                   case 2:
                     return next3Months.length > 0
                       ?  next3Months.map((el, i) => {
                         return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                         })
-                      : <h3>90 Days.</h3>
+                      : <h3>No tasks due in next 90 Days.</h3>
                   case 3:
                     return homeTasks.length > 0
                       ?  homeTasks.map((el, i) => {
@@ -106,7 +101,7 @@ class Dashboard extends Component {
                       ?  myTasks.map((el, i) => {
                         return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
-                      : <h3>All myTasks.</h3>
+                      : <h3>You do not have any tasks assigned to you. Click "All Tasks" in the header to assign yourself tasks.</h3>
                 }
             })()}
 

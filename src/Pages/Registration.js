@@ -37,57 +37,68 @@ class Registration extends Component {
     }
     return (
       <div>
-      <h3 className="text-danger">{errorMsgs[0]}</h3>
-      <Form horizontal onSubmit={this.handleSubmit}>
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
-            Email
-          </Col>
-          <Col sm={10}>
-            <FormControl onChange={this.handleUserChange} name="email" value={email} type="email" placeholder="Email" />
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="formHorizontalPassword">
-          <Col componentClass={ControlLabel} sm={2}>
-            Password
-          </Col>
-          <Col sm={10}>
-            <FormControl onChange={this.handleUserChange} name="password" value={password} type="password" placeholder="Password" />
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="formHorizontalFirstName">
-          <Col componentClass={ControlLabel} sm={2}>
-            First Name
-          </Col>
-          <Col sm={10}>
-            <FormControl onChange={this.handleProfileChange} name="first_name" value={profile_attributes.first_name} type="FirstName" placeholder="First Name" />
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="formHorizontalLastName">
-          <Col componentClass={ControlLabel} sm={2}>
-            Last Name
-          </Col>
-          <Col sm={10}>
-            <FormControl onChange={this.handleProfileChange} name="last_name" value={profile_attributes.last_name} type="LastName" placeholder="Last Name" />
-          </Col>
-        </FormGroup>
-        <FormGroup controlId="formHorizontalPhone">
-          <Col componentClass={ControlLabel} sm={2}>
-            Phone
-          </Col>
-          <Col sm={10}>
-            <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="tel" placeholder="10 digits only! No dashes!" />
-          </Col>
-        </FormGroup>
-        <FormGroup>
-              <Checkbox onChange={() => this.handleOwnershipChoice("home")} inline>Home?</Checkbox> <Checkbox onChange={() => this.handleOwnershipChoice("car")} inline>Car?</Checkbox>
-        </FormGroup>
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button  type="submit">Sign In</Button>
-          </Col>
-        </FormGroup>
-      </Form>
+        <h1 className="greeting">
+        Register:
+        </h1>
+        <h3 className="text-danger">
+          {errorMsgs[0]}
+        </h3>
+        <Form horizontal onSubmit={this.handleSubmit}>
+          <FormGroup controlId="formHorizontalEmail">
+            <Col componentClass={ControlLabel} sm={2}>
+              Email:
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.handleUserChange} name="email" value={email} type="email" placeholder="Email" />
+            </Col>
+          </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Password:
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.handleUserChange} name="password" value={password} type="password" placeholder="Password" />
+            </Col>
+          </FormGroup>
+          <FormGroup controlId="formHorizontalFirstName">
+            <Col componentClass={ControlLabel} sm={2}>
+              First Name:
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.handleProfileChange} name="first_name" value={profile_attributes.first_name} type="FirstName" placeholder="First Name" />
+            </Col>
+          </FormGroup>
+          <FormGroup controlId="formHorizontalLastName">
+            <Col componentClass={ControlLabel} sm={2}>
+              Last Name:
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.handleProfileChange} name="last_name" value={profile_attributes.last_name} type="LastName" placeholder="Last Name" />
+            </Col>
+          </FormGroup>
+          <FormGroup controlId="formHorizontalPhone">
+            <Col componentClass={ControlLabel} sm={2}>
+              Phone:
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="phone" placeholder="555-555-5555" />
+            </Col>
+          </FormGroup>
+          <FormGroup className="ownership">
+            <Col>
+              I have a (check all that apply)...
+            </Col>
+            <Col>
+              <Checkbox onChange={() => this.handleOwnershipChoice("home")} inline>Home</Checkbox>
+              <Checkbox onChange={() => this.handleOwnershipChoice("car")} inline>Car</Checkbox>
+            </Col>
+          </FormGroup>
+          <FormGroup>
+            <Col smOffset={2} sm={10}>
+              <Button  type="submit">Register</Button>
+            </Col>
+          </FormGroup>
+        </Form>   
       </div>
     )
   }
