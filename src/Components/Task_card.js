@@ -17,8 +17,8 @@ class Task_Card extends Component {
         <div>
           <div className="bodyBox box">
             <div className="CatInfoContainer">
-                {this.props.info.sub_category}
               <i class={this.iconChooser(this.props.info.category)}></i>
+              {this.props.info.sub_category}
             </div>
             <hr/>
           </div>
@@ -43,19 +43,19 @@ class Task_Card extends Component {
 
   iconChooser = (category) => {
     console.log(category);
-    let iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fa-question-circle fa-2x", "fa-money-bill fa-2x"]
+    let iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fas fa-question-circle fa-2x", "fas fa-money-bill fa-2x"]
     if (category === "House") {
       return iconArray[0]
     } else if (category === "Car") {
       return iconArray[1]
     } else if (category === "Medical") {
       return iconArray[2]
-    } else if (category === "Pet") {
+    } else if (category === "Pets") {
       return iconArray[3]
     } else if (category === "Miscellaneous") {
       return iconArray[4]
     } else if (category === "Money") {
-      return iconArray[4]
+      return iconArray[5]
     }
   }
 

@@ -23,10 +23,10 @@ class Header extends Component {
                   Dashboard
                 </NavItem>
                 <NavItem eventKey={3} href='/tasks'>
-                  All Tasks
+                  Add Tasks
                 </NavItem>
-                <NavItem eventKey={4} href="/">
-                  Edit Tasks
+                <NavItem eventKey={4} href="/instructions">
+                  Instructions
                 </NavItem>
                 <NavItem onClick={this.handleClick} eventKey={5} href="/">
                   Logout
@@ -35,6 +35,9 @@ class Header extends Component {
             : <Nav className="nav">
                 <NavItem eventKey={1} href="/">
                   Home
+                </NavItem>
+                <NavItem eventKey={4} href="/instructions">
+                  Instructions
                 </NavItem>
               </Nav>
           }
