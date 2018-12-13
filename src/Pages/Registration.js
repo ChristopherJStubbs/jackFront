@@ -76,7 +76,7 @@ class Registration extends Component {
             Phone
           </Col>
           <Col sm={10}>
-            <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="phone" placeholder="555-555-5555" />
+            <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="tel" placeholder="10 digits only! No dashes!" />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -106,16 +106,21 @@ class Registration extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submit registration:', this.state.form.user)
-    this.auth.register(this.state.form)
-    .then(status => {
-      if(status.errors){
-        this.setState({errors: status.errors})
-      }else{
-        this.auth.sign_in(this.state.form)
-        this.props.refresh()
-      }
-    })
+    let { form } = this.state
+    form.user.profile_attributes.phone = '+1'+form.user.profile_attributes.phone
+    // if(this.isValid()){
+      this.auth.register(form)
+      .then(status => {
+        if(status.errors){
+          this.setState({errors: status.errors})
+        }else{
+          this.auth.sign_in(form)
+          this.props.refresh()
+        }
+      })
+    // }else {
+    //   alert("ya done fucked up")
+    // }
   }
 
   handleOwnershipChoice = (type) => {
@@ -129,6 +134,17 @@ class Registration extends Component {
     this.setState ({
       form: form
     })
+  }
+
+  isValid = () => {
+    const { email, password, profile_attributes } = this.state
+    return(
+      // email == /\A[^@\s]+@[^@\s]+\z/ &&
+      // password != 0 && password < 6 &&
+      // profile_attributes.first_name != "" &&
+      // profile_attributes.last_name != "" &&
+      profile_attributes.phone == /(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/
+    )
   }
 }
 
