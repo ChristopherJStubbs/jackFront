@@ -20,10 +20,13 @@ class Sign_In extends Component {
     let { email, password } = this.state.form.user
       return (
           <div>
+            <h1 className="greeting">
+              Sign In:
+            </h1>
             <Form horizontal onSubmit={this.onSubmit}>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Email
+                  Email:
                 </Col>
                 <Col sm={10}>
                   <FormControl onChange={this.onChange} name="email" value={email} type="email" placeholder="Email" />
@@ -32,7 +35,7 @@ class Sign_In extends Component {
 
               <FormGroup controlId="formHorizontalPassword">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Password
+                  Password:
                 </Col>
                 <Col sm={10}>
                   <FormControl onChange={this.onChange} name="password" value={password} type="password" placeholder="Password" />

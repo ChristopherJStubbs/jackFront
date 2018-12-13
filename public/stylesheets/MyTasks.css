@@ -1,13 +1,64 @@
 .tileLinks {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 3.75vh;
-  padding-right: 14px;
+  height: 40px;
 }
 
 a {
   color: #EFE9E7;
+}
+
+#myTaskTile {
+  display: flex;
+  flex-direction: column;
+  background-color: #242A30;
+  border: 4px solid #CF5300;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 7px;
+  min-width: 275px;
+  max-width: 275px;
+  min-height: 300px;
+  position: relative;
+  box-shadow: 3px 5px rgba(0, 0, 0, .15)
+}
+
+.editTile {
+  display: flex;
+  flex-direction: column;
+  background-color: #242A30;
+  border: 4px solid #CF5300;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  padding: 10px;
+  min-width: 275px;
+  max-width: 275px;
+  min-height: 300px;
+  box-shadow: 3px 5px rgba(0, 0, 0, .15);
+  color: #efe9e7
+}
+
+.myTaskSpan {
+  font-weight: bold;
+}
+
+.editTileContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.fa-thumbs-up {
+  color: green;
+}
+
+.fa-trash-alt {
+  color: red
 }

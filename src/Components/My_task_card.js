@@ -11,7 +11,7 @@ class My_Task_Card extends Component {
                 {this.props.info.task.sub_category}
               <i class={this.iconChooser(this.props.info.task.category)}></i>
             </div>
-            <hr/>
+            <hr className="myTaskTopHR"/>
           </div>
           <div className="bodyBox TileTitle">
             {this.props.info.task.title}
@@ -21,13 +21,13 @@ class My_Task_Card extends Component {
           </div>
           <hr className="myTaskHR"/>
           <div className="bodyBox tileInformation">
-            Notes: {this.props.info.my_task.notes}
+            <span className="myTaskSpan">Notes:</span> {this.props.info.my_task.notes}
           </div>
           <div className="bodyBox tileInformation">
-          Due date: {this.props.info.my_task.due_date}
+            <span className="myTaskSpan">Due date:</span> {this.props.info.my_task.due_date}
           </div>
           <div className="bodyBox tileInformation" id="frequency">
-          Frequency: {this.props.info.my_task.frequency} days
+            <span className="myTaskSpan">Frequency:</span> {this.props.info.my_task.frequency} days
           </div>
 
           <div className="tileLinks">
