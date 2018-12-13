@@ -17,8 +17,8 @@ class Task_Card extends Component {
         <div>
           <div className="bodyBox box">
             <div className="CatInfoContainer">
-                {this.props.info.sub_category}
               <i class={this.iconChooser(this.props.info.category)}></i>
+              {this.props.info.sub_category}
             </div>
             <hr/>
           </div>
