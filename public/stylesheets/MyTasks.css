@@ -55,10 +55,14 @@ a {
   justify-content: center;
 }
 
+.TileDescription {
+  font-weight: 600
+}
+
 .fa-thumbs-up {
   color: green;
 }
 
 .fa-trash-alt {
-  color: red
+  color: #c90808;
 }

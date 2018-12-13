@@ -33,40 +33,46 @@ class EditMyTaskCard extends Component {
     console.log(this.state.form.mytask)
     let {task_id, user_id, due_date, completed, frequency, notes} = this.state.form.mytask
     return (
-      <main className="editTileContainer">
-        <div className="editTile">
-        <td>
-          <label>
-            Notes:
-          </label>
-          <br/>
-          <input type="text" value={notes} name="notes" onChange={this.handleChange} />
-        </td>
-        <br/>
+      <main>
+        <section>
+          <h1 className="greeting">
+          Edit/Delete:
+          </h1>
+        </section>
+        <section className="editTileContainer">
+          <div className="editTile">
           <td>
             <label>
-              Due Date:
+              Notes:
             </label>
             <br/>
-            <input type="date" value={due_date} name="due_date" onChange={this.handleChange} />
+            <input type="text" value={notes} name="notes" onChange={this.handleChange} />
           </td>
           <br/>
-          <td>
-            <label>
-              How often (days)?:
-            </label>
+            <td>
+              <label>
+                Due Date:
+              </label>
+              <br/>
+              <input type="date" value={due_date} name="due_date" onChange={this.handleChange} />
+            </td>
             <br/>
-            <input type="number" name="frequency" value={frequency} onChange={this.handleChange} pattern="[0-9]"/>
-          </td>
-          <br/>
-          <div className="tileLinks">
-              <i onClick={this.handleEdit} class="far fa-thumbs-up fa-3x"></i>
-              <i onClick={() => this.handleDelete(this.state.form.mytask.id)} class="far fa-trash-alt fa-3x"></i>
-
+            <td>
+              <label>
+                How often (days)?
+              </label>
+              <br/>
+              <input type="number" name="frequency" value={frequency} onChange={this.handleChange} pattern="[0-9]"/>
+            </td>
+            <br/>
+            <div className="tileLinks">
+                <i title="Accept Changes" onClick={this.handleEdit} class="far fa-thumbs-up fa-3x"></i>
+                <i title="Delete Task" onClick={() => this.handleDelete(this.state.form.mytask.id)} class="far fa-trash-alt fa-3x"></i>
+            </div>
+            {this.state.editSuccess && <Redirect to="/"/>}
+            {this.state.deleteSuccess && <Redirect to="/"/>}
           </div>
-          {this.state.editSuccess && <Redirect to="/"/>}
-          {this.state.deleteSuccess && <Redirect to="/"/>}
-        </div>
+        </section>
       </main>
     );
   }
