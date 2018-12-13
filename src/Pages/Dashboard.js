@@ -19,27 +19,36 @@ class Dashboard extends Component {
     let stillLoading = true;
     let { myTasks } = this.state
     let today = new Date()
+    let todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(),
+     today.getUTCHours(), today.getUTCMinutes(), today.getUTCSeconds());
     let homeTasks = myTasks.filter(el => el.task.category === "House")
     let carTasks = myTasks.filter(el => el.task.category === "Car")
     let todayTasks = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp.getUTCDate() === today.getUTCDate()
+      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+       temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
+      return tempUTC === todayUTC || tempUTC < todayUTC
     })
 
     let next30Days = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp.getUTCDate() < this.addDays(today,30).getUTCDate()
+      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+       temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
+      return tempUTC < this.addDays(todayUTC, 30) && tempUTC > todayUTC
     })
+
     let next3Months = myTasks.filter((el) => {
       let temp = new Date(el.my_task.due_date)
-      return temp.getUTCDate() < this.addDays(today,90).getUTCDate()
+      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+       temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
+      return tempUTC < this.addDays(todayUTC,90)
     })
     return (
       <main className="table">
         <section className="testing DashboardContainer">
             <section className="tabsContainer">
                 <div onClick={() => this.tabClick(0)} className="dashboardTab todayTab">
-                  Today
+                  Today/Overdue
                 </div>
                 <div onClick={() => this.tabClick(1)} className="dashboardTab">
                   Next 30 Days
