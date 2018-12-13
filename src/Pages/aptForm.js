@@ -15,7 +15,7 @@ class AptForm extends Component {
         appointment: {
           name: "",
           phone_number: "",
-          exactTime: ""
+          exact_time: ""
         }
       }
     }
@@ -93,12 +93,12 @@ class AptForm extends Component {
     let { date, time } = this.state.form
     console.log(date);
     console.log(time);
-    form.appointment.exactTime = `${date}T${time}:00.000Z`
+    form.appointment.exact_time = `${date}T${time}:00.000Z`
     //"2018-12-13T11:27:00.000Z"
     console.log(this.state.form.appointment);
     createAppointment(this.state.form.appointment)
     .then(resp => {
-
+      console.log(resp);
     })
   }
 }
