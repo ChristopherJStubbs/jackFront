@@ -10,6 +10,7 @@ let getAppointments = function() {
 }
 
 let createAppointment = function(obj) {
+  console.log(obj);
   return fetch(BASE + `/appointments`, {
     body: JSON.stringify(obj),
     headers: {

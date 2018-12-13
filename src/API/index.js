@@ -29,7 +29,7 @@ let createMyTask = function(obj) {
 let getMyTasks = function(userid) {
   return auth.authFetch(BASE+ `/user/my_tasks/${userid}`)
   .then((resp) => {
-    let json = resp.json()
+    let json = resp.json();
     return json
   })
 }
