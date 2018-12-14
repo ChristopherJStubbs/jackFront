@@ -8,8 +8,8 @@ class My_Task_Card extends Component {
       <div id="myTaskTile" className="myTaskTile">
           <div className="bodyBox">
             <div className="CatInfoContainer">
-              {this.props.info.task.sub_category}
               <i class={this.iconChooser(this.props.info.task.category)}></i>
+              {this.props.info.task.sub_category}
             </div>
             <hr className="myTaskTopHR"/>
           </div>

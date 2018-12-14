@@ -8,6 +8,7 @@ class Task_Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      activeTab: 6,
       newTaskSuccess: false,
       task_index: [],
       my_tasks: []
@@ -15,6 +16,16 @@ class Task_Index extends Component {
   }
 
   render() {
+    let stillLoading = true;
+    let { task_index } = this.state
+    let houseTasks = task_index.filter(el => el.category === "House")
+    let carTasks = task_index.filter(el => el.category === "Car")
+    let medicalTasks = task_index.filter(el => el.category === "Medical")
+    let financialTasks = task_index.filter(el => el.category === "Money")
+    let petTasks = task_index.filter(el => el.category === "Pets")
+    let miscellaneousTasks = task_index.filter(el => el.category === "Miscellaneous")
+    let allTasks = task_index
+
     return (
       <main>
         <section>
@@ -22,13 +33,82 @@ class Task_Index extends Component {
           Tasks You Can Add:
           </h1>
         </section>
-        <section className="table">
-          <div className="bodyContainer">
-          {this.state.task_index.map((el, i) => {
-            return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
-          })}
-          </div>
+        <div className="table">
+        <section className="testing taskIndexContainer">
+            <section className="tabsContainer">
+                <div onClick={() => this.tabClick(0)} className="dashboardTab todayTab">
+                  House
+                </div>
+                <div onClick={() => this.tabClick(1)} className="dashboardTab">
+                  Car
+                </div>
+                <div onClick={() => this.tabClick(2)} className="dashboardTab">
+                  Medical
+                </div>
+                <div onClick={() => this.tabClick(3)} className="dashboardTab">
+                  Financial
+                </div>
+                <div onClick={() => this.tabClick(4)} className="dashboardTab">
+                  Pets
+                </div>
+                <div onClick={() => this.tabClick(5)} className="dashboardTab">
+                  Miscellaneous
+                </div>
+                <div onClick={() => this.tabClick(6)} className="dashboardTab">
+                  All My Tasks
+                </div>
+            </section>
         </section>
+        <section className="tilesContainer">
+        {(() => {
+                switch(this.state.activeTab) {
+                  case 0:
+                    return houseTasks.length > 0
+                      ?  houseTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No house tasks.</h3>
+                  case 1:
+                    return carTasks.length > 0
+                      ?  carTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No car tasks.</h3>
+                  case 2:
+                    return medicalTasks.length > 0
+                      ?  medicalTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                        })
+                        : <h3>No medical tasks.</h3>
+                  case 3:
+                    return financialTasks.length > 0
+                      ?  financialTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No finacial tasks.</h3>
+                  case 4:
+                    return petTasks.length > 0
+                      ?  petTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No pet tasks.</h3>
+                  case 5:
+                    return miscellaneousTasks.length > 0
+                      ?  miscellaneousTasks.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No tasks.</h3>
+                  case 6:
+                    return task_index.length > 0
+                      ?  task_index.map((el, i) => {
+                        return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+                      })
+                      : <h3>No tasks.</h3>
+                }
+            })()}
+
+        </section>
+        </div>
       </main>
     );
   }
@@ -42,6 +122,13 @@ class Task_Index extends Component {
     })
   }
 
+  tabClick = (tabNum) => {
+    this.setState({
+      activeTab: tabNum
+    })
+    console.log(tabNum);
+  }
+
   handleNewMyTaskObject = (newMyTaskObject) => {
     createMyTask(newMyTaskObject)
     .then(resp => {
@@ -51,3 +138,14 @@ class Task_Index extends Component {
 }
 
 export default Task_Index;
+
+//render logic//
+
+
+
+
+
+
+
+
+// switch logic//
