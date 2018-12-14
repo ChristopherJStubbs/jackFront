@@ -25,7 +25,7 @@ a {
   max-width: 275px;
   min-height: 300px;
   position: relative;
-  box-shadow: 3px 5px rgba(0, 0, 0, .15)
+  box-shadow: 3px 5px rgba(0, 0, 0, .15);
 }
 
 .editTile {

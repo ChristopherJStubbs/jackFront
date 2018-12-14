@@ -23,6 +23,7 @@ class App extends Component {
 
       this.auth = new AuthService()
       this.state = {
+        marginRight: 0,
         authenticated: this.auth.loggedIn(),
         hasToken: false,
         myTasks: [],
@@ -32,8 +33,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="b">
-        <Header />
+      <div style={{marginRight: this.state.marginRight}} className="b">
+        <Header openSideMenu={this.openSideMenu}/>
         <div>
           <Router>
             {
@@ -81,6 +82,15 @@ class App extends Component {
       }
       )
     }
+  }
+
+  openSideMenu = () => {
+    console.log("made it in");
+    let { marginRight } = this.state
+    marginRight = marginRight == 0 ? 200 : 0
+    this.setState({
+      marginRight: marginRight
+    })
   }
 
   refresh = () => {

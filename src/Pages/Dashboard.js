@@ -44,7 +44,13 @@ class Dashboard extends Component {
       return tempUTC < this.addDays(todayUTC,90)
     })
     return (
-      <main className="table">
+      <main>
+        <section>
+          <h1 className="greeting">
+          Dashboard:
+          </h1>
+        </section>
+        <div className="table">
         <section className="testing DashboardContainer">
             <section className="tabsContainer">
                 <div onClick={() => this.tabClick(0)} className="dashboardTab todayTab">
@@ -106,6 +112,7 @@ class Dashboard extends Component {
             })()}
 
         </section>
+        </div>
       </main>
     );
    }

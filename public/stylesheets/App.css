@@ -1,3 +1,8 @@
+html {
+  transition: 0.5s;
+  background-color: #292f36;
+}
+
 * {
   font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -9,7 +14,8 @@ a:hover {
 .b {
   background-color: #292f36;
   min-height: 100vh;
-  position: relative;;
+  position: relative;
+  transition: 0.5s
 }
 
 input,button {
