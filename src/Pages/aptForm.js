@@ -10,16 +10,19 @@ class AptForm extends Component {
     this.state = {
       sign_inSuccess: false,
       form: {
+        date: "",
+        time: "",
         appointment: {
           name: "",
           phone_number: "",
-          time: ""
+          exact_time: ""
         }
       }
     }
   }
   render() {
-    let { name, phone_number, time } = this.state.form.appointment
+    let { name, phone_number } = this.state.form.appointment
+    let { date, time } = this.state.form
     console.log(this.state.form);
     return (
       <div>
@@ -29,7 +32,7 @@ class AptForm extends Component {
               Name
             </Col>
             <Col sm={10}>
-              <FormControl onChange={this.onChange} name="name" value={name} type="text" placeholder="Name" />
+              <FormControl onChange={this.onAppointmentChange} name="name" value={name} type="text" placeholder="Name" />
             </Col>
           </FormGroup>
 
@@ -38,7 +41,7 @@ class AptForm extends Component {
               Phone
             </Col>
             <Col sm={10}>
-              <FormControl onChange={this.onChange} name="phone_number" value={phone_number} type="text" placeholder="(800)555-5555" />
+              <FormControl onChange={this.onAppointmentChange} name="phone_number" value={phone_number} type="text" placeholder="(800)555-5555" />
             </Col>
           </FormGroup>
 
@@ -47,7 +50,16 @@ class AptForm extends Component {
               Date
             </Col>
             <Col sm={10}>
-              <FormControl onChange={this.onChange} name="time" value={time} type="time" />
+              <FormControl onChange={this.onFormChange} name="date" value={date} type="date" />
+            </Col>
+          </FormGroup>
+
+          <FormGroup controlId="formHorizontalTime">
+            <Col componentClass={ControlLabel} sm={2}>
+              Time
+            </Col>
+            <Col sm={10}>
+              <FormControl onChange={this.onFormChange} name="time" value={time} type="time" />
             </Col>
           </FormGroup>
 
@@ -60,7 +72,15 @@ class AptForm extends Component {
       </div>
     );
   }
-    onChange = (e) => {
+  onFormChange = (e) => {
+    let { form } = this.state
+    form[e.target.name] = e.target.value
+    this.setState ({
+      form
+    })
+  }
+
+  onAppointmentChange = (e) => {
     let { form } = this.state
     form.appointment[e.target.name] = e.target.value
     this.setState ({
@@ -69,9 +89,16 @@ class AptForm extends Component {
   }
     onSubmit = (e) => {
     e.preventDefault()
-    createAppointment(this.state.form)
+    let { form } = this.state
+    let { date, time } = this.state.form
+    console.log(date);
+    console.log(time);
+    form.appointment.exact_time = `${date}T${time}:00.000Z`
+    //"2018-12-13T11:27:00.000Z"
+    console.log(this.state.form.appointment);
+    createAppointment(this.state.form.appointment)
     .then(resp => {
-
+      console.log(resp);
     })
   }
 }

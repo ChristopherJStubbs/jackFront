@@ -29,7 +29,7 @@ let createMyTask = function(obj) {
 let getMyTasks = function(userid) {
   return auth.authFetch(BASE+ `/user/my_tasks/${userid}`)
   .then((resp) => {
-    let json = resp.json()
+    let json = resp.json();
     return json
   })
 }
@@ -67,11 +67,20 @@ let deleteMyTask = function(id) {
   })
 }
 
+let getProfile = function(userID) {
+  return auth.authFetch(BASE + `/profiles/${userID}`)
+  .then(resp => {
+    let json = resp.json()
+    return json
+  })
+}
+
 export {
   getTasks,
   createMyTask,
   getMyTasks,
   getMyTask,
   editMyTask,
-  deleteMyTask
+  deleteMyTask,
+  getProfile
 }
