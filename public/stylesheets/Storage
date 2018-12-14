@@ -1,3 +1,13 @@
+Colors for our site:
+
+  Burnt Orange = #CFR5300
+  Slate Gray = #292F36
+   - Darker slate gray (for tile backgrounds): #242A30
+  Almost White = #EFE9E7
+  Almost Black = #0A090C
+
+
+
 Car = <i class="fas fa-car"></i>
 
 House = <i class="far fa-home"></i>

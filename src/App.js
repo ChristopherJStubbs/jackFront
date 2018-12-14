@@ -5,7 +5,6 @@ import Dashboard from './Pages/Dashboard.js'
 // import Edit_Tasks from './Pages/Edit_tasks.js'
 import Home from './Pages/Home.js'
 import Instructions from './Pages/Instructions.js'
-import My_Tasks from './Pages/My_tasks.js'
 import Registration from './Pages/Registration.js'
 import Sign_In from './Pages/Sign_in.js'
 import Task_Index from './Pages/Task_index.js'
@@ -23,6 +22,7 @@ class App extends Component {
 
       this.auth = new AuthService()
       this.state = {
+        marginRight: 0,
         authenticated: this.auth.loggedIn(),
         hasToken: false,
         myTasks: [],
@@ -32,8 +32,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="b">
-        <Header />
+      <div style={{marginRight: this.state.marginRight}} className="b">
+        <Header openSideMenu={this.openSideMenu}/>
         <div>
           <Router>
             {
@@ -80,6 +80,15 @@ class App extends Component {
       }
       )
     }
+  }
+
+  openSideMenu = () => {
+    console.log("made it in");
+    let { marginRight } = this.state
+    marginRight = marginRight == 0 ? 200 : 0
+    this.setState({
+      marginRight: marginRight
+    })
   }
 
   refresh = () => {

@@ -3,9 +3,16 @@ import React, { Component } from 'react';
 class Instructions extends Component {
   render() {
     return (
-      <div>
-        <h1>This is the instructions page</h1>
-      </div>
+      <main>
+        <section>
+          <h1 className="greeting">
+          Instructions:
+          </h1>
+        </section>
+        <section className="instructionsContents">
+          This section will contain a how to of using our site if we have time. This is in the icebox right now.
+        </section>
+      </main>
     )
   }
 }
