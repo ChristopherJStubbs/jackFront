@@ -16,13 +16,20 @@ class Task_Index extends Component {
 
   render() {
     return (
-      <section className="table">
-        <main className="bodyContainer">
-        {this.state.task_index.map((el, i) => {
-          return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
-        })}
-        </main>
-      </section>
+      <main>
+        <section>
+          <h1 className="greeting">
+          Tasks You Can Add:
+          </h1>
+        </section>
+        <section className="table">
+          <div className="bodyContainer">
+          {this.state.task_index.map((el, i) => {
+            return <Task_Card key={i} info={el} handleNewMyTaskObject={this.handleNewMyTaskObject} userID={this.props.userID}/>
+          })}
+          </div>
+        </section>
+      </main>
     );
   }
 

@@ -20,13 +20,13 @@ padding-right: 100px;
 }
 
 .greeting {
-  padding-left: 30px;
+  padding-left: 40px;
   margin-bottom: 20px;
   font-weight: 500;
   color: #CF5300;
   border-bottom: 1px solid #EFE9E7;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 #formHorizontalPassword,#formHorizontalEmail {

@@ -4,6 +4,8 @@ import Footer from './Components/Footer.js'
 import Dashboard from './Pages/Dashboard.js'
 // import Edit_Tasks from './Pages/Edit_tasks.js'
 import Home from './Pages/Home.js'
+import Instructions from './Pages/Instructions.js'
+import My_Tasks from './Pages/My_tasks.js'
 import Registration from './Pages/Registration.js'
 import Sign_In from './Pages/Sign_in.js'
 import Task_Index from './Pages/Task_index.js'
@@ -40,6 +42,7 @@ class App extends Component {
                 <Redirect from="/register" to="/" />
                 <Redirect from="/login" to="/" />
                 <Route exact path='/user/my_tasks/:id/edit' render={(routeProps) => <EditMyTaskCard refresh={this.refresh} {...routeProps}/>} />
+                <Route exact path='/instructions' component={Instructions} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route exact path='/appointments' component={Appointments} />
                 <Route path='/appointments/new' component={AptForm} />
