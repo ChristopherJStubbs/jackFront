@@ -29,6 +29,7 @@ class TaskExpansionRow extends Component {
   }
   render() {
     console.log(this.state.form);
+    console.log(this.props);
     return (
       <tr>
         <td>
@@ -68,7 +69,7 @@ class TaskExpansionRow extends Component {
     .then (resp => {
       console.log(resp);
       form.my_task.appointment_attributes.name = resp.first_name
-      form.my_task.appointment_attributes.phone_number = '+13256602651'
+      form.my_task.appointment_attributes.phone_number = resp.phone
   })
     this.setState({form})
   }
