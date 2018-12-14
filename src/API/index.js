@@ -8,6 +8,9 @@ let getTasks = function() {
   console.log("got to api");
   return auth.authFetch(BASE + '/tasks')
   .then((resp) => {
+    if(resp.errors) {
+      console.log(resp);
+    }
     let json = resp.json()
     return json
   })

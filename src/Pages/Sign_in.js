@@ -64,11 +64,12 @@ class Sign_In extends Component {
   }
     onSubmit = (e) => {
     e.preventDefault()
+    console.log(this.state.form);
     this.auth.sign_in(this.state.form)
     .then(json => {
       // console.log("got to second then:", json)
       if(json.errors) {
-        // console.log("!! ERRORS !!", json.errors);
+        console.log("!! ERRORS !!", json.errors);
         this.setState({
           errors: json.errors
         })
