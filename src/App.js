@@ -41,7 +41,6 @@ class App extends Component {
               <Switch> //protected paths
                 <Redirect from="/register" to="/" />
                 <Redirect from="/login" to="/" />
-                <Route exact path='/user/my_tasks/:id' component={My_Tasks} />
                 <Route exact path='/user/my_tasks/:id/edit' render={(routeProps) => <EditMyTaskCard refresh={this.refresh} {...routeProps}/>} />
                 <Route exact path='/instructions' component={Instructions} />
                 <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
