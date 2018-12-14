@@ -90,5 +90,11 @@ justify-content: space-around;
 }
 
 .errors {
-  color: #EFE9E7;
+  color: #CF5300;
+  font-weight: bold;
+  padding-left: 120px;
+}
+
+.errors::first-letter {
+  text-transform: capitalize;
 }
