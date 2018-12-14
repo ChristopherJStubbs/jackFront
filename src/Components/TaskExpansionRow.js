@@ -42,7 +42,7 @@ class TaskExpansionRow extends Component {
         <br/>
         <td>
           <label>
-            Time:
+            Time (PST):
           </label>
           <br/>
           <input type="time" name="time" onChange={this.handleFormChange} required/>
