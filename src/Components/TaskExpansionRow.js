@@ -27,6 +27,7 @@ class TaskExpansionRow extends Component {
 
   render() {
     console.log(this.state.form);
+    console.log(this.props);
     return (
       <tr className="expansionContainer">
         <td>
@@ -39,7 +40,7 @@ class TaskExpansionRow extends Component {
         <br/>
         <td>
           <label>
-            Time:
+            Time (PST):
           </label>
           <br/>
           <input type="time" name="time" onChange={this.handleFormChange} required/>

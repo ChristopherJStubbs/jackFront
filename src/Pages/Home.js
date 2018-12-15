@@ -22,7 +22,7 @@ class Home extends Component {
         <div className="About-Container">
           <h3 className="About-Us"> ABOUT US </h3>
           <p className="About-Me">
-            Own Up Grown Up is a scheudling and reminder application that bridges the gap between being an adult and actually rememebering what adults have to do. Own Up Grown Up's platform makes scheudling all your "adulting" needs fast and reliable.  From car maintenance to home maintenance, Own Up Grown Up has all your scheudling and reminder needs.
+            Own Up Grown Up is a scheduling and reminder application that bridges the gap between being an adult and actually remembering what adults have to do. Own Up Grown Up's platform makes scheduling all your "adulting" needs fast and reliable.  From car maintenance to home maintenance, Own Up Grown Up has all your scheduling and reminder needs.
           </p>
           <br/>
           <p className="About-Me">
