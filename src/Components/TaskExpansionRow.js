@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services';
+import AcceptButton from './AcceptButton'
 import { getProfile } from '../API';
 
 
@@ -18,19 +19,16 @@ class TaskExpansionRow extends Component {
           frequency: '',
           completed: false,
           notes: '',
-          appointment_attributes: {
-            name: '',
-            phone_number: '',
-            exact_time: ''
-          }
+          exact_time: '',
         }
       }
     }
   }
+
   render() {
     console.log(this.state.form);
     return (
-      <tr>
+      <tr className="expansionContainer">
         <td>
           <label>
             Due Date:
@@ -56,21 +54,10 @@ class TaskExpansionRow extends Component {
         </td>
         <br/>
         <td>
-          <button onClick={this.handleSubmit}>Accept!</button>
+            <AcceptButton accept={this.handleSubmit} />
         </td>
       </tr>
     );
-  }
-
-  componentDidMount() {
-    let { form } = this.state
-    getProfile(this.auth.getUserId())
-    .then (resp => {
-      console.log(resp);
-      form.my_task.appointment_attributes.name = resp.first_name
-      form.my_task.appointment_attributes.phone_number = '+13256602651'
-  })
-    this.setState({form})
   }
 
   handleMyTaskChange = (e) => {
@@ -90,7 +77,7 @@ class TaskExpansionRow extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let { form } = this.state
-    form.my_task.appointment_attributes.exact_time = `${form.my_task.due_date}T${form.time}:00.000Z`
+    form.my_task.exact_time = `${form.my_task.due_date}T${form.time}:00.000Z`
     console.log(form);
     this.props.handleNewMyTaskObject(form)
     this.props.toggle()

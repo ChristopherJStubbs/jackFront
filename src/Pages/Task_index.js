@@ -55,7 +55,7 @@ class Task_Index extends Component {
                   Miscellaneous
                 </div>
                 <div onClick={() => this.tabClick(6)} className="dashboardTab">
-                  All My Tasks
+                  All Tasks
                 </div>
             </section>
         </section>

@@ -61,7 +61,6 @@ class My_Task_Card extends Component {
   }
 
   iconChooser = (category) => {
-    console.log(category);
     let iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fa-question-circle fa-2x", "fa-money-bill fa-2x"]
     if (category === "House") {
       return iconArray[0]

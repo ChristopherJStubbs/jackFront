@@ -107,11 +107,12 @@ class EditMyTaskCard extends Component {
   }
 
   handleDelete = (id) => {
-    console.log(id);
+
+
     deleteMyTask(id)
     .then(resp => {
       this.setState({deleteSuccess: true})
-      console.log("DELETED");
+      console.log(resp);
     })
   }
 }
