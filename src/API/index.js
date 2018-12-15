@@ -58,9 +58,9 @@ let editMyTask = function(myTaskObj) {
   })
 }
 
-let deleteMyTask = function(id) {
-  return auth.authFetch(BASE + `/my_tasks/${id}`, {
-    body: JSON.stringify(id),
+let deleteMyTask = function(myTaskId) {
+  return auth.authFetch(BASE + `/my_tasks/${myTaskId}`, {
+    body: JSON.stringify(myTaskId),
     method: "DELETE"
   })
   .then(resp => {
@@ -85,5 +85,5 @@ export {
   getMyTask,
   editMyTask,
   deleteMyTask,
-  getProfile
+  getProfile,
 }
