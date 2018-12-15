@@ -18,7 +18,8 @@ class Registration extends Component {
             last_name: '',
             phone: '',
             home_owner: false,
-            car_owner: false
+            car_owner: false,
+            pet_owner: false,
           }
         }
       }
@@ -32,7 +33,7 @@ class Registration extends Component {
       Object.entries(this.state.errors).forEach(entry => {
         let key = entry[0]
         let value = entry[1]
-        errorMsgs.push(`${key} ${value}`)
+        errorMsgs.push(`${key} ${value}.`)
       })
     }
     return (
@@ -40,7 +41,7 @@ class Registration extends Component {
         <h1 className="greeting">
         Register:
         </h1>
-        <h3 className="text-danger">
+        <h3 className="errors">
           {errorMsgs[0]}
         </h3>
         <Form horizontal onSubmit={this.handleSubmit}>
@@ -49,7 +50,7 @@ class Registration extends Component {
               Email:
             </Col>
             <Col sm={10}>
-              <FormControl onChange={this.handleUserChange} name="email" value={email} type="email" placeholder="Email" />
+              <FormControl onChange={this.handleUserChange} name="email" value={email} type="email" placeholder="Email"/>
             </Col>
           </FormGroup>
           <FormGroup controlId="formHorizontalPassword">
@@ -57,7 +58,7 @@ class Registration extends Component {
               Password:
             </Col>
             <Col sm={10}>
-              <FormControl onChange={this.handleUserChange} name="password" value={password} type="password" placeholder="Password" />
+              <FormControl onChange={this.handleUserChange} name="password" value={password} type="password" placeholder="Password" required/>
             </Col>
           </FormGroup>
           <FormGroup controlId="formHorizontalFirstName">
@@ -91,6 +92,7 @@ class Registration extends Component {
             <Col>
               <Checkbox onChange={() => this.handleOwnershipChoice("home")} inline>Home</Checkbox>
               <Checkbox onChange={() => this.handleOwnershipChoice("car")} inline>Car</Checkbox>
+              <Checkbox onChange={() => this.handleOwnershipChoice("pet")} inline>Pet</Checkbox>
             </Col>
           </FormGroup>
           <FormGroup>
@@ -98,7 +100,7 @@ class Registration extends Component {
               <Button  type="submit">Register</Button>
             </Col>
           </FormGroup>
-        </Form>   
+        </Form>
       </div>
     )
   }
@@ -119,7 +121,6 @@ class Registration extends Component {
     e.preventDefault()
     let { form } = this.state
     form.user.profile_attributes.phone = '+1'+form.user.profile_attributes.phone
-    // if(this.isValid()){
       this.auth.register(form)
       .then(status => {
         if(status.errors){
@@ -129,9 +130,6 @@ class Registration extends Component {
           this.props.refresh()
         }
       })
-    // }else {
-    //   alert("ya done fucked up")
-    // }
   }
 
   handleOwnershipChoice = (type) => {
@@ -141,6 +139,8 @@ class Registration extends Component {
         form.user.profile_attributes.home_owner = !form.user.profile_attributes.home_owner
       case "car":
         form.user.profile_attributes.car_owner = !form.user.profile_attributes.car_owner
+      case "pet":
+        form.user.profile_attributes.pet_owner = !form.user.profile_attributes.pet_owner
     }
     this.setState ({
       form: form
@@ -150,10 +150,10 @@ class Registration extends Component {
   isValid = () => {
     const { email, password, profile_attributes } = this.state
     return(
-      // email == /\A[^@\s]+@[^@\s]+\z/ &&
-      // password != 0 && password < 6 &&
-      // profile_attributes.first_name != "" &&
-      // profile_attributes.last_name != "" &&
+      email == /\A[^@\s]+@[^@\s]+\z/ &&
+      password != 0 && password < 6 &&
+      profile_attributes.first_name != "" &&
+      profile_attributes.last_name != "" &&
       profile_attributes.phone == /(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/
     )
   }
