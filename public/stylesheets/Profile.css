@@ -1,0 +1,29 @@
+.profileContainer {
+  display: flex;
+  justify-content: center;
+  color: #EFE9E7;
+  border: 1px solid red;
+}
+
+.profilePersonal {
+
+}
+
+.profilePreferences {
+
+}
+
+.profileLabel {
+  font-size: 20px;
+}
+
+.profileDetail {
+
+}
+
+@media only screen and (max-width: 600px) {
+  .profileContainer{
+
+    
+  }
+}

@@ -12,6 +12,7 @@ let getTasks = function() {
       console.log(resp);
     }
     let json = resp.json()
+    console.log(json);
     return json
   })
 }
