@@ -17,17 +17,17 @@ class ViewPersonalProfile extends Component {
             <div>
               <tr>
                 <td className="profilePersonal">
-                  <p className="profileLabel">First Name |</p>
+                  <p className="profileLabel">First Name:</p>
                 </td>
               </tr>
               <tr>
                 <td className="profilePersonal">
-                  <p className="profileLabel">Last Name |</p>
+                  <p className="profileLabel">Last Name:</p>
                 </td>
               </tr>
               <tr>
                 <td className="profilePersonal">
-                  <p className="profileLabel">Phone |</p>
+                  <p className="profileLabel">Phone:</p>
                 </td>
               </tr>
             </div>

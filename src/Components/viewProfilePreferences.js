@@ -26,17 +26,17 @@ class ViewProfilePreferences extends Component {
           <div>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Home |</p>
+                <p className="profileLabel">Home:</p>
               </td>
             </tr>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Car |</p>
+                <p className="profileLabel">Car:</p>
               </td>
             </tr>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Pets |</p>
+                <p className="profileLabel">Pets:</p>
               </td>
             </tr>
           </div>
@@ -60,17 +60,17 @@ class ViewProfilePreferences extends Component {
           <div>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Medical |</p>
+                <p className="profileLabel">Medical:</p>
               </td>
             </tr>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Financial |</p>
+                <p className="profileLabel">Financial:</p>
               </td>
             </tr>
             <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Misc. |</p>
+                <p className="profileLabel">Misc:</p>
               </td>
             </tr>
           </div>

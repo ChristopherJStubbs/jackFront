@@ -28,65 +28,66 @@ class EditProfilePreferences extends Component {
         </section>
 
         <hr/>
-
-        <section className="profilePreferences">
-          <div>
-            <tr>
+        <div className="profilePreferences">
+          <section className="profilePreferences">
+            <div>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Home |</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Car |</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Pets |</p>
+                </td>
+              </tr>
+            </div>
+            <div>
               <td className="profilePersonal">
-                <p className="profileLabel">Home |</p>
+                <Toggle name="home" checked={this.state.profile.home_owner} onToggle={() => this.setState({...this.state.profile, home_owner: !this.state.profile.home_owner})}/>
               </td>
-            </tr>
-            <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Car |</p>
+                <Toggle name="car" checked={this.state.profile.car_owner} onToggle={() => this.setState({car_owner: !this.state.profile.car_owner})}/>
               </td>
-            </tr>
-            <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Pets |</p>
+                <Toggle name="pet" checked={this.state.profile.pet_owner} onToggle={() => this.setState({pet_owner: !this.state.profile.pet_owner})}/>
               </td>
-            </tr>
-          </div>
-          <div>
-            <td className="profilePersonal">
-              <Toggle name="home" checked={this.state.profile.home_owner} onToggle={() => this.setState({...this.state.profile, home_owner: !this.state.profile.home_owner})}/>
-            </td>
-            <td className="profilePersonal">
-              <Toggle name="car" checked={this.state.profile.car_owner} onToggle={() => this.setState({car_owner: !this.state.profile.car_owner})}/>
-            </td>
-            <td className="profilePersonal">
-              <Toggle name="pet" checked={this.state.profile.pet_owner} onToggle={() => this.setState({pet_owner: !this.state.profile.pet_owner})}/>
-            </td>
-          </div>
-          <div>
-            <tr>
+            </div>
+            <div>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Medical |</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Financial |</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="profilePreferences">
+                  <p className="profileLabel">Misc. |</p>
+                </td>
+              </tr>
+            </div>
+            <div>
               <td className="profilePersonal">
-                <p className="profileLabel">Medical |</p>
+                <Toggle name="medical" checked={this.state.profile.medical} onToggle={(value) => this.setState({medical: value})}/>
               </td>
-            </tr>
-            <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Financial |</p>
+                <Toggle name="financial" checked={this.state.profile.financial} onToggle={(value) => this.setState({financial: value})}/>
               </td>
-            </tr>
-            <tr>
               <td className="profilePersonal">
-                <p className="profileLabel">Misc. |</p>
+                <Toggle name="misc" checked={this.state.profile.misc} onToggle={(value) => this.setState({misc: value})}/>
               </td>
-            </tr>
-          </div>
-          <div>
-            <td className="profilePersonal">
-              <Toggle name="medical" checked={this.state.profile.medical} onToggle={(value) => this.setState({medical: value})}/>
-            </td>
-            <td className="profilePersonal">
-              <Toggle name="financial" checked={this.state.profile.financial} onToggle={(value) => this.setState({financial: value})}/>
-            </td>
-            <td className="profilePersonal">
-              <Toggle name="misc" checked={this.state.profile.misc} onToggle={(value) => this.setState({misc: value})}/>
-            </td>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
       </main>
     )
   }
