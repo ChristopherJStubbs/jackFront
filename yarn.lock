@@ -8440,6 +8440,11 @@ react-toggle-button@^2.2.0:
     prop-types "^15.6.0"
     react-motion "^0.5.2"
 
+react-toggle-component@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-toggle-component/-/react-toggle-component-1.0.4.tgz#64adc211c0e946c83796f2a8dce311386e08ab4f"
+  integrity sha512-z5xGQd8I5cAKi7oFyuLIicF9BVf6BDoukrFSM9k4wL8rTYGjJB0RaRG0XohYt7xY33ZWNYyavzyrTC1+nLsGlQ==
+
 react-transition-group@^2.0.0, react-transition-group@^2.2.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.1.tgz#67fbd8d30ebb1c57a149d554dbb82eabefa61f0d"

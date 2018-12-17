@@ -44,7 +44,7 @@ class App extends Component {
                 <Redirect from="/login" to="/" />
                 <Route exact path='/user/my_tasks/:id/edit' render={(routeProps) => <EditMyTaskCard refresh={this.refresh} {...routeProps}/>} />
                 <Route exact path='/instructions' component={Instructions} />
-                <Route exact path='/profile' component={Profile} />
+                <Route exact path='/profile' render={(routeProps) => <Profile refresh={this.refresh} {...routeProps}/>} />
                 <Route exact path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route exact path='/appointments' component={Appointments} />
                 <Route exact path='/appointments/new' component={AptForm} />
