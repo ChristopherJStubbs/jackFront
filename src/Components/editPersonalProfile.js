@@ -34,12 +34,15 @@ class EditPersonalProfile extends Component {
             <section className="column">
               <p className="profileLabel">
                 First Name:
+                <hr/>
               </p>
               <p className="profileLabel">
                 Last Name:
+                <hr/>
               </p>
               <p className="profileLabel">
                 Phone:
+                <hr/>
               </p>
             </section>
             <section className="column">
@@ -47,6 +50,7 @@ class EditPersonalProfile extends Component {
                 <FormGroup controlId="formHorizontalFirstName">
                   <Col sm={10}>
                     <input
+                      className="profile"
                       onChange={this.handleChange}
                       name="first_name"
                       value={profile.first_name}
@@ -59,6 +63,7 @@ class EditPersonalProfile extends Component {
                 <FormGroup controlId="formHorizontalLastName">
                   <Col sm={10}>
                     <input
+                      className="profile"
                       onChange={this.handleChange}
                       name="last_name"
                       value={profile.last_name}
@@ -71,6 +76,7 @@ class EditPersonalProfile extends Component {
                 <FormGroup controlId="formHorizontalPhone">
                   <Col sm={10}>
                     <input
+                      className="profile"
                       onChange={this.handleChange}
                       name="phone"
                       value={profile.phone}

@@ -16,23 +16,29 @@ class ViewPersonalProfile extends Component {
           <section className="column">
             <p className="profileLabel">
               First Name:
+              <hr/>
             </p>
             <p className="profileLabel">
               Last Name:
+              <hr/>
             </p>
             <p className="profileLabel">
               Phone:
+              <hr/>
             </p>
           </section>
           <section className="column">
             <p className="profileLabel">
               {first_name}
+              <hr/>
             </p>
             <p className="profileLabel">
               {last_name}
+              <hr/>
             </p>
             <p className="profileLabel">
               {phone}
+              <hr/>
             </p>
           </section>
         </section>

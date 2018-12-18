@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   color: #EFE9E7;
-
 }
 
 .icon {
@@ -44,7 +43,10 @@
   width: 150px;
 }
 
-
+input.profile {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
 @media only screen and (max-width: 800px) {
   .profileContainer{

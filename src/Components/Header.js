@@ -49,6 +49,11 @@ class Header extends Component {
                     ADD TASKS
                   </a>
                 </div>
+                <div className="navBarLink">
+                  <a href='/profile'>
+                    SETTINGS
+                  </a>
+                </div>
                 <div className="navBarLink logoutLink">
                   <a onClick={this.handleClick} href="/">
                     LOGOUT
