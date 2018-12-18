@@ -1,7 +1,7 @@
 import AuthService from '../services';
 const auth = new AuthService();
 
-const BASE = 'http://localhost:3000'
+const BASE = 'https://ouguback.herokuapp.com/'
 
 
 let getTasks = function() {

@@ -2,4 +2,4 @@ Own Up Grown Up is a scheduling and reminder application that bridges the gap be
 
 Own Up Grown Up was created by TEAM JACK (Julianne Peters, Andrew Garrett, Chris Stubbs, and Kristen McCloud) and includes professional design and security.  Using our application and the Twilio API, you will always get your reminder and always be able to change your personal preferences.
 
-Don't forget to remember, or just use Own Up Grown Up.
+Don't forget to remember, or just use Own Up Grown Up. 

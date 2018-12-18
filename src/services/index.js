@@ -2,7 +2,7 @@ import decode from 'jwt-decode'
 
 export default class AuthService {
 	constructor(domain) {
-		this.domain = 'http://localhost:3000'
+		this.domain = 'https://ouguback.herokuapp.com/'
 	}
 
 	sign_in = (credentials) => {
