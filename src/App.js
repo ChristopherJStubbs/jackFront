@@ -14,6 +14,7 @@ import { getMyTasks } from './API';
 import Appointments from './Pages/Appointments'
 import AptForm from './Pages/aptForm'
 import EditMyTaskCard from './Components/editMyTaskCard'
+import Profile from './Pages/Profile'
 
 
 class App extends Component {
@@ -43,9 +44,10 @@ class App extends Component {
                 <Redirect from="/login" to="/" />
                 <Route exact path='/user/my_tasks/:id/edit' render={(routeProps) => <EditMyTaskCard refresh={this.refresh} {...routeProps}/>} />
                 <Route exact path='/instructions' component={Instructions} />
-                <Route path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
+                <Route exact path='/profile' render={(routeProps) => <Profile refresh={this.refresh} {...routeProps}/>} />
+                <Route exact path='/tasks' render={(props) => <Task_Index userID={this.state.userID} />} />
                 <Route exact path='/appointments' component={Appointments} />
-                <Route path='/appointments/new' component={AptForm} />
+                <Route exact path='/appointments/new' component={AptForm} />
                 <Route path='/' render={(props) => <Dashboard myTasks={this.state.myTasks} />} />
               </Switch>
 
@@ -71,14 +73,13 @@ class App extends Component {
     let thisUserID = this.auth.getUserId()
     if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
       getMyTasks(thisUserID)
-    .then((APImyTasks)=> {
+      .then((APImyTasks)=> {
       // let { myTasks } = this.state
-      this.setState({
-        myTasks: APImyTasks,
-        userID: thisUserID
+        this.setState({
+          myTasks: APImyTasks,
+          userID: thisUserID
+        })
       })
-      }
-      )
     }
   }
 

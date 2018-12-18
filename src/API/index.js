@@ -12,6 +12,7 @@ let getTasks = function() {
       console.log(resp);
     }
     let json = resp.json()
+    console.log(json);
     return json
   })
 }
@@ -53,7 +54,7 @@ let editMyTask = function(myTaskObj) {
   })
   .then(resp => {
     let json = resp
-    console.log(json.errors)
+    console.log(json)
     return json
   })
 }
@@ -78,6 +79,19 @@ let getProfile = function(userID) {
   })
 }
 
+let editProfile = function(profileObj) {
+  console.log(profileObj)
+  return auth.authFetch(BASE + `/profiles/${profileObj.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(profileObj),
+  })
+  .then(resp => {
+    let json = resp.json()
+    console.log(json)
+    return json
+  })
+}
+
 export {
   getTasks,
   createMyTask,
@@ -86,4 +100,5 @@ export {
   editMyTask,
   deleteMyTask,
   getProfile,
+  editProfile
 }
