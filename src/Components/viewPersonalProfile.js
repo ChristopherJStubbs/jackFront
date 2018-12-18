@@ -5,51 +5,37 @@ class ViewPersonalProfile extends Component {
     let { first_name, last_name, phone } = this.props.profile
     return (
       <main>
-        <div>
-          <section className="profileTitle">
-            <h2>Personal Info</h2>
-            <i className="fas fa-edit fa-2x" onClick={this.props.handlePersonalClick}></i>
-          </section>
+        <section className="profileTitle">
+          <h2>Personal Info</h2>
+          <i className="fas fa-edit fa-2x icon" onClick={this.props.handlePersonalClick}></i>
+        </section>
 
-          <hr/>
+        <hr/>
 
-          <section className="profilePersonal">
-            <div>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">First Name:</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">Last Name:</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">Phone:</p>
-                </td>
-              </tr>
-            </div>
-            <div>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileDetail">{first_name}</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileDetail">{last_name}</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileDetail">{phone}</p>
-                </td>
-              </tr>
-            </div>
+        <section id="profileSection">
+          <section className="column">
+            <p className="profileLabel">
+              First Name:
+            </p>
+            <p className="profileLabel">
+              Last Name:
+            </p>
+            <p className="profileLabel">
+              Phone:
+            </p>
           </section>
-        </div>
+          <section className="column">
+            <p className="profileLabel">
+              {first_name}
+            </p>
+            <p className="profileLabel">
+              {last_name}
+            </p>
+            <p className="profileLabel">
+              {phone}
+            </p>
+          </section>
+        </section>
       </main>
     )
   }

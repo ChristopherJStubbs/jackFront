@@ -12,6 +12,7 @@ class Profile extends Component {
     super(props)
     this.auth= new AuthService()
     this.state = {
+      userID: this.auth.getUserId(),
       editPersonal: false, //toggles from view to edit if true
       editPreferences: false, //toggles from view to edit if true
       profile: {
@@ -37,12 +38,14 @@ class Profile extends Component {
               ? <EditPersonalProfile
                   profile={this.state.profile}
                   handlePersonalClick={this.handlePersonalClick}
-                  refresh={this.props.refresh}
+                  refresh={this.refreshProfile}
+                  X={this.state.editPersonal}
                 />
               : <ViewPersonalProfile
                   profile={this.state.profile}
                   handlePersonalClick={this.handlePersonalClick}
-                  refresh={this.props.refresh}
+                  refresh={this.refreshProfile}
+                  X={this.state.editPersonal}
                 />
             }
 
@@ -51,15 +54,17 @@ class Profile extends Component {
             {this.state.editPreferences
               ? <EditProfilePreferences
                   profile={this.state.profile}
-                  handlePersonalClick={this.handlePersonalClick}
-                  refresh={this.props.refresh}
+                  handlePreferencesClick={this.handlePreferencesClick}
+                  refresh={this.refreshProfile}
+                  X={this.state.editPreferences}
                 />
               : <ViewProfilePreferences
                 home_owner={home_owner}
                 car_owner={car_owner}
                 pet_owner={pet_owner}
                 handlePreferencesClick={this.handlePreferencesClick}
-                refresh={this.props.refresh}
+                refresh={this.refreshProfile}
+                X={this.state.editPreferences}
               />
             }
 
@@ -84,6 +89,15 @@ class Profile extends Component {
   handlePreferencesClick = () => {
     this.setState({editPreferences: !this.state.editPreferences})
   }
+
+  refreshProfile = () => {
+    getProfile(this.auth.getUserId())
+    .then(APIprofile => {
+      console.log(APIprofile);
+      this.setState({profile: APIprofile})
+    })
+  }
+
 }
 
 export default Profile;

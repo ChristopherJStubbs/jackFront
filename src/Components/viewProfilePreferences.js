@@ -17,80 +17,46 @@ class ViewProfilePreferences extends Component {
       <main>
         <section className="profileTitle">
           <h2>Task Preferences</h2>
-          <i className="fas fa-edit fa-2x" onClick={this.props.handlePreferencesClick}></i>
+          <i className="fas fa-edit fa-2x icon" onClick={this.props.handlePreferencesClick}></i>
         </section>
 
         <hr/>
 
-        <section className="profilePreferences">
-          <div>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Home:</p>
-              </td>
-            </tr>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Car:</p>
-              </td>
-            </tr>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Pets:</p>
-              </td>
-            </tr>
-          </div>
-          <div>
-            <td className="profilePersonal">
-              <p className="profileDetail">
-                {home_owner ? "ON" : "OFF"}
-              </p>
-            </td>
-            <td className="profilePersonal">
-              <p className="profileDetail">
-                {car_owner ? "ON" : "OFF"}
-              </p>
-            </td>
-            <td className="profilePersonal">
-              <p className="profileDetail">
-                {pet_owner ? "ON" : "OFF"}
-              </p>
-            </td>
-          </div>
-          <div>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Medical:</p>
-              </td>
-            </tr>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Financial:</p>
-              </td>
-            </tr>
-            <tr>
-              <td className="profilePersonal">
-                <p className="profileLabel">Misc:</p>
-              </td>
-            </tr>
-          </div>
-          <div>
-          <td className="profilePersonal">
-            <p className="profileDetail">
+        <section id="profileSection">
+          <section className="column">
+            <p className="profileLabel">
+              Home:
+              <hr/>
+              {home_owner ? "ON" : "OFF"}
+            </p>
+            <p className="profileLabel">
+              Car:
+              <hr/>
+              {car_owner ? "ON" : "OFF"}
+            </p>
+            <p className="profileLabel">
+              Pets:
+              <hr/>
+              {pet_owner ? "ON" : "OFF"}
+            </p>
+          </section>
+          <section className="column">
+            <p className="profileLabel">
+              Medical:
+              <hr/>
               {medical ? "ON" : "OFF"}
             </p>
-          </td>
-          <td className="profilePersonal">
-            <p className="profileDetail">
+            <p className="profileLabel">
+              Financial:
+              <hr/>
               {financial ? "ON" : "OFF"}
             </p>
-          </td>
-          <td className="profilePersonal">
-            <p className="profileDetail">
+            <p className="profileLabel">
+              Misc:
+              <hr/>
               {misc ? "ON" : "OFF"}
             </p>
-          </td>
-          </div>
+          </section>
         </section>
       </main>
     )

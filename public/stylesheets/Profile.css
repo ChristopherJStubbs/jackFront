@@ -5,50 +5,26 @@
 
 }
 
+.icon {
+  margin-left: 30px
+}
+
 .profileTitle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-width: 300px;
 }
 
-div.profilePersonal {
+#profileSection {
+  display: flex;
   text-align: center;
-  margin-right: 30px;
-  width: 300px;
+  width: 365px;
+  min-height: 150px;
 }
 
-td.profilePersonal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  margin-right: 15px;
-}
-
-section.profilePersonal {
-  display: flex;
-  justify-content: center;
-}
-
-div.profilePreferences {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-left: 30px;
-  min-width: 400px;
-}
-
-td.profilePreferences {
-  display: flex;
-  flex-direction: row;
-}
-
-section.profilePreferences {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  max-width: 350px;
+.column {
+  margin-left: 10px;
 }
 
 .profileLabel {
@@ -60,40 +36,15 @@ section.profilePreferences {
   width: 150px;
 }
 
-.profileDetail {
+.editPersonal {
   display: flex;
-  justify-content: left;
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-input.profileDetail {
-  margin-top: 7px;
-}
-
-.radios {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 50px;
-  height: 25px;
-  margin-bottom: 30px;
+  padding-top: 20px;
+  width: 150px;
 }
 
-.radioButton.active {
-  color: #EFE9E7;
-  background-color: #292F36;
-}
 
-.radioButton:hover {
-  color: #EFE9E7;
-  background-color: #292F36;
-}
-
-.radioButton.active:hover {
-  color: #EFE9E7;
-  background-color: #292F36;
-}
 
 @media only screen and (max-width: 800px) {
   .profileContainer{
