@@ -4,11 +4,6 @@ exports[`renders the Task_card correctly 1`] = `
 <div
   className="tile"
 >
-  <div
-    className="theContainer"
-  >
-    &lt;h2 className="title"&gt;this is a test&lt;/h2&gt;
-  </div>
   <div>
     <div
       className="bodyBox box"

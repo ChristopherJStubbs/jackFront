@@ -14,9 +14,6 @@ class Task_Card extends Component {
   render() {
     return (
       <div className="tile">
-          <div className="theContainer">
-              { this.props.info.title ? `<h2 className="title">${this.props.info.title }</h2>` : ' '}
-          </div>
         <div>
           <div className="bodyBox box">
             <div className="CatInfoContainer">

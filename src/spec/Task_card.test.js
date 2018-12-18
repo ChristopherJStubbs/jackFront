@@ -17,7 +17,14 @@ test('renders the Task_card correctly', () => {
     expect(json).toMatchSnapshot();
 })
 
-test('the title should display a h2 element', () => {
-    const wrapper = shallow(<Task_Card info={taskAtts} />);
-    const containerShallow = wrapper.find('.theContainer')
-})
+// NOTE: fake testing below
+
+
+// <div className="theContainer">
+//     { this.props.info.title ? `<h2 className="title">${this.props.info.title }</h2>` : ' '}
+// </div>
+
+// test('the title should display a h2 element', () => {
+//     const wrapper = shallow(<Task_Card info={taskAtts} />);
+//     const containerShallow = wrapper.find('.theContainer')
+// })
