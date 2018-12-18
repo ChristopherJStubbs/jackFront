@@ -16,7 +16,7 @@ class EditPersonalProfile extends Component {
         }
       }
     }
-  }
+}
   render() {
     console.log(this.state.form);
     let { profile } = this.state.form
@@ -24,47 +24,70 @@ class EditPersonalProfile extends Component {
       <main>
         <div>
           <section className="profileTitle">
-            <h2>Edit Personal Info</h2>
-            <i className="far fa-check-square fa-2x" onClick={this.handleSubmit}></i>
+            <h2>Edit Info</h2>
+            <i className="far fa-check-square fa-2x icon" onClick={this.handleSubmit}></i>
           </section>
 
           <hr/>
 
-          <section className="profilePersonal">
-            <div>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">First Name |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">Last Name |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePersonal">
-                  <p className="profileLabel">Phone |</p>
-                </td>
-              </tr>
-            </div>
-            <Form>
-              <FormGroup controlId="formHorizontalFirstName">
-                <Col sm={10}>
-                  <input className="profileDetail" onChange={this.handleChange} name="first_name" value={profile.first_name} type="FirstName" placeholder="First Name" />
-                </Col>
-              </FormGroup>
-              <FormGroup controlId="formHorizontalLastName">
-                <Col sm={10}>
-                  <input className="profileDetail" onChange={this.handleChange} name="last_name" value={profile.last_name} type="LastName" placeholder="Last Name" />
-                </Col>
-              </FormGroup>
-              <FormGroup controlId="formHorizontalPhone">
-                <Col sm={10}>
-                  <input className="profileDetail" onChange={this.handleChange} name="phone" value={profile.phone} type="phone" placeholder="+11234567890" />
-                </Col>
-              </FormGroup>
-            </Form>
+          <section id="profileSection">
+            <section className="column">
+              <p className="profileLabel">
+                First Name:
+                <hr/>
+              </p>
+              <p className="profileLabel">
+                Last Name:
+                <hr/>
+              </p>
+              <p className="profileLabel">
+                Phone:
+                <hr/>
+              </p>
+            </section>
+            <section className="column">
+              <Form className="editPersonal">
+                <FormGroup controlId="formHorizontalFirstName">
+                  <Col sm={10}>
+                    <input
+                      className="profile"
+                      onChange={this.handleChange}
+                      name="first_name"
+                      value={profile.first_name}
+                      type="FirstName"
+                      placeholder="First Name"
+                      />
+                      <br/>
+                  </Col>
+                </FormGroup>
+                <FormGroup controlId="formHorizontalLastName">
+                  <Col sm={10}>
+                    <input
+                      className="profile"
+                      onChange={this.handleChange}
+                      name="last_name"
+                      value={profile.last_name}
+                      type="LastName"
+                      placeholder="Last Name"
+                      />
+                      <br/>
+                  </Col>
+                </FormGroup>
+                <FormGroup controlId="formHorizontalPhone">
+                  <Col sm={10}>
+                    <input
+                      className="profile"
+                      onChange={this.handleChange}
+                      name="phone"
+                      value={profile.phone}
+                      type="phone"
+                      placeholder="+11234567890"
+                      />
+                      <br/>
+                  </Col>
+                </FormGroup>
+              </Form>
+            </section>
           </section>
         </div>
       </main>

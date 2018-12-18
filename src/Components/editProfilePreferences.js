@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services'
-import { getProfile } from '../API'
+import { getProfile, editProfile } from '../API'
 import { ButtonToolbar,ToggleButtonGroup,ToggleButton } from 'react-bootstrap';
 import Toggle from "react-toggle-component"
 import "react-toggle-component/styles.css"
@@ -20,74 +20,76 @@ class EditProfilePreferences extends Component {
   }
   render() {
     console.log(this.state);
+    let { home_owner,car_owner,pet_owner } = this.state
     return (
       <main>
         <section className="profileTitle">
-          <h2>Task Preferences</h2>
-          <i className="fas fa-edit fa-2x" onClick={this.props.handlePreferencesClick}></i>
+          <h2>Edit Preferences</h2>
+          <i className="far fa-check-square fa-2x icon" onClick={this.handleSubmit}></i>
         </section>
 
         <hr/>
-        <div className="profilePreferences">
-          <section className="profilePreferences">
-            <div>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Home |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Car |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Pets |</p>
-                </td>
-              </tr>
-            </div>
-            <div>
-              <td className="profilePersonal">
-                <Toggle name="home" checked={this.state.profile.home_owner} onToggle={() => this.setState({...this.state.profile, home_owner: !this.state.profile.home_owner})}/>
-              </td>
-              <td className="profilePersonal">
-                <Toggle name="car" checked={this.state.profile.car_owner} onToggle={() => this.setState({car_owner: !this.state.profile.car_owner})}/>
-              </td>
-              <td className="profilePersonal">
-                <Toggle name="pet" checked={this.state.profile.pet_owner} onToggle={() => this.setState({pet_owner: !this.state.profile.pet_owner})}/>
-              </td>
-            </div>
-            <div>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Medical |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Financial |</p>
-                </td>
-              </tr>
-              <tr>
-                <td className="profilePreferences">
-                  <p className="profileLabel">Misc. |</p>
-                </td>
-              </tr>
-            </div>
-            <div>
-              <td className="profilePersonal">
-                <Toggle name="medical" checked={this.state.profile.medical} onToggle={(value) => this.setState({medical: value})}/>
-              </td>
-              <td className="profilePersonal">
-                <Toggle name="financial" checked={this.state.profile.financial} onToggle={(value) => this.setState({financial: value})}/>
-              </td>
-              <td className="profilePersonal">
-                <Toggle name="misc" checked={this.state.profile.misc} onToggle={(value) => this.setState({misc: value})}/>
-              </td>
-            </div>
+
+        <section id="profileSection">
+          <section className="column">
+            <p className="profileLabel">
+              Home:
+              <hr/>
+              <Toggle
+                name="home_owner"
+                checked={this.state.profile.home_owner}
+                onToggle={() => this.handleToggle("home_owner")}
+                />
+            </p>
+            <p className="profileLabel">
+              Car:
+              <hr/>
+              <Toggle
+                name="car_owner"
+                checked={this.state.profile.car_owner}
+                onToggle={() => this.handleToggle("car_owner")}
+                />
+            </p>
+            <p className="profileLabel">
+              Pets:
+              <hr/>
+              <Toggle
+                name="pet_owner"
+                checked={this.state.profile.pet_owner}
+                onToggle={() => this.handleToggle("pet_owner")}
+                />
+            </p>
           </section>
-        </div>
+          <section className="column">
+            <p className="profileLabel">
+              Medical:
+              <hr/>
+              <Toggle
+                name="medical"
+                checked={this.state.medical}
+                onToggle={() => this.handleToggle("medical")}
+                />
+            </p>
+            <p className="profileLabel">
+              Financial:
+              <hr/>
+              <Toggle
+                name="financial"
+                checked={this.state.financial}
+                onToggle={() => this.handleToggle("financial")}
+                />
+            </p>
+            <p className="profileLabel">
+              Misc:
+              <hr/>
+              <Toggle
+                name="misc"
+                checked={this.state.misc}
+                onToggle={() => this.handleToggle("misc")}
+                />
+            </p>
+          </section>
+        </section>
       </main>
     )
   }
@@ -97,6 +99,28 @@ class EditProfilePreferences extends Component {
     .then(APIprofile => {
       console.log(APIprofile);
       this.setState({profile: APIprofile})
+    })
+  }
+
+  handleToggle = (category) => {
+    console.log(category);
+    let { profile } = this.state
+    profile[category] = !profile[category]
+    this.setState({profile})
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.state.profile);
+    editProfile(this.state.profile)
+    .then(resp => {
+
+      if(resp.errors){
+        console.log(resp.json());
+      }else{
+      this.props.handlePreferencesClick()
+      this.props.refresh()
+      }
     })
   }
 }
