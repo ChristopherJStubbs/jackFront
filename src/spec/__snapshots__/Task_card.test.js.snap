@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Task_card correctly 1`] = `
+<div
+  className="tile"
+>
+  <div
+    className="theContainer"
+  >
+    &lt;h2 className="title"&gt;this is a test&lt;/h2&gt;
+  </div>
+  <div>
+    <div
+      className="bodyBox box"
+    >
+      <div
+        className="CatInfoContainer"
+      >
+        <i />
+        cleaning
+      </div>
+      <hr />
+    </div>
+    <div
+      className="bodyBox box TileTitle"
+    >
+      this is a test
+    </div>
+    <div
+      className="bodyBox box TileDescription"
+    >
+      <h5 />
+    </div>
+    <div
+      className="TileButtonContainer"
+    >
+      <div
+        className="tileAddBtn"
+        onClick={[Function]}
+      >
+        Add
+      </div>
+    </div>
+  </div>
+</div>
+`;
