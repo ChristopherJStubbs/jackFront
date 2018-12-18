@@ -2,7 +2,7 @@ import decode from 'jwt-decode'
 
 export default class AuthService {
 	constructor(domain) {
-		this.domain = 'https://ouguback.herokuapp.com/'
+		this.domain = process.env.REACT_APP_API_URL
 	}
 
 	sign_in = (credentials) => {

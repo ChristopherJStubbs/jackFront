@@ -1,7 +1,7 @@
 import AuthService from '../services';
 const auth = new AuthService();
 
-const BASE = 'https://ouguback.herokuapp.com'
+const BASE = process.env.REACT_APP_API_URL
 
 
 let getTasks = function() {
