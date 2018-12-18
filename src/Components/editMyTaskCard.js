@@ -31,7 +31,7 @@ class EditMyTaskCard extends Component {
   render() {
     console.log(this.props);
     console.log(this.state.form.mytask)
-    let {task_id, user_id, due_date, completed, frequency, notes} = this.state.form.mytask
+    let { due_date, frequency, notes} = this.state.form.mytask
     return (
       <main>
         <section>

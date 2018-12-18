@@ -16,7 +16,8 @@ class Task_Index extends Component {
   }
 
   render() {
-    let stillLoading = true;
+
+    console.log(this.props);
     let { task_index } = this.state
     let houseTasks = task_index.filter(el => el.category === "House")
     let carTasks = task_index.filter(el => el.category === "Car")
@@ -24,7 +25,6 @@ class Task_Index extends Component {
     let financialTasks = task_index.filter(el => el.category === "Money")
     let petTasks = task_index.filter(el => el.category === "Pets")
     let miscellaneousTasks = task_index.filter(el => el.category === "Miscellaneous")
-    let allTasks = task_index
 
     return (
       <main>

@@ -62,5 +62,5 @@
     "jest": "*",
     "react-test-renderer": "^16.6.3",
     "regenerator-runtime": "^0.13.1"
-    }
+  }
 }

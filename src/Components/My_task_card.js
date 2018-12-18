@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import { editMyTask } from '../API'
 
 class My_Task_Card extends Component {
@@ -34,9 +33,9 @@ class My_Task_Card extends Component {
             <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
               <i className="fas fa-edit fa-2x"></i>
             </a>
-            <a onClick={this.handleComplete}>
+            <div onClick={this.handleComplete}>
               <i className="far fa-check-square fa-2x" title="Complete"></i>
-            </a>
+            </div>
           </div>
       </div>
     );

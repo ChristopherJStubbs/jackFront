@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ViewPersonalProfile extends Component {
   render() {
-    let { first_name, last_name, phone } = this.props.profile
+    const { first_name, last_name, phone } = this.props.profile
     return (
       <main>
         <section className="profileTitle">
@@ -10,20 +10,26 @@ class ViewPersonalProfile extends Component {
           <i className="fas fa-edit fa-2x icon" onClick={this.props.handlePersonalClick}></i>
         </section>
 
-        <hr/>
+        <hr className="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">
             <p className="profileLabel">
-              First Name:
+              <span className="settingsLabel">
+                  First Name:
+              </span>
               <hr/>
             </p>
             <p className="profileLabel">
-              Last Name:
+                <span className="settingsLabel">
+                    Last Name:
+                </span>
               <hr/>
             </p>
             <p className="profileLabel">
-              Phone:
+                <span className="settingsLabel">
+                    Phone:
+                </span>
               <hr/>
             </p>
           </section>

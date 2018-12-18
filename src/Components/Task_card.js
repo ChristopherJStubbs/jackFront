@@ -28,7 +28,7 @@ class Task_Card extends Component {
           <div className="bodyBox box TileDescription">
             <h5>{this.props.info.description}</h5>
           </div>
-          {this.state.on == false && <AddButton toggle={this.handleTaskToggle}/>}
+          {this.state.on === false && <AddButton toggle={this.handleTaskToggle}/>}
         </div>
         {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject} toggle={this.handleTaskToggle}/>}
       </div>

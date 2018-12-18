@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services'
 import { getProfile, editProfile } from '../API'
-import { ButtonToolbar,ToggleButtonGroup,ToggleButton } from 'react-bootstrap';
 import Toggle from "react-toggle-component"
 import "react-toggle-component/styles.css"
 
@@ -20,29 +19,31 @@ class EditProfilePreferences extends Component {
   }
   render() {
     console.log(this.state);
-    let { home_owner,car_owner,pet_owner } = this.state
     return (
       <main>
         <section className="profileTitle">
           <h2>Edit Preferences</h2>
-          <i className="far fa-check-square fa-2x icon" onClick={this.handleSubmit}></i>
         </section>
 
-        <hr/>
+        <hr className="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">
             <p className="profileLabel">
-              Home:
-              <hr/>
-              <Toggle
-                name="home_owner"
-                checked={this.state.profile.home_owner}
-                onToggle={() => this.handleToggle("home_owner")}
+                <span className="settingsLabel">
+                    Home:
+                </span>
+                <hr/>
+                <Toggle
+                  name="home_owner"
+                  checked={this.state.profile.home_owner}
+                  onToggle={() => this.handleToggle("home_owner")}
                 />
             </p>
             <p className="profileLabel">
-              Car:
+                <span className="settingsLabel">
+                    Car:
+                </span>
               <hr/>
               <Toggle
                 name="car_owner"
@@ -51,7 +52,9 @@ class EditProfilePreferences extends Component {
                 />
             </p>
             <p className="profileLabel">
-              Pets:
+                <span className="settingsLabel">
+                    Pets:
+                </span>
               <hr/>
               <Toggle
                 name="pet_owner"
@@ -62,7 +65,9 @@ class EditProfilePreferences extends Component {
           </section>
           <section className="column">
             <p className="profileLabel">
-              Medical:
+                <span className="settingsLabel">
+                    Medical:
+                </span>
               <hr/>
               <Toggle
                 name="medical"
@@ -71,7 +76,9 @@ class EditProfilePreferences extends Component {
                 />
             </p>
             <p className="profileLabel">
-              Financial:
+                <span className="settingsLabel">
+                    Financial:
+                </span>
               <hr/>
               <Toggle
                 name="financial"
@@ -80,7 +87,9 @@ class EditProfilePreferences extends Component {
                 />
             </p>
             <p className="profileLabel">
-              Misc:
+                <span className="settingsLabel">
+                    Misc:
+                </span>
               <hr/>
               <Toggle
                 name="misc"
@@ -89,6 +98,9 @@ class EditProfilePreferences extends Component {
                 />
             </p>
           </section>
+        </section>
+        <section className="acceptPreferenceBtn">
+            <i id="profileCheck" className="far fa-check-square fa-3x icon" onClick={this.handleSubmit}></i>
         </section>
       </main>
     )

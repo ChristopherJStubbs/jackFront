@@ -62,7 +62,7 @@ input {
 display: flex;
 flex-direction: column;
 /* border: 0.5px solid blue; */
-max-width: 1200px;
+max-width: 1300px;
 flex-wrap: wrap;
 justify-content: space-around;
 }
@@ -107,4 +107,12 @@ justify-content: space-around;
   border-bottom: 1px solid #EFE9E7;
   margin-left: 50px;
   margin-right: 50px;
+}
+
+
+@media(max-width: 678px) {
+    .tabsContainer {
+        max-width: 405px;
+
+    }
 }

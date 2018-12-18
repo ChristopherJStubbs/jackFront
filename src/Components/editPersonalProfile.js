@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Col, FormControl, ControlLabel } from 'react-bootstrap';
+import { Form, FormGroup, Col } from 'react-bootstrap';
 import { editProfile } from '../API'
 
 
@@ -25,23 +25,28 @@ class EditPersonalProfile extends Component {
         <div>
           <section className="profileTitle">
             <h2>Edit Info</h2>
-            <i className="far fa-check-square fa-2x icon" onClick={this.handleSubmit}></i>
           </section>
 
-          <hr/>
+          <hr className="settingsHR"/>
 
           <section id="profileSection">
             <section className="column">
               <p className="profileLabel">
-                First Name:
+                  <span className="settingsLabel">
+                      First Name:
+                  </span>
                 <hr/>
               </p>
               <p className="profileLabel">
-                Last Name:
+                  <span className="settingsLabel">
+                      Last Name:
+                  </span>
                 <hr/>
               </p>
               <p className="profileLabel">
-                Phone:
+                  <span className="settingsLabel">
+                      Phone:
+                  </span>
                 <hr/>
               </p>
             </section>
@@ -88,6 +93,9 @@ class EditPersonalProfile extends Component {
                 </FormGroup>
               </Form>
             </section>
+          </section>
+          <section className="acceptPersonalBtn">
+            <i id="personalCheck" className="far fa-check-square fa-3x icon" onClick={this.handleSubmit}></i>
           </section>
         </div>
       </main>

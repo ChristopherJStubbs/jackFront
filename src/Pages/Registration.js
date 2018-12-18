@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
 import AuthService from '../services'
 import { Form, FormGroup, Col, FormControl, Button, ControlLabel, Checkbox } from 'react-bootstrap';
 
@@ -137,8 +136,10 @@ class Registration extends Component {
     switch(type){
       case "home":
         form.user.profile_attributes.home_owner = !form.user.profile_attributes.home_owner
+      break
       case "car":
         form.user.profile_attributes.car_owner = !form.user.profile_attributes.car_owner
+      break
       case "pet":
         form.user.profile_attributes.pet_owner = !form.user.profile_attributes.pet_owner
     }
@@ -150,11 +151,11 @@ class Registration extends Component {
   isValid = () => {
     const { email, password, profile_attributes } = this.state
     return(
-      email == /\A[^@\s]+@[^@\s]+\z/ &&
-      password != 0 && password < 6 &&
-      profile_attributes.first_name != "" &&
-      profile_attributes.last_name != "" &&
-      profile_attributes.phone == /(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/
+      email === /\A[^@\s]+@[^@\s]+\z/ &&
+      password !== 0 && password < 6 &&
+      profile_attributes.first_name !== "" &&
+      profile_attributes.last_name !== "" &&
+      profile_attributes.phone === /(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/
     )
   }
 }
