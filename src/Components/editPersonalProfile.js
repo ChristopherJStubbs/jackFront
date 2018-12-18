@@ -90,6 +90,7 @@ class EditPersonalProfile extends Component {
     editProfile(this.state.form.profile)
     .then(resp => {
       console.log(resp);
+      this.props.handlePersonalClick()
       this.props.refresh()
     })
 

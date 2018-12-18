@@ -42,6 +42,7 @@ class Profile extends Component {
               : <ViewPersonalProfile
                   profile={this.state.profile}
                   handlePersonalClick={this.handlePersonalClick}
+                  refresh={this.props.refresh}
                 />
             }
 
@@ -58,6 +59,7 @@ class Profile extends Component {
                 car_owner={car_owner}
                 pet_owner={pet_owner}
                 handlePreferencesClick={this.handlePreferencesClick}
+                refresh={this.props.refresh}
               />
             }
 

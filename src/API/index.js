@@ -86,7 +86,7 @@ let editProfile = function(profileObj) {
     body: JSON.stringify(profileObj),
   })
   .then(resp => {
-    let json = resp
+    let json = resp.json()
     console.log(json)
     return json
   })

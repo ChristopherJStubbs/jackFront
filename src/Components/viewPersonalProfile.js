@@ -53,6 +53,9 @@ class ViewPersonalProfile extends Component {
       </main>
     )
   }
+  componentDidMount(){
+    this.props.refresh()
+  }
 }
 
 export default ViewPersonalProfile;
