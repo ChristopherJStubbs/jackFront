@@ -24,7 +24,10 @@ class Header extends Component {
         <section className="smallLogoContainer">
           <div className = "BrandName">
             <a className="logo" href="/">
-              <i className="fas fa-arrow-alt-circle-up fa-2x"></i>wn-Up</a>
+              <i className="fas fa-arrow-alt-circle-up fa-2x">
+
+              </i>wn-Up
+            </a>
           </div>
         </section>
         <nav>

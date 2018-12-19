@@ -33,9 +33,9 @@ class My_Task_Card extends Component {
             <a href={`/user/my_tasks/${this.props.info.my_task.id}/edit`} title="Edit">
               <i className="fas fa-edit fa-2x"></i>
             </a>
-            <div onClick={this.handleComplete}>
+            <a className="editMyTaskBtn" onClick={this.handleComplete}>
               <i className="far fa-check-square fa-2x" title="Complete"></i>
-            </div>
+            </a>
           </div>
       </div>
     );
