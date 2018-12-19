@@ -26,7 +26,7 @@ class EditPersonalProfile extends Component {
             <h2>Edit Info</h2>
           </section>
 
-          <hr className="settingsHR"/>
+          <hr id="settingsHR"/>
 
           <section id="profileSection">
             <section className="column">
