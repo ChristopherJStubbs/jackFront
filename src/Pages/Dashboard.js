@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from '../services';
 import My_Task_Card from '../Components/My_task_card';
-import { getMyTasks, getMyTask } from '../API'
+import { getMyTasks } from '../API'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -15,30 +15,29 @@ class Dashboard extends Component {
   }
 
   render(){
-    let stillLoading = true;
-    let { myTasks } = this.state
-    let today = new Date()
-    let todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(),
+    const { myTasks } = this.state
+    const today = new Date()
+    const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(),
      today.getUTCHours(), today.getUTCMinutes(), today.getUTCSeconds());
-    let homeTasks = myTasks.filter(el => el.task.category === "House")
-    let carTasks = myTasks.filter(el => el.task.category === "Car")
-    let todayTasks = myTasks.filter((el) => {
-      let temp = new Date(el.my_task.due_date)
-      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+    const homeTasks = myTasks.filter(el => el.task.category === "House")
+    const carTasks = myTasks.filter(el => el.task.category === "Car")
+    const todayTasks = myTasks.filter((el) => {
+      const temp = new Date(el.my_task.due_date)
+      const tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
        temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
       return tempUTC === todayUTC || tempUTC < todayUTC
     })
 
-    let next30Days = myTasks.filter((el) => {
-      let temp = new Date(el.my_task.due_date)
-      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+    const next30Days = myTasks.filter((el) => {
+      const temp = new Date(el.my_task.due_date)
+      const tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
        temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
       return tempUTC < this.addDays(todayUTC, 30) && tempUTC > todayUTC
     })
 
-    let next3Months = myTasks.filter((el) => {
-      let temp = new Date(el.my_task.due_date)
-      let tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
+    const next3Months = myTasks.filter((el) => {
+      const temp = new Date(el.my_task.due_date)
+      const tempUTC = Date.UTC(temp.getUTCFullYear(), temp.getUTCMonth(), temp.getUTCDate(),
        temp.getUTCHours(), temp.getUTCMinutes(), temp.getUTCSeconds());
       return tempUTC < this.addDays(todayUTC,90)
     })
@@ -117,7 +116,7 @@ class Dashboard extends Component {
    }
 
    componentDidMount = () => {
-     let thisUserID = this.auth.getUserId()
+     const thisUserID = this.auth.getUserId()
      console.log(thisUserID);
      if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
        getMyTasks(thisUserID)
@@ -133,8 +132,8 @@ class Dashboard extends Component {
    }
 
    addDays = function(today, days) {
-     let date = new Date(today)
-     let dateInDays = date.getDate()
+     const date = new Date(today)
+     const dateInDays = date.getDate()
      date.setDate(dateInDays + days);
      return date;
    }

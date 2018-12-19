@@ -17,3 +17,8 @@ Money = <i class="far fa-money-bill"></i>
 Medical = <i class="far fa-user-md"></i>
 
 Misc. = <i class="far fa-question-circle"></i>
+
+
+check = <i class="fas fa-check"></i>
+
+x = <i class="fas fa-times"></i>

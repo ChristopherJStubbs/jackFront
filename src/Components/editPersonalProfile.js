@@ -18,8 +18,7 @@ class EditPersonalProfile extends Component {
     }
 }
   render() {
-    console.log(this.state.form);
-    let { profile } = this.state.form
+    const { profile } = this.state.form
     return (
       <main>
         <div>
@@ -103,24 +102,22 @@ class EditPersonalProfile extends Component {
   }
 
   componentDidMount(){
-    let { form } = this.state
-    let { profile } = this.props
+    const { form } = this.state
+    const { profile } = this.props
     form.profile = profile
     this.setState({form})
   }
 
   handleChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form.profile[e.target.name] = e.target.value
     this.setState({form})
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.form.profile);
     editProfile(this.state.form.profile)
     .then(resp => {
-      console.log(resp);
       this.props.handlePersonalClick()
       this.props.refresh()
     })

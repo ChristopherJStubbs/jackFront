@@ -16,7 +16,7 @@ class Sign_In extends Component {
     }
   }
   render() {
-    let { email, password } = this.state.form.user
+    const { email, password } = this.state.form.user
       return (
           <div>
             <h1 className="greeting">
@@ -55,7 +55,7 @@ class Sign_In extends Component {
   //   this.props.refresh()
   // }
     onChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form.user[e.target.name] = e.target.value
     this.setState ({
       form

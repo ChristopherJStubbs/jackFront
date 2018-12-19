@@ -18,13 +18,13 @@ class Task_Index extends Component {
   render() {
 
     console.log(this.props);
-    let { task_index } = this.state
-    let houseTasks = task_index.filter(el => el.category === "House")
-    let carTasks = task_index.filter(el => el.category === "Car")
-    let medicalTasks = task_index.filter(el => el.category === "Medical")
-    let financialTasks = task_index.filter(el => el.category === "Money")
-    let petTasks = task_index.filter(el => el.category === "Pets")
-    let miscellaneousTasks = task_index.filter(el => el.category === "Miscellaneous")
+    const { task_index } = this.state
+    const houseTasks = task_index.filter(el => el.category === "House")
+    const carTasks = task_index.filter(el => el.category === "Car")
+    const medicalTasks = task_index.filter(el => el.category === "Medical")
+    const financialTasks = task_index.filter(el => el.category === "Money")
+    const petTasks = task_index.filter(el => el.category === "Pets")
+    const miscellaneousTasks = task_index.filter(el => el.category === "Miscellaneous")
 
     return (
       <main>

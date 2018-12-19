@@ -112,20 +112,19 @@ class EditProfilePreferences extends Component {
   }
 
   handleToggle = (category) => {
-    let { profile } = this.state
+    const { profile } = this.state
     profile[category] = !profile[category]
     this.setState({profile})
   }
 
   handleSubmit = (e) => {
-      console.log(this.state.profile);
     e.preventDefault()
     editProfile(this.state.profile)
     .then(resp => {
 
-      if(resp.errors){
+      if (resp.errors) {
         console.log(resp.json());
-      }else{
+      } else {
       this.props.handlePreferencesClick()
       this.props.refresh()
       }

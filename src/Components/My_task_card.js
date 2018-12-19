@@ -60,7 +60,7 @@ class My_Task_Card extends Component {
   }
 
   iconChooser = (category) => {
-    let iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fas fa-question-circle fa-2x", "fas fa-money-bill fa-2x"]
+    const iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fas fa-question-circle fa-2x", "fas fa-money-bill fa-2x"]
     if (category === "House") {
       return iconArray[0]
     } else if (category === "Car") {
