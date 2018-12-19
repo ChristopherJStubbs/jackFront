@@ -11,7 +11,6 @@ class EditProfilePreferences extends Component {
     this.auth = new AuthService()
     this.state ={
       profile: {
-
       }
     }
   }
@@ -89,6 +88,7 @@ class EditProfilePreferences extends Component {
                 </span>
               <hr/>
               <Toggle
+                className="toggleBtn"
                 name="misc"
                 checked={this.state.profile.misc}
                 onToggle={() => this.handleToggle("misc")}
