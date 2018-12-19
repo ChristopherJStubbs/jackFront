@@ -5,9 +5,9 @@ class ViewProfilePreferences extends Component {
     super(props)
   }
 
-  
+
   render() {
-    let { home_owner,car_owner,pet_owner, medical, financial, misc } = this.props
+    let { home_owner, car_owner, pet_owner, medical, financial, misc } = this.props
     return (
       <main>
         <section className="profileTitle">

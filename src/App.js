@@ -85,7 +85,7 @@ class App extends Component {
   openSideMenu = () => {
     console.log("made it in");
     let { marginRight } = this.state
-    marginRight = marginRight == 0 ? 200 : 0
+    marginRight = marginRight === 0 ? 200 : 0
     this.setState({
       marginRight: marginRight
     })

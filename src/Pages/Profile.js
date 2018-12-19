@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services'
 import { getProfile } from '../API'
-import { FormGroup, Radio } from 'react-bootstrap';
 import ViewPersonalProfile from '../Components/viewPersonalProfile'
 import EditPersonalProfile from '../Components/editPersonalProfile'
 import ViewProfilePreferences from '../Components/viewProfilePreferences'
@@ -23,12 +22,14 @@ class Profile extends Component {
         home_owner: '',
         car_owner: '',
         pet_owner: '',
+        misc: '',
+        financial: '',
+        medical: '',
       }
     }
   }
   render() {
-    console.log(this.state);
-    let { first_name, last_name, phone, home_owner, car_owner, pet_owner } = this.state.profile
+    let { home_owner, car_owner, pet_owner, misc, medical, financial } = this.state.profile
     return (
       <main>
         <h1 className="greeting">My Profile</h1>
@@ -62,6 +63,9 @@ class Profile extends Component {
                 home_owner={home_owner}
                 car_owner={car_owner}
                 pet_owner={pet_owner}
+                misc={misc}
+                financial={financial}
+                medical={medical}
                 handlePreferencesClick={this.handlePreferencesClick}
                 refresh={this.refreshProfile}
                 X={this.state.editPreferences}

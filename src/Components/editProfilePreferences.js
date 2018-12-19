@@ -11,14 +11,11 @@ class EditProfilePreferences extends Component {
     this.auth = new AuthService()
     this.state ={
       profile: {
-        medical: true,
-        financial: true,
-        misc: true
+
       }
     }
   }
   render() {
-    console.log(this.state);
     return (
       <main>
         <section className="profileTitle">
@@ -64,17 +61,17 @@ class EditProfilePreferences extends Component {
             </p>
           </section>
           <section className="column">
-            <p className="profileLabel">
-                <span className="settingsLabel">
-                    Medical:
-                </span>
-              <hr/>
-              <Toggle
-                name="medical"
-                checked={this.state.medical}
-                onToggle={() => this.handleToggle("medical")}
-                />
-            </p>
+              <p className="profileLabel">
+                  <span className="settingsLabel">
+                      Medical:
+                  </span>
+                <hr/>
+                <Toggle
+                  name="medical"
+                  checked={this.state.profile.medical}
+                  onToggle={() => this.handleToggle("medical")}
+                  />
+              </p>
             <p className="profileLabel">
                 <span className="settingsLabel">
                     Financial:
@@ -82,7 +79,7 @@ class EditProfilePreferences extends Component {
               <hr/>
               <Toggle
                 name="financial"
-                checked={this.state.financial}
+                checked={this.state.profile.financial}
                 onToggle={() => this.handleToggle("financial")}
                 />
             </p>
@@ -93,7 +90,7 @@ class EditProfilePreferences extends Component {
               <hr/>
               <Toggle
                 name="misc"
-                checked={this.state.misc}
+                checked={this.state.profile.misc}
                 onToggle={() => this.handleToggle("misc")}
                 />
             </p>
@@ -115,15 +112,14 @@ class EditProfilePreferences extends Component {
   }
 
   handleToggle = (category) => {
-    console.log(category);
     let { profile } = this.state
     profile[category] = !profile[category]
     this.setState({profile})
   }
 
   handleSubmit = (e) => {
+      console.log(this.state.profile);
     e.preventDefault()
-    console.log(this.state.profile);
     editProfile(this.state.profile)
     .then(resp => {
 
