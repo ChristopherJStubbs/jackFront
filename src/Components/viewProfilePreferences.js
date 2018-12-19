@@ -8,6 +8,8 @@ class ViewProfilePreferences extends Component {
 
   render() {
     const { home_owner, car_owner, pet_owner, medical, financial, misc } = this.props
+
+    console.log(this.props);
     return (
       <main>
         <section className="profileTitle">
@@ -24,21 +26,21 @@ class ViewProfilePreferences extends Component {
                     Home:
                 </span>
               <hr/>
-              {home_owner ? "ON" : "OFF"}
+              {home_owner ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
             <p className="profileLabel">
                 <span className="settingsLabel">
                     Car:
                 </span>
               <hr/>
-              {car_owner ? "ON" : "OFF"}
+              {car_owner ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
             <p className="profileLabel">
                 <span className="settingsLabel">
                     Pets:
                 </span>
               <hr/>
-              {pet_owner ? "ON" : "OFF"}
+              {pet_owner ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
           </section>
           <section className="column">
@@ -47,21 +49,21 @@ class ViewProfilePreferences extends Component {
                     Medical:
                 </span>
               <hr/>
-              {medical ? "ON" : "OFF"}
+              {medical ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
             <p className="profileLabel">
                 <span className="settingsLabel">
                     Financial:
                 </span>
               <hr/>
-              {financial ? "ON" : "OFF"}
+              {financial ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
             <p className="profileLabel">
                 <span className="settingsLabel">
                     Misc:
                 </span>
               <hr/>
-              {misc ? "ON" : "OFF"}
+              {misc ? <i className="fas fa-check profileIcon"></i> : <i className="fas fa-times profileIcon"></i>}
             </p>
           </section>
         </section>

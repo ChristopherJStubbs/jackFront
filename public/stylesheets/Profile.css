@@ -100,6 +100,18 @@
     font-weight: 700
 }
 
+.profileIcon {
+    padding-top: 4px;
+}
+
+.fa-check {
+    color: green
+}
+
+.fa-times {
+    color: #CF5300
+}
+
 input.profile {
   margin-top: 5px;
   margin-bottom: 5px;

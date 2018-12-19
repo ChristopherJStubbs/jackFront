@@ -1,6 +1,6 @@
 Colors for our site:
 
-  Burnt Orange = #CFR5300
+  Burnt Orange = #CF5300
   Slate Gray = #292F36
    - Darker slate gray (for tile backgrounds): #242A30
   Almost White = #EFE9E7
