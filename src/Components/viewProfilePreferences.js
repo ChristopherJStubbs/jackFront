@@ -3,16 +3,11 @@ import React, { Component } from 'react';
 class ViewProfilePreferences extends Component {
   constructor(props){
     super(props)
-
-    this.state ={
-      medical: true,
-      financial: true,
-      misc: true
-    }
   }
+
+
   render() {
-    let { home_owner,car_owner,pet_owner } = this.props
-    let { medical,financial,misc} = this.state
+    let { home_owner, car_owner, pet_owner, medical, financial, misc } = this.props
     return (
       <main>
         <section className="profileTitle">
@@ -20,39 +15,51 @@ class ViewProfilePreferences extends Component {
           <i className="fas fa-edit fa-2x icon" onClick={this.props.handlePreferencesClick}></i>
         </section>
 
-        <hr/>
+        <hr className="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">
             <p className="profileLabel">
-              Home:
+                <span className="settingsLabel">
+                    Home:
+                </span>
               <hr/>
               {home_owner ? "ON" : "OFF"}
             </p>
             <p className="profileLabel">
-              Car:
+                <span className="settingsLabel">
+                    Car:
+                </span>
               <hr/>
               {car_owner ? "ON" : "OFF"}
             </p>
             <p className="profileLabel">
-              Pets:
+                <span className="settingsLabel">
+                    Pets:
+                </span>
               <hr/>
               {pet_owner ? "ON" : "OFF"}
             </p>
           </section>
           <section className="column">
             <p className="profileLabel">
-              Medical:
+                <span className="settingsLabel">
+                    Medical:
+                </span>
               <hr/>
               {medical ? "ON" : "OFF"}
             </p>
             <p className="profileLabel">
-              Financial:
+                <span className="settingsLabel">
+                    Financial:
+                </span>
               <hr/>
               {financial ? "ON" : "OFF"}
             </p>
             <p className="profileLabel">
-              Misc:
+                <span className="settingsLabel">
+                    Misc:
+                </span>
               <hr/>
               {misc ? "ON" : "OFF"}
             </p>

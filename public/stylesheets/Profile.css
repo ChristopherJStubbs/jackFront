@@ -4,15 +4,45 @@
   color: #EFE9E7;
 }
 
+.settingsHR {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .icon {
-  margin-left: 30px
+  margin-left: 30px;
+  color: #CF5300;
 }
 
 .profileTitle {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   min-width: 300px;
+}
+
+.profileMain {
+    padding-bottom: 40px;
+}
+
+#personalCheck {
+    color: green;
+}
+
+#profileCheck {
+    color: green;
+}
+
+.profilePersonal {
+    min-height: 370px;
+    margin-right: 6vw;
+    margin-left: 3vw;
+}
+
+.profilePreferences {
+    min-height: 370px;
+    margin-left: 6vw;
+    margin-right: 3vw;
 }
 
 #profileSection {
@@ -33,14 +63,41 @@
   margin-right: 15px;
   margin-top: 15px;
   width: 150px;
+  height: 30px;
 }
 
 .editPersonal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
   width: 150px;
+  margin-top: 15px;
+}
+
+.editPersonal > .form-group {
+    margin-bottom: 7px;
+    padding: 0;
+}
+
+.editPersonal > input {
+    background-color: #EFE9E7;
+    color: #292F36;
+}
+
+.acceptPersonalBtn {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 45px;
+}
+
+.acceptPreferenceBtn {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+
+.settingsLabel {
+    font-weight: 700
 }
 
 input.profile {
@@ -54,6 +111,9 @@ input.profile {
     flex-direction: column;
     align-items: center;
     justify-content: none;
+  }
+  .profileTitle {
+      margin-top: 35px;
   }
 }
 

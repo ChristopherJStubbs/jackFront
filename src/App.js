@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Components/Header.js'
 import Footer from './Components/Footer.js'
 import Dashboard from './Pages/Dashboard.js'
-// import Edit_Tasks from './Pages/Edit_tasks.js'
 import Home from './Pages/Home.js'
 import Instructions from './Pages/Instructions.js'
 import Registration from './Pages/Registration.js'
@@ -86,7 +85,7 @@ class App extends Component {
   openSideMenu = () => {
     console.log("made it in");
     let { marginRight } = this.state
-    marginRight = marginRight == 0 ? 200 : 0
+    marginRight = marginRight === 0 ? 200 : 0
     this.setState({
       marginRight: marginRight
     })

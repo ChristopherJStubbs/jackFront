@@ -13,14 +13,6 @@ class Header extends Component {
     }
   }
   render() {
-    let sideMenuWidth = {
-      width: this.state.width
-    }
-    let mainMargin = {
-      marginRight: this.state.marginRight
-    }
-
-
     return (
       <main className="headerDiv navbar">
         <section className="logoContainer">
@@ -29,12 +21,21 @@ class Header extends Component {
               <i className="fas fa-arrow-alt-circle-up fa-2x"></i>wn-Up Grown-Up</a>
           </div>
         </section>
+        <section className="smallLogoContainer">
+          <div className = "BrandName">
+            <a className="logo" href="/">
+              <i className="fas fa-arrow-alt-circle-up fa-2x">
+
+              </i>wn-Up
+            </a>
+          </div>
+        </section>
         <nav>
           <div>
-            <div className="navContainer openSlide openSlideMenu" style={{width: this.state.hamburger}, {marginRight: this.state.marginRight}}>
-              <a href="#" onClick={() => this.openSlideMenu()}>
-                <i class="fas fa-bars fa-2x"></i>
-              </a>
+            <div className="navContainer openSlide openSlideMenu" style={{width: this.state.hamburger, marginRight: this.state.marginRight}}>
+              <div href="#" onClick={() => this.openSlideMenu()}>
+                <i className="fas fa-bars fa-2x"></i>
+              </div>
             </div>
             {this.auth.loggedIn()
               ? <section className="navContainer navbar-nav">
@@ -83,6 +84,11 @@ class Header extends Component {
                   </a>
                 </div>
                 <div className="sideNavLink">
+                  <a href='/profile'>
+                    SETTINGS
+                  </a>
+                </div>
+                <div className="sideNavLink">
                   <a onClick={this.handleClick} href="/">
                     LOGOUT
                   </a>
@@ -105,10 +111,10 @@ class Header extends Component {
 
   openSlideMenu = () => {
     let { marginRight, width, hamburger, transitionDelay } = this.state
-    marginRight = marginRight == 10 ? -40 : 10
-    hamburger = hamburger == 0 ? 25 : 0
-    width = width == 0 ? 200 : 0
-    transitionDelay = transitionDelay == 0 ? 0.6 : 0
+    marginRight = marginRight === 10 ? -40 : 10
+    hamburger = hamburger === 0 ? 25 : 0
+    width = width === 0 ? 200 : 0
+    transitionDelay = transitionDelay === 0 ? 0.6 : 0
     this.setState({
       marginRight: marginRight,
       width: width,

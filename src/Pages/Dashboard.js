@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services';
 import My_Task_Card from '../Components/My_task_card';
-import { Tabs, Tab } from 'react-bootstrap';
 import { getMyTasks, getMyTask } from '../API'
 
 class Dashboard extends Component {

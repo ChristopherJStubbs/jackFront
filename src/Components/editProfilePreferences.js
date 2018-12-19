@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../services'
 import { getProfile, editProfile } from '../API'
-import { ButtonToolbar,ToggleButtonGroup,ToggleButton } from 'react-bootstrap';
 import Toggle from "react-toggle-component"
 import "react-toggle-component/styles.css"
 
@@ -12,37 +11,35 @@ class EditProfilePreferences extends Component {
     this.auth = new AuthService()
     this.state ={
       profile: {
-        medical: true,
-        financial: true,
-        misc: true
       }
     }
   }
   render() {
-    console.log(this.state);
-    let { home_owner,car_owner,pet_owner } = this.state
     return (
       <main>
         <section className="profileTitle">
           <h2>Edit Preferences</h2>
-          <i className="far fa-check-square fa-2x icon" onClick={this.handleSubmit}></i>
         </section>
 
-        <hr/>
+        <hr className="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">
             <p className="profileLabel">
-              Home:
-              <hr/>
-              <Toggle
-                name="home_owner"
-                checked={this.state.profile.home_owner}
-                onToggle={() => this.handleToggle("home_owner")}
+                <span className="settingsLabel">
+                    Home:
+                </span>
+                <hr/>
+                <Toggle
+                  name="home_owner"
+                  checked={this.state.profile.home_owner}
+                  onToggle={() => this.handleToggle("home_owner")}
                 />
             </p>
             <p className="profileLabel">
-              Car:
+                <span className="settingsLabel">
+                    Car:
+                </span>
               <hr/>
               <Toggle
                 name="car_owner"
@@ -51,7 +48,9 @@ class EditProfilePreferences extends Component {
                 />
             </p>
             <p className="profileLabel">
-              Pets:
+                <span className="settingsLabel">
+                    Pets:
+                </span>
               <hr/>
               <Toggle
                 name="pet_owner"
@@ -61,34 +60,44 @@ class EditProfilePreferences extends Component {
             </p>
           </section>
           <section className="column">
+              <p className="profileLabel">
+                  <span className="settingsLabel">
+                      Medical:
+                  </span>
+                <hr/>
+                <Toggle
+                  name="medical"
+                  checked={this.state.profile.medical}
+                  onToggle={() => this.handleToggle("medical")}
+                  />
+              </p>
             <p className="profileLabel">
-              Medical:
-              <hr/>
-              <Toggle
-                name="medical"
-                checked={this.state.medical}
-                onToggle={() => this.handleToggle("medical")}
-                />
-            </p>
-            <p className="profileLabel">
-              Financial:
+                <span className="settingsLabel">
+                    Financial:
+                </span>
               <hr/>
               <Toggle
                 name="financial"
-                checked={this.state.financial}
+                checked={this.state.profile.financial}
                 onToggle={() => this.handleToggle("financial")}
                 />
             </p>
             <p className="profileLabel">
-              Misc:
+                <span className="settingsLabel">
+                    Misc:
+                </span>
               <hr/>
               <Toggle
+                className="toggleBtn"
                 name="misc"
-                checked={this.state.misc}
+                checked={this.state.profile.misc}
                 onToggle={() => this.handleToggle("misc")}
                 />
             </p>
           </section>
+        </section>
+        <section className="acceptPreferenceBtn">
+            <i id="profileCheck" className="far fa-check-square fa-3x icon" onClick={this.handleSubmit}></i>
         </section>
       </main>
     )
@@ -103,15 +112,14 @@ class EditProfilePreferences extends Component {
   }
 
   handleToggle = (category) => {
-    console.log(category);
     let { profile } = this.state
     profile[category] = !profile[category]
     this.setState({profile})
   }
 
   handleSubmit = (e) => {
+      console.log(this.state.profile);
     e.preventDefault()
-    console.log(this.state.profile);
     editProfile(this.state.profile)
     .then(resp => {
 
