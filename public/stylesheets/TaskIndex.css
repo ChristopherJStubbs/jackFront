@@ -81,3 +81,7 @@
 .expansionContainer {
   margin-bottom: 30px;
 }
+
+.expansionInput {
+  width: 243px;
+}

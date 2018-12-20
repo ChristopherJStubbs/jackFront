@@ -31,40 +31,53 @@ class TaskExpansionRow extends Component {
     return (
       <tr className="expansionContainer">
         <td>
-          <label>
-            Due Date:
-          </label>
+          <label>Due Date:</label>
           <br/>
-          <input type="date" name="due_date" onChange={this.handleMyTaskChange} required/>
+          <input
+            className="expansionInput"
+            type="date"
+            name="due_date"
+            onChange={this.handleMyTaskChange}
+            required
+            />
         </td>
-        <br/>
-        <td>
-          <label>
-            Time (PST):
-          </label>
           <br/>
-          <input type="time" name="time" onChange={this.handleFormChange} required/>
-        </td>
-        <br/>
         <td>
-          <label>
-            How often (days)?:
-          </label>
+          <label>Time (PST):</label>
           <br/>
-          <input type="number" name="frequency" onChange={this.handleMyTaskChange} pattern="[0-9]" required/>
+          <input
+            className="expansionInput"
+            type="time"
+            name="time"
+            onChange={this.handleFormChange}
+            required
+            />
         </td>
-        <br/>
+          <br/>
         <td>
-            <label>
-                Notes:
-            </label>
-            <br/>
-            <textarea
-                onChange={this.handleMyTaskChange} required
-                rows="4" cols="28" name="notes">
-            </textarea>
+          <label>How often (days)?:</label>
+          <br/>
+          <input
+            className="expansionInput"
+            type="number"
+            name="frequency"
+            onChange={this.handleMyTaskChange}
+            pattern="[0-9]"
+            required
+            />
         </td>
-        <br/>
+          <br/>
+        <td>
+          <label>Notes:</label>
+          <br/>
+          <textarea
+            onChange={this.handleMyTaskChange}
+            required
+            rows="4" cols="28" name="notes"
+            >
+          </textarea>
+        </td>
+          <br/>
         <td>
             <AcceptButton accept={this.handleSubmit} />
         </td>
