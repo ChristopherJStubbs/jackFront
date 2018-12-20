@@ -51,16 +51,6 @@ class EditMyTaskCard extends Component {
                   {this.state.form.task.description}
                 </label>
             </div>
-            <td>
-                <label>
-                  Notes:
-                </label>
-                <br/>
-                <textarea
-                    rows="4" cols="28" value={notes} name="notes" onChange={this.handleChange}>
-                </textarea>
-              </td>
-              <br/>
                 <td>
                   <label>
                     Due Date:
@@ -75,6 +65,16 @@ class EditMyTaskCard extends Component {
                   </label>
                   <br/>
                   <input type="number" name="frequency" value={frequency} onChange={this.handleChange} pattern="[0-9]"/>
+                </td>
+                <br/>
+                <td>
+                    <label>
+                        Notes:
+                    </label>
+                    <br/>
+                    <textarea
+                        rows="4" cols="28" value={notes} name="notes" onChange={this.handleChange}>
+                    </textarea>
                 </td>
                 <br/>
                 <div className="tileLinks">

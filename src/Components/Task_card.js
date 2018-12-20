@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TaskExpansionRow from './TaskExpansionRow'
 import AddButton from './AddButton'
+import TaskTileDescription from './taskTileDescription'
 
 class Task_Card extends Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class Task_Card extends Component {
           <div className="bodyBox box TileTitle">
           {this.props.info.title}
           </div>
-          <div className="bodyBox box TileDescription">
-            <h5>{this.props.info.description}</h5>
-          </div>
+          {this.state.on === false && <TaskTileDescription description={this.props.info.description}/>}
           {this.state.on === false && <AddButton toggle={this.handleTaskToggle}/>}
         </div>
         {this.state.on && <TaskExpansionRow info={this.props.info} userID={this.props.userID} handleNewMyTaskObject={this.props.handleNewMyTaskObject} toggle={this.handleTaskToggle}/>}
