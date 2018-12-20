@@ -40,10 +40,12 @@ class Sign_In extends Component {
                   <FormControl onChange={this.onChange} name="password" value={password} type="password" placeholder="Password" />
                 </Col>
               </FormGroup>
-
-              <FormGroup>
+              <FormGroup className="regButtonContainer">
                 <Col smOffset={2} sm={10}>
-                  <Button type="submit">Sign In</Button>
+                  <button
+                    className="regButton" type="submit">
+                      Sign In
+                  </button>
                 </Col>
               </FormGroup>
             </Form>

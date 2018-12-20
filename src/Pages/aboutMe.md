@@ -1,4 +1,4 @@
-Set context: 
+Set context:
 - final bootcamp project
 - two weeks to: generate idea, storyboard, wrieframe, create, deploy
 
