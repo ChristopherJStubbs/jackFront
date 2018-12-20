@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div style={{marginRight: this.state.marginRight}} className="b">
         <Header openSideMenu={this.openSideMenu}/>
-        <div>
+        <div className="b">
           <Router>
             {
               (this.auth.loggedIn()) ?

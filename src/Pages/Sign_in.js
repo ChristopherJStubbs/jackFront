@@ -7,6 +7,7 @@ class Sign_In extends Component {
     super(props)
     this.auth = new AuthService()
     this.state = {
+      errors: [],
       form: {
         user: {
           email: "",
@@ -17,11 +18,27 @@ class Sign_In extends Component {
   }
   render() {
     const { email, password } = this.state.form.user
+    let errorMsgs =[]
+    if(Object.keys(this.state.errors).length > 0){
+      Object.entries(this.state.errors).forEach(entry => {
+        let key = entry[0]
+        let value = entry[1]
+        if(entry[1] == "You need to sign in or sign up before continuing."){
+          key = ""
+          value = "Username and Password are required fields"
+          console.log("changing...");
+        }
+        errorMsgs.push(`${key} ${value}.`)
+      })
+    }
       return (
           <div>
             <h1 className="greeting">
               Sign In:
             </h1>
+            <h3 className="errors">
+              {errorMsgs[0]}
+            </h3>
             <Form horizontal onSubmit={this.onSubmit}>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
@@ -65,13 +82,11 @@ class Sign_In extends Component {
     e.preventDefault()
     console.log(this.state.form);
     this.auth.sign_in(this.state.form)
-    .then(json => {
-      // console.log("got to second then:", json)
-      if(json.errors) {
-        console.log("!! ERRORS !!", json.errors);
-        this.setState({
-          errors: json.errors
-        })
+    .then(status => {
+      console.log(status);
+      if(status.error != null) {
+        console.log("ERRORRRS",status);
+        this.setState({errors: status})
       } else {
         this.props.refresh()
       }
