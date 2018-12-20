@@ -56,6 +56,7 @@ class My_Task_Card extends Component {
     editMyTask(mytask)
     .then(resp => {
       console.log(resp);
+      this.props.fetchTasks()
     })
   }
 

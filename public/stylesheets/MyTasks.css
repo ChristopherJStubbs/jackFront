@@ -115,6 +115,7 @@ a {
     color: #292f36;
     padding-top: 1px;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .editButton {

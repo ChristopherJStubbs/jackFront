@@ -9,7 +9,7 @@
   font-family: sans-serif;
   color: #292f36;
   padding-top: 4px;
-  margin-top: 5px;
+  cursor: pointer;
 }
 
 .fa-home {
@@ -81,4 +81,8 @@
 
 .expansionContainer {
   margin-bottom: 30px;
+}
+
+.expansionInput {
+  width: 243px;
 }
