@@ -1,7 +1,8 @@
 .Footer-Div {
   bottom: 0;
   width: 100%;
-  height: 20px;
+  height: 30px;
+  padding-top: 4px;
   background-color: #0A090C;
   text-align: center;
   color: white;
