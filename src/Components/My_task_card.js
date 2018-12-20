@@ -20,13 +20,13 @@ class My_Task_Card extends Component {
           </div>
           <hr className="myTaskHR"/>
           <div className="bodyBox tileInformation">
-            <span className="myTaskSpan">Notes:</span> {this.props.info.my_task.notes}
-          </div>
-          <div className="bodyBox tileInformation">
             <span className="myTaskSpan">Due date:</span> {this.props.info.my_task.due_date}
           </div>
-          <div className="bodyBox tileInformation" id="frequency">
+          <div className="bodyBox tileInformation">
             <span className="myTaskSpan">Frequency:</span> {this.props.info.my_task.frequency} days
+          </div>
+          <div id="notesField" className="bodyBox tileInformation">
+              <span className="myTaskSpan">Notes:</span> {this.props.info.my_task.notes}
           </div>
 
           <div className="tileLinks">

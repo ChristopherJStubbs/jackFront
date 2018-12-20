@@ -12,6 +12,7 @@ class Header extends Component {
       marginRight: 10
     }
   }
+  
   render() {
     return (
       <main className="headerDiv navbar">
@@ -110,7 +111,7 @@ class Header extends Component {
   }
 
   openSlideMenu = () => {
-    const { marginRight, width, hamburger, transitionDelay } = this.state
+    let { marginRight, width, hamburger, transitionDelay } = this.state
     marginRight = marginRight === 10 ? -40 : 10
     hamburger = hamburger === 0 ? 25 : 0
     width = width === 0 ? 200 : 0

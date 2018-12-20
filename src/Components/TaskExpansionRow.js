@@ -55,6 +55,17 @@ class TaskExpansionRow extends Component {
         </td>
         <br/>
         <td>
+            <label>
+                Notes:
+            </label>
+            <br/>
+            <textarea
+                onChange={this.handleMyTaskChange} required
+                rows="4" cols="28" name="notes">
+            </textarea>
+        </td>
+        <br/>
+        <td>
             <AcceptButton accept={this.handleSubmit} />
         </td>
       </tr>

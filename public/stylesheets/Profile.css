@@ -29,12 +29,10 @@
     padding-bottom: 40px;
 }
 
-#personalCheck {
-    color: green;
-}
 
-#profileCheck {
-    color: green;
+
+#profileCheck #personalCheck {
+    color: #CF5300;
 }
 
 .profilePersonal {
