@@ -36,7 +36,7 @@ class Task_Card extends Component {
   }
 
   handleTaskToggle = () => {
-    const { on } = this.state
+    let { on } = this.state
     on = !on;
     this.setState({on})
   }
