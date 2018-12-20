@@ -97,3 +97,35 @@ a {
 .fa-trash-alt {
   color: #c90808;
 }
+
+.regButtonContainer {
+    height: 20px;
+    cursor: pointer;
+}
+
+.regButton {
+    height: 30px;
+    width: 80px;
+    background-color: #EFE9E7;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: sans-serif;
+    color: #292f36;
+    padding-top: 1px;
+    margin-top: 5px;
+}
+
+.editButton {
+    margin-right: 44px;
+}
+
+.deleteButton {
+    margin-left: 44px;
+}
+
+.editTileButtons {
+    display: flex;
+    flex-direction: row;
+}

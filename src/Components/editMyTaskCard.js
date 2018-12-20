@@ -78,8 +78,14 @@ class EditMyTaskCard extends Component {
                 </td>
                 <br/>
                 <div className="tileLinks">
-                    <i title="Accept Changes" onClick={this.handleEdit} class="far fa-thumbs-up fa-3x"></i>
-                    <i title="Delete Task" onClick={() => this.handleDelete(this.state.form.mytask.id)} class="far fa-trash-alt fa-3x"></i>
+                    <div className="editTileButtons">
+                      <div className="regButton editButton" onClick={this.handleEdit}>
+                        Accept
+                      </div>
+                      <div className="regButton deleteButton" title="Delete Task" onClick={() => this.handleDelete(this.state.form.mytask.id)}>
+                        Delete
+                      </div>
+                    </div>
                 </div>
             {this.state.editSuccess && <Redirect to="/"/>}
             {this.state.deleteSuccess && <Redirect to="/"/>}
