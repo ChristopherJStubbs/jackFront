@@ -133,6 +133,15 @@
   margin-right: 25px;
 }
 
+.sideNavLink {
+    margin: 0px 5px 5px 10px;
+    padding-top: 22px;
+}
+
+.sideNavLink:hover {
+    background-color: #292F36;
+}
+
 .openSlide:hover {
   color: #EFE9E7;
   text-decoration: none;
@@ -174,11 +183,6 @@
      display: flex;
   }
 }
-
-
-
-
-
 
 .container {
   margin: 0px;
