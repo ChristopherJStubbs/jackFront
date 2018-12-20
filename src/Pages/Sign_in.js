@@ -21,14 +21,28 @@ class Sign_In extends Component {
     let errorMsgs =[]
     if(Object.keys(this.state.errors).length > 0){
       Object.entries(this.state.errors).forEach(entry => {
-        let key = entry[0]
-        let value = entry[1]
-        if(entry[1] == "You need to sign in or sign up before continuing."){
-          key = ""
-          value = "Username and Password are required fields"
-          console.log("changing...");
+        let key
+        let value
+
+        switch(entry[1]){
+          case "You need to sign in or sign up before continuing.":
+            key= "";
+            value = "Username and Password are required fields"
+            console.log("case 1");
+            break
+          case "Invalid Email or password.":
+            key = ""
+            value = entry[1]
+            console.log("case 2");
+            break
+          default:
+            key = entry[0]
+            value = entry[1]
+            console.log("default");
+            break
         }
-        errorMsgs.push(`${key} ${value}.`)
+
+        errorMsgs.push(`${key} ${value}`)
       })
     }
       return (
