@@ -10,7 +10,8 @@ class Dashboard extends Component {
     this.auth = new AuthService()
     this.state = {
       myTasks: [],
-      activeTab: 0
+      activeTab: 0,
+      successMsg: ''
     }
   }
 
@@ -73,37 +74,79 @@ class Dashboard extends Component {
                   case 0:
                     return todayTasks.length > 0
                       ?  todayTasks.map((el, i) => {
-                          return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                          return (
+                            <My_Task_Card
+                            key={i}
+                            info={el}
+                            addDays={this.addDays}
+                            fetchTasks={this.fetchTasks}
+                            />
+                          )
                          })
                       : <h3>No tasks due today.</h3>
                   case 1:
                     return next30Days.length > 0
                       ?  next30Days.map((el, i) => {
-                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                        return (
+                          <My_Task_Card
+                          key={i}
+                          info={el}
+                          addDays={this.addDays}
+                          fetchTasks={this.fetchTasks}
+                          />
+                        )
                       })
                       : <h3>No tasks due in next 30 days.</h3>
                   case 2:
                     return next3Months.length > 0
                       ?  next3Months.map((el, i) => {
-                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                        return (
+                          <My_Task_Card
+                          key={i}
+                          info={el}
+                          addDays={this.addDays}
+                          fetchTasks={this.fetchTasks}
+                          />
+                        )
                         })
                       : <h3>No tasks due in next 90 Days.</h3>
                   case 3:
                     return homeTasks.length > 0
                       ?  homeTasks.map((el, i) => {
-                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                        return (
+                          <My_Task_Card
+                          key={i}
+                          info={el}
+                          addDays={this.addDays}
+                          fetchTasks={this.fetchTasks}
+                          />
+                        )
                       })
                       : <h3>Home.</h3>
                   case 4:
                     return carTasks.length > 0
                       ?  carTasks.map((el, i) => {
-                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                        return (
+                          <My_Task_Card
+                          key={i}
+                          info={el}
+                          addDays={this.addDays}
+                          fetchTasks={this.fetchTasks}
+                          />
+                        )
                       })
                       : <h3>Car.</h3>
                   case 5:
                     return myTasks.length > 0
                       ?  myTasks.map((el, i) => {
-                        return <My_Task_Card addDays={this.addDays} key={i} info={el} />
+                        return (
+                          <My_Task_Card
+                          key={i}
+                          info={el}
+                          addDays={this.addDays}
+                          fetchTasks={this.fetchTasks}
+                          />
+                        )
                       })
                       : <h3>You do not have any tasks assigned to you. Click "Add Tasks" in the header to assign yourself tasks.</h3>
                 }
@@ -116,19 +159,7 @@ class Dashboard extends Component {
    }
 
    componentDidMount = () => {
-     const thisUserID = this.auth.getUserId()
-     console.log(thisUserID);
-     if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
-       getMyTasks(thisUserID)
-     .then((APImyTasks)=> {
-       // let { myTasks } = this.state
-       this.setState({
-         myTasks: APImyTasks,
-         userID: thisUserID
-       })
-       }
-       )
-     }
+     this.fetchTasks();
    }
 
    addDays = function(today, days) {
@@ -143,6 +174,21 @@ class Dashboard extends Component {
        activeTab: tabNum
      })
      console.log(tabNum);
+   }
+
+   fetchTasks = () => {
+     const thisUserID = this.auth.getUserId()
+     console.log(thisUserID);
+     if (thisUserID !== null && thisUserID !== undefined && thisUserID.length > 0) {
+       getMyTasks(thisUserID)
+     .then((APImyTasks)=> {
+       // let { myTasks } = this.state
+       this.setState({
+         myTasks: APImyTasks,
+         userID: thisUserID
+       })
+       })
+     }
    }
 
 }
