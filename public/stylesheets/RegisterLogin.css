@@ -2,8 +2,17 @@
   color: #EFE9E7;
 }
 
+.ownershipHeader {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .ownership {
     display: flex;
+}
+
+p > span {
+    margin-right: 10px;
 }
 
 label {
@@ -22,7 +31,10 @@ padding-right: 100px;
 
 .ownerLabel {
     font-size: 16px;
+    padding-top: 10px;
 }
+
+
 
 .regButtonContainer {
     height: 20px;

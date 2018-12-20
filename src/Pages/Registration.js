@@ -89,14 +89,14 @@ class Registration extends Component {
             <Col sm={10}>
               <FormControl onChange={this.handleProfileChange} name="phone" value={profile_attributes.phone} type="phone" placeholder="555-555-5555" />
             </Col>
-            <Col smOffset={2} sm={10}>
-                I have a (check all that apply)...
-            </Col>
           </FormGroup>
           <FormGroup className="ownership">
-            <Col smOffset={2} sm={2}>
+            <Col componentClass={ControlLabel} sm={2} className="ownershipHeader">
+                I have a:
+            </Col>
+            <Col smOffset={0} sm={2}>
                 <p className="ownerLabel">
-                    Home:
+                    <span>Home:</span>
                     <Toggle
                       name="home_owner"
                       checked={this.state.form.user.home_owner}
@@ -106,7 +106,7 @@ class Registration extends Component {
             </Col>
             <Col smOffset={0} sm={2}>
                 <p className="ownerLabel">
-                    Car:
+                    <span>Car:</span>
                     <Toggle
                       name="car_owner"
                       checked={this.state.form.user.car_owner}
@@ -116,7 +116,7 @@ class Registration extends Component {
             </Col>
             <Col smOffset={0} sm={2}>
                 <p className="ownerLabel">
-                    Pet:
+                    <span>Pet:</span>
                     <Toggle
                       name="pet_owner"
                       checked={this.state.form.user.pet_owner}
