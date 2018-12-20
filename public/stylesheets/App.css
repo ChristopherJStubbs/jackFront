@@ -3,12 +3,21 @@ html {
   background-color: #292f36;
 }
 
+.form-control {
+    border-radius: 5px;
+}
+
 * {
   font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 a:hover {
   color: #CF5300;
+  text-decoration: none;
 }
 
 .b {
@@ -67,22 +76,12 @@ flex-wrap: wrap;
 justify-content: space-around;
 }
 
-.Button-Div {
+.buttonDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
   justify-content: space-around;
   margin: 50px;
-}
-
-.ActuallyButton {
-  font-size: 30px;
-  margin: 25px;
-}
-
-.ActuallyButton:hover {
-  transform: scale(1.5, 1.5);
-  transition: 0.75s;
 }
 
 #frequency {

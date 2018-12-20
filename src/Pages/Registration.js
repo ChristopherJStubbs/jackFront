@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import AuthService from '../services'
-import { Form, FormGroup, Col, FormControl, Button, ControlLabel, Checkbox } from 'react-bootstrap';
+import { Form, FormGroup, Col, FormControl, ControlLabel, Checkbox } from 'react-bootstrap';
+import Toggle from "react-toggle-component"
+import "react-toggle-component/styles.css"
+
 
 class Registration extends Component {
   constructor(props) {
@@ -88,18 +91,46 @@ class Registration extends Component {
             </Col>
           </FormGroup>
           <FormGroup className="ownership">
-            <Col>
-              I have a (check all that apply)...
+            <Col componentClass={ControlLabel} sm={2} className="ownershipHeader">
+                I have a:
             </Col>
-            <Col>
-              <Checkbox onChange={() => this.handleOwnershipChoice("home")} inline>Home</Checkbox>
-              <Checkbox onChange={() => this.handleOwnershipChoice("car")} inline>Car</Checkbox>
-              <Checkbox onChange={() => this.handleOwnershipChoice("pet")} inline>Pet</Checkbox>
+            <Col smOffset={0} sm={2}>
+                <p className="ownerLabel">
+                    <span>Home:</span>
+                    <Toggle
+                      name="home_owner"
+                      checked={this.state.form.user.home_owner}
+                      onToggle={() => this.handleToggle("home_owner")}
+                    />
+                </p>
+            </Col>
+            <Col smOffset={0} sm={2}>
+                <p className="ownerLabel">
+                    <span>Car:</span>
+                    <Toggle
+                      name="car_owner"
+                      checked={this.state.form.user.car_owner}
+                      onToggle={() => this.handleToggle("car_owner")}
+                    />
+                </p>
+            </Col>
+            <Col smOffset={0} sm={2}>
+                <p className="ownerLabel">
+                    <span>Pet:</span>
+                    <Toggle
+                      name="pet_owner"
+                      checked={this.state.form.user.pet_owner}
+                      onToggle={() => this.handleToggle("pet_owner")}
+                    />
+                </p>
             </Col>
           </FormGroup>
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button  type="submit">Register</Button>
+          <FormGroup className="regButtonContainer">
+            <Col smOffset={2} sm={2}>
+              <button
+                className="regButton" type="submit">
+                  Register
+              </button>
             </Col>
           </FormGroup>
         </Form>
@@ -134,19 +165,10 @@ class Registration extends Component {
       })
   }
 
-  handleOwnershipChoice = (type) => {
+  handleToggle = (category) => {
     const { form } = this.state
-    switch(type){
-      case "home":
-        form.user.profile_attributes.home_owner = !form.user.profile_attributes.home_owner
-      case "car":
-        form.user.profile_attributes.car_owner = !form.user.profile_attributes.car_owner
-      case "pet":
-        form.user.profile_attributes.pet_owner = !form.user.profile_attributes.pet_owner
-    }
-    this.setState ({
-      form: form
-    })
+    form.user.profile_attributes[category] = !form.user.profile_attributes[category]
+    this.setState({ form })
   }
 
   isValid = () => {
