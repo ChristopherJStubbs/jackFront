@@ -63,13 +63,13 @@ class TaskExpansionRow extends Component {
 
   handleMyTaskChange = (e) => {
     console.log(e.target.name);
-    let { form } = this.state
+    const { form } = this.state
     form.my_task[e.target.name] = e.target.value
     this.setState({form})
   }
 
   handleFormChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form[e.target.name] = e.target.value
     this.setState({form})
   }
@@ -77,7 +77,7 @@ class TaskExpansionRow extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let { form } = this.state
+    const { form } = this.state
     form.my_task.exact_time = `${form.my_task.due_date}T${form.time}:00.000Z`
     console.log(form);
     this.props.handleNewMyTaskObject(form)

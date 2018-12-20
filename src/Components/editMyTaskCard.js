@@ -31,7 +31,7 @@ class EditMyTaskCard extends Component {
   render() {
     console.log(this.props);
     console.log(this.state.form.mytask)
-    let { due_date, frequency, notes} = this.state.form.mytask
+    const { due_date, frequency, notes} = this.state.form.mytask
     return (
       <main>
         <section>
@@ -80,7 +80,6 @@ class EditMyTaskCard extends Component {
   componentDidMount(){
     getMyTask(this.props.match.params.id)
     .then(APImyTask => {
-      console.log(APImyTask)
       this.setState({
         form: APImyTask
       })
@@ -88,17 +87,13 @@ class EditMyTaskCard extends Component {
   }
 
   handleChange = (e) => {
-    let {form} = this.state
-    console.log(form.mytask)
-    console.log(e.target.name)
-    console.log(e.target.value)
+    const {form} = this.state
     form.mytask[e.target.name] = e.target.value
     this.setState({form})
   }
 
   handleEdit = (e) => {
     e.preventDefault()
-    console.log(this.state.form.mytask)
     editMyTask(this.state.form.mytask)
     .then(resp => {
       this.setState({editSuccess: true})
@@ -107,8 +102,6 @@ class EditMyTaskCard extends Component {
   }
 
   handleDelete = (id) => {
-
-
     deleteMyTask(id)
     .then(resp => {
       this.setState({deleteSuccess: true})

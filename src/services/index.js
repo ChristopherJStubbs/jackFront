@@ -11,6 +11,7 @@ export default class AuthService {
 			body: JSON.stringify(credentials),
 		})
 		.then(statusResponse => {
+			console.log(statusResponse);
 			let token = statusResponse.headers.get('Authorization')
 			// set a JWT token in local storage, taken out of response from API
 			console.log(token);

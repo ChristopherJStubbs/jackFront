@@ -21,7 +21,7 @@ class EditProfilePreferences extends Component {
           <h2>Edit Preferences</h2>
         </section>
 
-        <hr className="settingsHR"/>
+        <hr id="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">
@@ -112,20 +112,19 @@ class EditProfilePreferences extends Component {
   }
 
   handleToggle = (category) => {
-    let { profile } = this.state
+    const { profile } = this.state
     profile[category] = !profile[category]
     this.setState({profile})
   }
 
   handleSubmit = (e) => {
-      console.log(this.state.profile);
     e.preventDefault()
     editProfile(this.state.profile)
     .then(resp => {
 
-      if(resp.errors){
+      if (resp.errors) {
         console.log(resp.json());
-      }else{
+      } else {
       this.props.handlePreferencesClick()
       this.props.refresh()
       }

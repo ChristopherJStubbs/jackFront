@@ -10,7 +10,7 @@ class ViewPersonalProfile extends Component {
           <i className="fas fa-edit fa-2x icon" onClick={this.props.handlePersonalClick}></i>
         </section>
 
-        <hr className="settingsHR"/>
+        <hr id="settingsHR"/>
 
         <section id="profileSection">
           <section className="column">

@@ -21,9 +21,8 @@ class AptForm extends Component {
     }
   }
   render() {
-    let { name, phone_number } = this.state.form.appointment
-    let { date, time } = this.state.form
-    console.log(this.state.form);
+    const { name, phone_number } = this.state.form.appointment
+    const { date, time } = this.state.form
     return (
       <div>
         <Form horizontal onSubmit={this.onSubmit}>
@@ -73,7 +72,7 @@ class AptForm extends Component {
     );
   }
   onFormChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form[e.target.name] = e.target.value
     this.setState ({
       form
@@ -81,7 +80,7 @@ class AptForm extends Component {
   }
 
   onAppointmentChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form.appointment[e.target.name] = e.target.value
     this.setState ({
       form
@@ -89,13 +88,10 @@ class AptForm extends Component {
   }
     onSubmit = (e) => {
     e.preventDefault()
-    let { form } = this.state
-    let { date, time } = this.state.form
-    console.log(date);
-    console.log(time);
+    const { form } = this.state
+    const { date, time } = this.state.form
     form.appointment.exact_time = `${date}T${time}:00.000Z`
     //"2018-12-13T11:27:00.000Z"
-    console.log(this.state.form.appointment);
     createAppointment(this.state.form.appointment)
     .then(resp => {
       console.log(resp);

@@ -19,6 +19,9 @@ class Registration extends Component {
             home_owner: false,
             car_owner: false,
             pet_owner: false,
+            misc: true,
+            financial: true,
+            medical: true,
           }
         }
       }
@@ -111,14 +114,14 @@ class Registration extends Component {
   }
 
   handleProfileChange = (e) => {
-    let { form } = this.state
+    const { form } = this.state
     form.user.profile_attributes[e.target.name] = e.target.value
     this.setState({ form })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let { form } = this.state
+    const { form } = this.state
     form.user.profile_attributes.phone = '+1'+form.user.profile_attributes.phone
       this.auth.register(form)
       .then(status => {
@@ -132,14 +135,12 @@ class Registration extends Component {
   }
 
   handleOwnershipChoice = (type) => {
-    let { form } = this.state
+    const { form } = this.state
     switch(type){
       case "home":
         form.user.profile_attributes.home_owner = !form.user.profile_attributes.home_owner
-      break
       case "car":
         form.user.profile_attributes.car_owner = !form.user.profile_attributes.car_owner
-      break
       case "pet":
         form.user.profile_attributes.pet_owner = !form.user.profile_attributes.pet_owner
     }

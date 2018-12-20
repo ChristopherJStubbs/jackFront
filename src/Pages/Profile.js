@@ -29,7 +29,7 @@ class Profile extends Component {
     }
   }
   render() {
-    let { home_owner, car_owner, pet_owner, misc, medical, financial } = this.state.profile
+    const { home_owner, car_owner, pet_owner, misc, medical, financial } = this.state.profile
     return (
       <main>
         <h1 className="greeting">My Profile</h1>

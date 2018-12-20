@@ -110,7 +110,7 @@ class Header extends Component {
   }
 
   openSlideMenu = () => {
-    let { marginRight, width, hamburger, transitionDelay } = this.state
+    const { marginRight, width, hamburger, transitionDelay } = this.state
     marginRight = marginRight === 10 ? -40 : 10
     hamburger = hamburger === 0 ? 25 : 0
     width = width === 0 ? 200 : 0
