@@ -36,26 +36,29 @@ class Task_Card extends Component {
   }
 
   handleTaskToggle = () => {
-    const { on } = this.state
+    let { on } = this.state
     on = !on;
     this.setState({on})
   }
 
   iconChooser = (category) => {
-    const iconArray = ["fas fa-home fa-2x", "fas fa-car fa-2x", "fas fa-user-md fa-2x", "fas fa-paw fa-2x", "fas fa-question-circle fa-2x", "fas fa-money-bill fa-2x"]
-    if (category === "House") {
-      return iconArray[0]
-    } else if (category === "Car") {
-      return iconArray[1]
-    } else if (category === "Medical") {
-      return iconArray[2]
-    } else if (category === "Pets") {
-      return iconArray[3]
-    } else if (category === "Miscellaneous") {
-      return iconArray[4]
-    } else if (category === "Money") {
-      return iconArray[5]
+    const iconArray = ["fas fa-home fa-2x",
+                       "fas fa-car fa-2x",
+                       "fas fa-user-md fa-2x",
+                       "fas fa-paw fa-2x",
+                       "fas fa-question-circle fa-2x",
+                       "fas fa-money-bill fa-2x"
+                      ]
+    let index
+    switch(category){
+      case "House": index = 0; break
+      case "Car": index = 1; break
+      case "Medical": index = 2; break
+      case "Pets": index = 3; break
+      case "Miscellaneous": index = 4; break
+      case "Money": index = 5; break
     }
+    return iconArray[index]
   }
 
 }
