@@ -105,7 +105,7 @@ class Dashboard extends Component {
                       ?  myTasks.map((el, i) => {
                         return <My_Task_Card addDays={this.addDays} key={i} info={el} />
                       })
-                      : <h3>You do not have any tasks assigned to you. Click "All Tasks" in the header to assign yourself tasks.</h3>
+                      : <h3>You do not have any tasks assigned to you. Click "Add Tasks" in the header to assign yourself tasks.</h3>
                 }
             })()}
 
