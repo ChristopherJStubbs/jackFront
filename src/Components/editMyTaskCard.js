@@ -41,34 +41,46 @@ class EditMyTaskCard extends Component {
         </section>
         <section className="editTileContainer">
           <div className="editTile">
-          <td>
-            <label>
-              Notes:
-            </label>
-            <br/>
-            <input type="text" value={notes} name="notes" onChange={this.handleChange} />
-          </td>
-          <br/>
-            <td>
-              <label>
-                Due Date:
-              </label>
-              <br/>
-              <input type="date" value={due_date} name="due_date" onChange={this.handleChange} />
-            </td>
-            <br/>
-            <td>
-              <label>
-                How often (days)?
-              </label>
-              <br/>
-              <input type="number" name="frequency" value={frequency} onChange={this.handleChange} pattern="[0-9]"/>
-            </td>
-            <br/>
-            <div className="tileLinks">
-                <i title="Accept Changes" onClick={this.handleEdit} class="far fa-thumbs-up fa-3x"></i>
-                <i title="Delete Task" onClick={() => this.handleDelete(this.state.form.mytask.id)} class="far fa-trash-alt fa-3x"></i>
+            <div className="editTitleTile">
+                <label className="TileTitle">
+                  {this.state.form.task.title}
+                </label>
             </div>
+            <div>
+                <label className="editTileDescription">
+                  {this.state.form.task.description}
+                </label>
+            </div>
+            <td>
+                <label>
+                  Notes:
+                </label>
+                <br/>
+                <textarea
+                    rows="4" cols="28" value={notes} name="notes" onChange={this.handleChange}>
+                </textarea>
+              </td>
+              <br/>
+                <td>
+                  <label>
+                    Due Date:
+                  </label>
+                  <br/>
+                  <input type="date" value={due_date} name="due_date" onChange={this.handleChange} />
+                </td>
+                <br/>
+                <td>
+                  <label>
+                    How often (days)?
+                  </label>
+                  <br/>
+                  <input type="number" name="frequency" value={frequency} onChange={this.handleChange} pattern="[0-9]"/>
+                </td>
+                <br/>
+                <div className="tileLinks">
+                    <i title="Accept Changes" onClick={this.handleEdit} class="far fa-thumbs-up fa-3x"></i>
+                    <i title="Delete Task" onClick={() => this.handleDelete(this.state.form.mytask.id)} class="far fa-trash-alt fa-3x"></i>
+                </div>
             {this.state.editSuccess && <Redirect to="/"/>}
             {this.state.deleteSuccess && <Redirect to="/"/>}
           </div>

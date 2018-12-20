@@ -5,8 +5,19 @@
   /* height: 40px; */
 }
 
+textarea {
+    color: black;
+    resize: none;
+}
+
 a {
   color: #EFE9E7;
+}
+
+.editTitleTile {
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: center;
 }
 
 .myTaskHR {
@@ -68,6 +79,11 @@ a {
 .editTileContainer {
   display: flex;
   justify-content: center;
+}
+
+.editTileDescription {
+    padding-top: 10px;
+    padding-bottom: 25px;
 }
 
 .TileDescription {
